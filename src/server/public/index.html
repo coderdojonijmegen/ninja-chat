@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Ninja chat</title>
+</head>
+<body>
+    <div><label for="naam">Naam: </label><input type="text" id="naam" name="naam"></div>
+    <div><label for="kanaal">Kanaal: </label><input type="number" id="kanaal" name="kanaal"></div>
+    <div id="berichten"></div>
+    <div class="invoer"><input type="text" id="bericht" placeholder="Schrijf een bericht..."><button id="stuurBericht">Verstuur</button></div>
+
+    <script src="jquery.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script>
+        var socket = io();
+
+        function zetNaam(input) {
+            var naam = input.target.value
+            socket.emit('zetNaam', naam)
+        }
+
+        function zetKanaal(input) {
+            var kanaal = input.target.value
+            socket.emit('zetKanaal', kanaal)
+        }
+
+        function stuurBericht(input) {
+            var bericht = $("#bericht").val()
+            socket.emit('maakBericht', bericht)
+        }
+
+        function toonNaam(naam) {
+            $("#naam").val(naam)
+        }
+
+        function toonKanaal(kanaal) {
+            $("#kanaal").val(kanaal)
+        }
+
+        function toonBericht(bericht) {
+            var div = $('<div>').html(berichtNaarHtml(bericht))
+            $("#berichten").append(div)
+        }
+
+        function berichtNaarHtml(bericht) {
+            return '<b>' + bericht.tijdstip + '</b> - <i>'
+                + bericht.gebruiker + '</i>: '
+                + bericht.tekst
+        }
+        
+        function begin() {
+            $("#naam").change(zetNaam)
+            $("#kanaal").change(zetKanaal)
+            $("#stuurBericht").click(stuurBericht)
+
+            socket.on('krijgKanaal', toonKanaal)
+            socket.on('krijgNaam', toonNaam)
+            socket.on('krijgBericht', toonBericht)
+        }
+
+        $(begin)
+    </script>
+</body>
+</html>
