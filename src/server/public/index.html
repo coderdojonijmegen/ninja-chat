@@ -11,10 +11,13 @@
     <div class="invoer"><input type="text" id="bericht" placeholder="Schrijf een bericht..."><button id="stuurBericht">Verstuur</button></div>
 
     <script src="jquery.min.js"></script>
-    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
 
     <script>
-        var socket = io();
+    	var serverIpAdresEnPoort = "http://127.0.0.1:3000";
+
+    	
+    	var socket = io(serverIpAdresEnPoort, { forceNew: true });
 
         function zetNaam(input) {
             var naam = input.target.value
