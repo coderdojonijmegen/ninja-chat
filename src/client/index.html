@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Ninja chat</title>
+</head>
+<body>
+    <div id="berichten"></div>
+    <div><label for="naam">Naam: </label><input type="text" id="naam" name="naam"></div>
+    <div class="invoer"><input type="text" id="bericht" placeholder="Schrijf een bericht..."><button id="stuurBericht">Verstuur</button></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+
+    <script>
+    	var serverIpAdresEnPoort = "<server-ip>";
+
+    	
+    	var socket = io(serverIpAdresEnPoort, { forceNew: true });
+
+        function zetNaam(input) {
+            var naam = input.target.value
+            socket.emit('zetNaam', naam)
+        }
+
+        function stuurBericht(input) {
+            var bericht = $("#bericht").val()
+            socket.emit('maakBericht', bericht)
+        }
+
+        function toonNaam(naam) {
+            $("#naam").val(naam)
+        }
+
+        function toonBericht(bericht) {
+            var div = $('<div>').html(berichtNaarHtml(bericht))
+            $("#berichten").append(div)
+        }
+
+        function berichtNaarHtml(bericht) {
+            return '<b>' + bericht.tijdstip + '</b> - <i>'
+                + bericht.gebruiker + '</i>: '
+                + bericht.tekst
+        }
+        
+        function begin() {
+            $("#naam").change(zetNaam)
+            $("#stuurBericht").click(stuurBericht)
+
+            socket.on('krijgNaam', toonNaam)
+            socket.on('krijgBericht', toonBericht)
+        }
+
+        $(begin)
+    </script>
+</body>
+</html>
