@@ -41,7 +41,7 @@
 			van je vriend via de server van WhatsApp.</p>
 			<div class="gecentreerd"><img src="images/chat-laptops-en-server.png" /></div>
 			<p>
-			In deze instructie gaan we het chat programma voor op jouw computer, de client, maken. Wij hebben al gezorgd voor een computer met daarop de server 
+			In deze instructie ga je het chat programma voor op jouw computer, de client, maken. De Champion en/of mentoren zorgen voor een computer met daarop de server 
 			van het chat programma.
 			</p>
 			<p>
@@ -58,6 +58,13 @@
 			<p>
 			Niveau gemiddeld kan voortbouwen op niveau gemakkelijk. Voor moelijk moet je vanuit niets beginnen. Dus denk even na met welk niveau je aan de slag gaat.
 			</p>
+			<p>
+			<strong>LET OP</strong>: de regels in de voorbeeld code die beginnen met <code><span class="commentaar">--</span></code> 
+			en <code><span class="commentaar">groen</span></code> gekleurd zijn, worden niet uitgevoerd, 
+			maar zijn commentaar in de code. Het commentaar is bedoeld om aan te geven wat de code zou moeten doen. 
+			Je hoeft commentaar niet in te typen om het programma succesvol te kunnen laten uitvoeren.<br>
+			De <code><span class="nieuwe_code">rode tekst</span></code> in de code, vervangt te <code>blauwe</code> code in de regel ervoor. 
+			</p>
 		</div>
 
 		<div id="benodigdheden">
@@ -66,7 +73,31 @@
 			</div>
 			<h2>Benodigdheden</h2>
 			<p>
+			Om met de instructies aan de slag te gaan, heb je de volgende dingen nodig:
 			</p>
+			<ul>
+				<li>deze instructie: <a href="https://coderdojonijmegen.github.io/ninja-chat/" target="_blank">https://coderdojonijmegen.github.io/ninja-chat/</a></li>
+				<li>het chat client HTML bestand voor de niveaus <i>gemakkelijk</i> en <i>gemiddeld</i>, deze kun hier downloaden:
+					<a href="https://github.com/coderdojonijmegen/ninja-chat/raw/master/src/client/index.html" target="_blank" download>
+					https://github.com/coderdojonijmegen/ninja-chat/raw/master/src/client/index.html</a></li>
+				<li>een webserver op je computer om het chat client HTML bestand te kunnen bekijken in je webbrowser. Het makkelijkst is om een plugin
+					voor Google Chrome te installeren: <a href="https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb" target="_blank">
+					https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb</a>. Na installatie dien je dit in te stellen
+					zoals in het volgende plaatje:					
+					<p class="gecentreerd"><img src="images/settings-webserver-for-chrome.png" /></p>
+					</li>
+				<li>een goede tekst editor om de HTML pagina aan te passen. Voorbeelden is: <a href="https://notepad-plus-plus.org/download" target="_blank">Notepad++</a></li>
+			</ul>
+			<p>
+			Tenslotte heb je een chat server nodig en daarvoor zorgen de mentoren. Vraag hen naar het adres van de server en pas het chat client HTML bestand daar op aan:
+			</p>
+			<code>
+<span class="commentaar">    --- vervang <i>&lt;server-ip&gt;</i> door het adres</span> 
+<span class="commentaar">    --- dat je van de mentoren hebt gekregen</span>
+<span class="commentaar">    --- (183.20.104.3 is een voorbeeld)</span>
+    var serverIpAdresEnPoort = "&lt;server-ip>";
+<span class="nieuwe_code">    var serverIpAdresEnPoort = "183.20.104.3";</span>
+			</code>
 		</div>
 
 		<div id="stappen">
@@ -80,7 +111,8 @@
     code
 <span class="commentaar">    commentaar</span>
 <span class="nieuwe_code">    gewijzigde code</span>
-			</code><p>
+			</code>
+			<p>
 			</p>
 		</div>
 
