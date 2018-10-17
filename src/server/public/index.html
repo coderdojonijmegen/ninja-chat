@@ -2,68 +2,27 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Ninja chat</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Ninja Chat</title>
+    <link rel="stylesheet" href="ninja-chat.css">
 </head>
 <body>
-    <div><label for="naam">Naam: </label><input type="text" id="naam" name="naam"></div>
-    <div><label for="kanaal">Kanaal: </label><input type="number" id="kanaal" name="kanaal"></div>
-    <div id="berichten"></div>
-    <div class="invoer"><input type="text" id="bericht" placeholder="Schrijf een bericht..."><button id="stuurBericht">Verstuur</button></div>
+    <header>
+        <span>Kanaal</span>
+        <input type="number" name="kanaal" id="kanaal">
+        <button class="bekijkDeelnemers">Bekijk deelnemers</button>
+    </header>
+
+    <main></main>
+
+    <footer>
+        <div class="footerNaam"></div>
+        <div class="footerBericht"><input type="text" name="berichtInput" id="berichtInput" placeholder="Type je bericht..."></div>
+        <div class="footerKnop"><button class="stuurBericht">Stuur</button></div>
+    </footer>
 
     <script src="jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
-
-    <script>
-    	var serverIpAdresEnPoort = "http://127.0.0.1:3000";
-
-    	
-    	var socket = io(serverIpAdresEnPoort, { forceNew: true });
-
-        function zetNaam(input) {
-            var naam = input.target.value
-            socket.emit('zetNaam', naam)
-        }
-
-        function zetKanaal(input) {
-            var kanaal = input.target.value
-            socket.emit('zetKanaal', kanaal)
-        }
-
-        function stuurBericht(input) {
-            var bericht = $("#bericht").val()
-            socket.emit('maakBericht', bericht)
-        }
-
-        function toonNaam(naam) {
-            $("#naam").val(naam)
-        }
-
-        function toonKanaal(kanaal) {
-            $("#kanaal").val(kanaal)
-        }
-
-        function toonBericht(bericht) {
-            var div = $('<div>').html(berichtNaarHtml(bericht))
-            $("#berichten").append(div)
-        }
-
-        function berichtNaarHtml(bericht) {
-            return '<b>' + bericht.tijdstip + '</b> - <i>'
-                + bericht.gebruiker + '</i>: '
-                + bericht.tekst
-        }
-        
-        function begin() {
-            $("#naam").change(zetNaam)
-            $("#kanaal").change(zetKanaal)
-            $("#stuurBericht").click(stuurBericht)
-
-            socket.on('krijgKanaal', toonKanaal)
-            socket.on('krijgNaam', toonNaam)
-            socket.on('krijgBericht', toonBericht)
-        }
-
-        $(begin)
-    </script>
+    <script src="ninja-chat.js"></script>
 </body>
 </html>
