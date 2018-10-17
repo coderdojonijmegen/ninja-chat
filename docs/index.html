@@ -1,4 +1,4 @@
-<html>
+	<html>
 <head>
 <title>ninja-chat</title>
 <link rel="icon" type="image/x-icon" href="https://coderdojonijmegen.github.io/instructies_voor_mentoren/favicon.ico" />
@@ -30,12 +30,40 @@
 			</div>
 			<h2>Introductie</h2>
 			<p>
-			<div class="gecentreerd"><img src="https://coderdojonijmegen.github.io/love2d-shooter/images/image1.png" /></div>
-			<code>
-    code
-<span class="commentaar">    commentaar</span>
-<span class="nieuwe_code">    gewijzigde code</span>
-			</code><p>
+			Met de combinatie van HTML, CSS en JavaScript kun je van alles maken. JavaScript kun je in de <i>webbrowser</i> gebruiken,
+			maar ook op de <i>webserver</i>. Een voorbeeld daarvan is een chatprogramma en dat is precies wat we met deze instructie gaan maken.
+			</p>
+			<p>
+			Een chatprogramma is meestal een combinatie van twee programma's. E&eacute;n programma draait op je eigen computer of telefoon en
+			die van je vrienden en vriendinnen. Dit wordt meestal de <i>client</i> genoemd. Het andere deel draait op een centrale computer en wordt
+			meestal de <i>server</i> genoemd. Een server is een centrale computer meestal ergens op internet.<br>
+			WhatsApp werkt ook op deze manier. Je hebt de WhatsApp app (client) op je telefoon staan en die communiceert met de WhatsApp app op de telefoon
+			van je vriend via de server van WhatsApp.</p>
+			<div class="gecentreerd"><img src="images/chat-laptops-en-server.png" /></div>
+			<p>
+			Met deze instructie ga je het chatprogramma voor op jouw computer, de client, maken. De Champion en/of mentoren zorgen voor een computer met daarop de server
+			van het chatprogramma.
+			</p>
+			<p>
+			Het volledig zelf maken van een chat client is niet eenvoudig. We bieden daarom 3 niveaus aan waarop je met de chat client bezig kunt zijn:
+			</p>
+			<ol>
+				<li><strong>gemakkelijk</strong>: hierbij krijg je van ons een HTML-bestand waarin al een simpele werkende client staat en waar je zelf kunt werken
+					aan het uiterlijk met HTML en CSS.</li>
+				<li><strong>gemiddeld</strong>: hierbij krijg je hetzelfde HTML-bestand dat je ook bij gemakkelijk krijgt, maar geven we je instructies om nog
+					meer functionaliteit aan de chat client toe te voegen, zoals bijvoorbeeld via welk kanaal je wilt chatten. Ook hier kun je het uiterlijk
+					van de client met HTML en CSS aanpassen zoals je zelf wil.</li>
+				<li><strong>moeilijk</strong>: tenslotte is er de moeilijke opdracht, waar je alleen instructies krijgt en zelf alles moet maken en vormgeven.</li>
+			</ol>
+			<p>
+			Niveau gemiddeld kan voortbouwen op niveau gemakkelijk. Voor moelijk moet je vanuit niets beginnen. Dus denk even na met welk niveau je aan de slag wil gaan.
+			</p>
+			<p>
+			<strong>LET OP</strong>: de regels in de voorbeeldcode die beginnen met <code><span class="commentaar">--</span></code>
+			en <code><span class="commentaar">groen</span></code> gekleurd zijn, worden niet uitgevoerd, 
+			maar zijn commentaar in de code. Het commentaar is bedoeld om aan te geven wat de code zou moeten doen. 
+			Je hoeft commentaar niet in te typen om het programma te laten werken.<br>
+			De <code><span class="nieuwe_code">rode tekst</span></code> in de code, vervangt de <code>blauwe</code> code in de regel ervoor.
 			</p>
 		</div>
 
@@ -45,7 +73,31 @@
 			</div>
 			<h2>Benodigdheden</h2>
 			<p>
+			Om met de instructies aan de slag te gaan, heb je de volgende dingen nodig:
 			</p>
+			<ul>
+				<li>deze instructie: <a href="https://coderdojonijmegen.github.io/ninja-chat/" target="_blank">https://coderdojonijmegen.github.io/ninja-chat/</a></li>
+				<li>voor de niveaus <i>gemakkelijk</i> en <i>gemiddeld</i>: HTML-bestand voor de chat client. Dat bestand kun hier downloaden:
+					<a href="https://github.com/coderdojonijmegen/ninja-chat/raw/master/src/client/index.html" target="_blank" download>
+					https://github.com/coderdojonijmegen/ninja-chat/raw/master/src/client/index.html</a></li>
+				<li>een goede teksteditor om de HTML-pagina aan te passen. Een voorbeeld is: <a href="https://notepad-plus-plus.org/download" target="_blank">Notepad++</a></li>
+				<li>een webserver op je computer om het HTML-bestand voor de chat client te kunnen bekijken in je webbrowser. Het makkelijkst is om een plugin
+					voor Google Chrome te installeren: <a href="https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb" target="_blank">
+					https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb</a>. Na installatie moet je de plugin instellen
+					zoals in het volgende plaatje:					
+					<p class="gecentreerd"><img src="images/settings-webserver-for-chrome.png" /></p>
+					</li>
+			</ul>
+			<p>
+			Tenslotte heb je een chat server nodig, maar daarvoor zorgen de mentoren. Vraag hen naar het adres van de server en zet het in het HTML-bestand voor de chat client:
+			</p>
+			<code>
+<span class="commentaar">    --- vervang <i>&lt;server-ip&gt;</i> door het adres</span> 
+<span class="commentaar">    --- dat je van de mentoren hebt gekregen</span>
+<span class="commentaar">    --- (183.20.104.3 is een voorbeeld)</span>
+    var serverIpAdresEnPoort = "&lt;server-ip>";
+<span class="nieuwe_code">    var serverIpAdresEnPoort = "183.20.104.3";</span>
+			</code>
 		</div>
 
 		<div id="stappen">
@@ -53,6 +105,13 @@
 				<a title="terug naar inhoud" href="#inhoud"><i class="material-icons">arrow_upward</i></a>
 			</div>
 			<h2>Stappen</h2>
+			<p>
+			</p>
+			<code>
+    code
+<span class="commentaar">    commentaar</span>
+<span class="nieuwe_code">    gewijzigde code</span>
+			</code>
 			<p>
 			</p>
 		</div>
