@@ -13,9 +13,15 @@ function zetKanaal(input) {
     socket.emit('zetKanaal', kanaal)
 }
 
-function stuurBericht(input) {
+function stuurBericht() {
     var bericht = $("#berichtInput").val()
     socket.emit('maakBericht', bericht)
+}
+
+function checkEnter(event) {
+    if (event.which === 13) {
+        stuurBericht()
+    }
 }
 
 function toonNaam(naam) {
@@ -42,6 +48,7 @@ function begin() {
     $("#naamInput").change(zetNaam)
     $("#kanaal").change(zetKanaal)
     $(".stuurBericht").click(stuurBericht)
+    $("#berichtInput").keypress(checkEnter)
 
     socket.on('krijgKanaal', toonKanaal)
     socket.on('krijgNaam', toonNaam)
