@@ -7,6 +7,7 @@ import { Messages } from './Messages';
 
 export class Connectie {
     public gebruiker: Gebruiker
+    public server_gebruiker: Gebruiker
 
     constructor(
         private vind_kanaal: (id: number) => Kanaal|null,
@@ -14,6 +15,8 @@ export class Connectie {
         public socket: SocketIO.Socket
     ) {
         this.gebruiker = new Gebruiker()
+        this.server_gebruiker = new Gebruiker()
+        this.server_gebruiker.naam = "Ninja server"
     }
 
     public initialize() {
@@ -32,6 +35,9 @@ export class Connectie {
 
         this.stuurKanaal()
         this.stuurNaam()
+        this.stuurBericht(
+            new Bericht(this.server_gebruiker, "Welkom bij ninja chat!")
+        )
     }
 
     public stuurKanaal() {
@@ -39,8 +45,6 @@ export class Connectie {
     }
 
     public zetKanaal(id: number) {
-        console.log(`zetKanaal(${id})`)
-        console.log(typeof id)
         if (this.kanaal_id !== id) {
             const oud_kanaal = this.vind_kanaal(this.kanaal_id)
             const nieuw_kanaal = this.vind_kanaal(id)
@@ -48,20 +52,25 @@ export class Connectie {
                 this.kanaal_id = id
                 oud_kanaal.spoelConnecties()
                 nieuw_kanaal.nieuweConnectie(this)
+                this.stuurBericht(
+                    new Bericht(this.server_gebruiker, `Welkom op kanaal ${id}`)
+                )
             }
             else {
-                this.stuurBericht(new Bericht(this.gebruiker, "Kanaal niet gevonden"))
+                this.stuurBericht(
+                    new Bericht(this.server_gebruiker, "Kanaal niet gevonden")
+                )
             }
         }
         this.stuurKanaal()
     }
 
     public maakBericht(tekst: string) {
-        console.log(`maakBericht(${tekst})`)
-        console.log(typeof tekst)
         const kanaal = this.vind_kanaal(this.kanaal_id)
         if (kanaal === null) {
-            this.stuurBericht(new Bericht(this.gebruiker, "Kanaal kwijt"))
+            this.stuurBericht(
+                new Bericht(this.server_gebruiker, "Kanaal kwijt")
+            )
         }
         else {
             kanaal.omroep(new Bericht(this.gebruiker, tekst))
@@ -73,8 +82,6 @@ export class Connectie {
     }
 
     public zetNaam(naam: string) {
-        console.log(`zetNaam(${naam})`)
-        console.log(typeof naam)
         this.gebruiker.naam = naam
         this.stuurNaam()
     }

@@ -14,7 +14,9 @@ export class Kanaal {
     }
 
     public spoelConnecties() {
-        const filter_connecties = this.connecties.filter(conn => (conn.kanaal_id === this.id))
+        const filter_connecties = this.connecties.filter(
+            conn => (conn.kanaal_id === this.id)
+        )
         this.connecties = filter_connecties
     }
     
