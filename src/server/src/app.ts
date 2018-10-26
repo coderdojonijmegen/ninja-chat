@@ -40,10 +40,15 @@ function vind_kanaal(id: number): Kanaal|null {
 }
 
 function disconnect(connectie: Connectie) {
-    const kanaal = vind_kanaal(connectie.kanaal_id)
-    connectie.zetKanaal(-1)
-    if (kanaal) {
-        kanaal.spoelConnecties()
+    if (connectie.is_master) {
+        connectie.stopMaster()
+    }
+    else {
+        const kanaal = vind_kanaal(connectie.kanaal_id)
+        connectie.zetKanaal(-1)
+        if (kanaal) {
+            kanaal.spoelConnecties()
+        }
     }
 }
 

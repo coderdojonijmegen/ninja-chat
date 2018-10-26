@@ -5,7 +5,9 @@ export const Messages = {
         // maakBericht, params: tekst (string)
         maakBericht: 'maakBericht',
         // zetNaam, params: naam (string)
-        zetNaam: 'zetNaam'
+        zetNaam: 'zetNaam',
+        // zetMaster, geen params
+        zetMaster: 'zetMaster'
     },
     out: {
         // krijgKanaal, params: id (number)

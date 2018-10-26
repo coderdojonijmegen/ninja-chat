@@ -8,6 +8,7 @@ import { Messages } from './Messages';
 export class Connectie {
     public gebruiker: Gebruiker
     public server_gebruiker: Gebruiker
+    public is_master: boolean = false
 
     constructor(
         private vind_kanaal: (id: number) => Kanaal|null,
@@ -32,11 +33,15 @@ export class Connectie {
             Messages.in.zetNaam,
             (naam: string) => this.zetNaam(naam)
         )
+        this.socket.on(
+            Messages.in.zetMaster,
+            () => this.maakMaster()
+        )
 
         this.stuurKanaal()
         this.stuurNaam()
         this.stuurBericht(
-            new Bericht(this.server_gebruiker, "Welkom bij ninja chat!")
+            new Bericht(this.server_gebruiker, "Welkom bij ninja chat!", this.kanaal_id)
         )
     }
 
@@ -53,12 +58,12 @@ export class Connectie {
                 oud_kanaal.spoelConnecties()
                 nieuw_kanaal.nieuweConnectie(this)
                 this.stuurBericht(
-                    new Bericht(this.server_gebruiker, `Welkom op kanaal ${id}`)
+                    new Bericht(this.server_gebruiker, `Welkom op kanaal ${id}`, this.kanaal_id)
                 )
             }
             else {
                 this.stuurBericht(
-                    new Bericht(this.server_gebruiker, "Kanaal niet gevonden")
+                    new Bericht(this.server_gebruiker, "Kanaal niet gevonden", this.kanaal_id)
                 )
             }
         }
@@ -69,11 +74,11 @@ export class Connectie {
         const kanaal = this.vind_kanaal(this.kanaal_id)
         if (kanaal === null) {
             this.stuurBericht(
-                new Bericht(this.server_gebruiker, "Kanaal kwijt")
+                new Bericht(this.server_gebruiker, "Kanaal kwijt", this.kanaal_id)
             )
         }
         else {
-            kanaal.omroep(new Bericht(this.gebruiker, tekst))
+            kanaal.omroep(new Bericht(this.gebruiker, tekst, this.kanaal_id))
         }
     }
 
@@ -88,5 +93,33 @@ export class Connectie {
 
     public stuurNaam() {
         this.socket.emit(Messages.out.krijgNaam, this.gebruiker.naam)
+    }
+
+    public maakMaster() {
+        const oud_kanaal = this.vind_kanaal(this.kanaal_id)
+        this.kanaal_id = -1
+        if (oud_kanaal) {
+            oud_kanaal.spoelConnecties()
+        }
+
+        this.is_master = true
+        for (
+            let id = 1, kanaal = this.vind_kanaal(id);
+            kanaal !== null;
+            kanaal = this.vind_kanaal(++id)
+        ) {
+            kanaal.ninja_master = this
+        }
+    }
+
+    public stopMaster() {
+        this.is_master = false
+        for (
+            let id = 1, kanaal = this.vind_kanaal(id);
+            kanaal !== null;
+            kanaal = this.vind_kanaal(++id)
+        ) {
+            kanaal.ninja_master = null
+        }
     }
 }

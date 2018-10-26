@@ -5,7 +5,8 @@ export class Bericht {
 
     constructor(
         public gebruiker: Gebruiker,
-        public tekst: string
+        public tekst: string,
+        public kanaal: number
     ) {
         this.tijdstip = new Date()
     }
@@ -14,6 +15,7 @@ export class Bericht {
         return {
             tijdstip: this.tijdstip.toLocaleTimeString(),
             gebruiker: this.gebruiker.naam,
+            kanaal: this.kanaal,
             tekst: JSON.stringify(this.tekst)
         }
     }
