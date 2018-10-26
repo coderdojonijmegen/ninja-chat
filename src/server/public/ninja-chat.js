@@ -19,7 +19,7 @@ function stuurBericht(input) {
 }
 
 function toonNaam(naam) {
-    $(".footerNaam").text(naam)
+    $("#naamInput").val(naam)
 }
 
 function toonKanaal(kanaal) {
@@ -39,7 +39,7 @@ function berichtNaarHtml(bericht) {
 }
 
 function begin() {
-    $(".footerNaam").change(zetNaam)
+    $("#naamInput").change(zetNaam)
     $("#kanaal").change(zetKanaal)
     $(".stuurBericht").click(stuurBericht)
 

@@ -49,8 +49,14 @@ footer {
     width: 90%;
     border: 1px solid black;
     margin: auto;
-    text-align: center;
     border-bottom: 0;
+}
+
+#naamInput {
+    width: 100%;
+    background-color: transparent;
+    border: 0;
+    text-align: center;
 }
 
 .footerBericht {
