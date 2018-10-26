@@ -14,8 +14,11 @@ function zetKanaal(input) {
 }
 
 function stuurBericht() {
-    var bericht = $("#berichtInput").val()
+    var berichtInput = $("#berichtInput")
+    var bericht = berichtInput.val()
+
     socket.emit('maakBericht', bericht)
+    berichtInput.val("")
 }
 
 function checkEnter(event) {
@@ -38,8 +41,14 @@ function toonBericht(bericht) {
 }
 
 function berichtNaarHtml(bericht) {
-    // TODO: weten wanneer het een eigen bericht is.
-    return '<p class="bericht"><i>'
+    var gebruiker = $("#naamInput").val()
+    var class_naam = "bericht"
+    
+    if (gebruiker === bericht.gebruiker) {
+        class_naam = "eigen bericht"
+    }
+
+    return '<p class="' + class_naam + '"><i>'
         + bericht.gebruiker + ' ' + bericht.tijdstip
         + '</i><br><span>' + bericht.tekst + '</span></p>'
 }
