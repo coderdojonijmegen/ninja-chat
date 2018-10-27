@@ -2,56 +2,28 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Ninja chat</title>
+    <link rel="stylesheet" href="basic-chat.css">
 </head>
 <body>
-    <div id="berichten"></div>
-    <div><label for="naam">Naam: </label><input type="text" id="naam" name="naam"></div>
-    <div class="invoer"><input type="text" id="bericht" placeholder="Schrijf een bericht..."><button id="stuurBericht">Verstuur</button></div>
+    <div class="container">
+        <!-- Zet je code hier neer -->
+
+
+        <!-- Voorbeeld blokjes voor instructies. -->
+        <div class="berichten"></div>
+        Schrijf bericht: <input id="berichtInput">
+        <br>
+        Stel je naam in: <input id="naamInput">
+        <br>
+        Stel je kanaal in: <input id="kanaalInput">
+        <!-- Einde eigen code -->
+    </div>
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
-
-    <script>
-    	var serverIpAdresEnPoort = "<server-ip>";
-
-    	
-    	var socket = io(serverIpAdresEnPoort, { forceNew: true });
-
-        function zetNaam(input) {
-            var naam = input.target.value
-            socket.emit('zetNaam', naam)
-        }
-
-        function stuurBericht(input) {
-            var bericht = $("#bericht").val()
-            socket.emit('maakBericht', bericht)
-        }
-
-        function toonNaam(naam) {
-            $("#naam").val(naam)
-        }
-
-        function toonBericht(bericht) {
-            var div = $('<div>').html(berichtNaarHtml(bericht))
-            $("#berichten").append(div)
-        }
-
-        function berichtNaarHtml(bericht) {
-            return '<b>' + bericht.tijdstip + '</b> - <i>'
-                + bericht.gebruiker + '</i>: '
-                + bericht.tekst
-        }
-        
-        function begin() {
-            $("#naam").change(zetNaam)
-            $("#stuurBericht").click(stuurBericht)
-
-            socket.on('krijgNaam', toonNaam)
-            socket.on('krijgBericht', toonBericht)
-        }
-
-        $(begin)
-    </script>
+    <script src="basic-chat.js"></script>
 </body>
 </html>
