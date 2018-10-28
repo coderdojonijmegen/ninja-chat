@@ -18,7 +18,11 @@
 			<ul class="inhoud">
 				<li><a href="#introductie">Introductie</a></li>
 				<li><a href="#benodigdheden">Benodigdheden</a></li>
-				<li><a href="#stappen">Stappen</a></li>
+				<li><a href="#stappen">Stappen</a><ul>
+					<li><a href="#stappen_makkelijk">Makkelijk</a></li>
+					<li><a href="#stappen_gemiddeld">Gemiddeld</a></li>
+					<li><a href="#stappen_moeilijk">Moeilijk</a></li>
+				</ul></li>
 				<li><a href="#conclusie">Conclusie</a></li>
 				<li><a href="#vervolg">Vervolg</a></li>
 			</ul>
@@ -50,7 +54,7 @@
 			<ol>
 				<li><strong>gemakkelijk</strong>: hierbij krijg je van ons een HTML-bestand waarin al een simpele werkende client staat en waar je zelf kunt werken
 					aan het uiterlijk met HTML en CSS.</li>
-				<li><strong>gemiddeld</strong>: hierbij krijg je hetzelfde HTML-bestand dat je ook bij gemakkelijk krijgt, maar geven we je instructies om nog
+				<li><strong>gemiddeld</strong>: hierbij krijg je hetzelfde HTML-bestand dat je ook bij <i>gemakkelijk</i> krijgt, maar geven we je instructies om nog
 					meer functionaliteit aan de chat client toe te voegen, zoals bijvoorbeeld via welk kanaal je wilt chatten. Ook hier kun je het uiterlijk
 					van de client met HTML en CSS aanpassen zoals je zelf wil.</li>
 				<li><strong>moeilijk</strong>: tenslotte is er de moeilijke opdracht, waar je alleen instructies krijgt en zelf alles moet maken en vormgeven.</li>
@@ -77,10 +81,11 @@
 			</p>
 			<ul>
 				<li>deze instructie: <a href="https://coderdojonijmegen.github.io/ninja-chat/" target="_blank">https://coderdojonijmegen.github.io/ninja-chat/</a></li>
-				<li>voor de niveaus <i>gemakkelijk</i> en <i>gemiddeld</i>: HTML-bestand voor de chat client. Dat bestand kun hier downloaden:
-					<a href="https://github.com/coderdojonijmegen/ninja-chat/raw/master/src/client/index.html" target="_blank" download>
-					https://github.com/coderdojonijmegen/ninja-chat/raw/master/src/client/index.html</a></li>
-				<li>een goede teksteditor om de HTML-pagina aan te passen. Een voorbeeld is: <a href="https://notepad-plus-plus.org/download" target="_blank">Notepad++</a></li>
+				<li>voor de niveaus <i>gemakkelijk</i> en <i>gemiddeld</i>: HTML, CSS en JavaScript bestanden voor de chat client. Dat bestand kun hier downloaden:
+					<a href="https://github.com/coderdojonijmegen/ninja-chat/raw/master/src/client/" target="_blank" download>
+					https://github.com/coderdojonijmegen/ninja-chat/raw/master/src/client/</a></li>
+				<li>een goede teksteditor om de HTML-pagina aan te passen. Een voorbeeld is: <a href="https://notepad-plus-plus.org/download" target="_blank">Notepad++</a>
+					 of <a href="https://www.sublimetext.com/" target="_blank">Sublime Text</a></li>
 				<li>een webserver op je computer om het HTML-bestand voor de chat client te kunnen bekijken in je webbrowser. Het makkelijkst is om een plugin
 					voor Google Chrome te installeren: <a href="https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb" target="_blank">
 					https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb</a>. Na installatie moet je de plugin instellen
@@ -106,6 +111,89 @@
 			</div>
 			<h2>Stappen</h2>
 			<p>
+				Voor dat je zelf aan de slag gaat, kun je eens kijken hoe het er uit k&agrave;n zien. Open 
+				daarvoor een web browser en navigeer naar het adres van de chat server.
+			</p>
+
+		<div id="stappen_makkelijk">
+			<div class="terug">
+				<a title="terug naar inhoud" href="#inhoud"><i class="material-icons">arrow_upward</i></a>
+			</div>
+			<h3>Makkelijk</h3>
+
+			<div class="terug">
+				<a title="terug naar inhoud" href="#inhoud"><i class="material-icons">arrow_upward</i></a>
+			</div>
+			<h4>Stap 0: lokale webserver met start code opzetten</h4>
+			<p>
+			Voordat we beginnen, moeten we eerst de voorbereidingen doen om aan de chat client te kunnen werken: 
+			</p>
+			<ol>
+				<li>Maak een folder <code>Documenten\ninja-chat-client</code></li>
+				<li>Download het HTML, CSS en JavaScript bestand van <a href="https://github.com/coderdojonijmegen/ninja-chat/raw/master/src/client/" target="_blank" download>
+					https://github.com/coderdojonijmegen/ninja-chat/raw/master/src/client/</a> en plaats ze in <code>Documenten\ninja-chat-client</code></li>
+				<li>Open de <i>Web Server for Chrome</i> en kies folder <code>Documenten\ninja-chat-client</code>. Start de webserver</li>
+				<li>Open <code>Documenten\ninja-chat-client\index.html</code> met je editor.</li>
+				<li>Vervang <code>&lt;server-ip></code> door het adres dat de mentoren je hebben gegeven.</li>
+				<li>Open je web browser en navigeer naar <a href="http://localhost" target="_blank">http://localhost</a>. 
+					Je zou een grijs vlak met een witte balk bovenin moeten zien. </li>
+			</ol>
+			<p>Klaar om aan de slag te gaan!</p>
+
+			<div class="terug">
+				<a title="terug naar inhoud" href="#inhoud"><i class="material-icons">arrow_upward</i></a>
+			</div>
+			<h4>Stap 1: berichtjes ontvangen van de chat server</h4>
+			<p>
+			In <code>Documenten\ninja-chat-client/basic-chat.js</code> is al een stukje programma in JavaScript geschreven,
+			zodat je nu met het toevoegen van &eacute;&eacute;n enkele regel berichtjes kunt ontvangen van de chat-server:
+			</p>
+			<code>
+    &lt;div class="container">
+        &lt;!-- Zet je code hier neer -->
+<span class="nieuwe_code">    &lt;div class="berichten">&lt;/div></span>
+        &lt;!-- Einde eigen code -->
+    &lt;/div>
+			</code>
+			<p>
+				Laadt de pagina opnieuw en zie dat je een welkomst berichtje krijgt van de chat server!
+			</p>
+			<p>
+				
+			<div class="terug">
+				<a title="terug naar inhoud" href="#inhoud"><i class="material-icons">arrow_upward</i></a>
+			</div>
+			<h4>Stap 2: zelf berichtjes schrijven</h4>
+			<p>
+				
+			</p>
+				
+			<div class="terug">
+				<a title="terug naar inhoud" href="#inhoud"><i class="material-icons">arrow_upward</i></a>
+			</div>
+			<h4>Stap 3: berichtjes mooier maken</h4>
+			<p>
+				
+			</p>
+		</div>
+
+		<div id="stappen_gemiddeld">
+			<div class="terug">
+				<a title="terug naar inhoud" href="#inhoud"><i class="material-icons">arrow_upward</i></a>
+			</div>
+			<h3>Gemiddeld</h3>
+				
+			<div class="terug">
+				<a title="terug naar inhoud" href="#inhoud"><i class="material-icons">arrow_upward</i></a>
+			</div>
+			<h4>Stap 4: chat kanaal kiezen</h4>
+			<p>
+				
+			</p>
+
+
+			<p>
+			
 			</p>
 			<code>
     code
@@ -116,12 +204,36 @@
 			</p>
 		</div>
 
+		<div id="stappen_moeilijk">
+			<div class="terug">
+				<a title="terug naar inhoud" href="#inhoud"><i class="material-icons">arrow_upward</i></a>
+			</div>
+			<h3>Moeilijk</h3>
+			<p>
+			</p>
+			<code>
+    code
+<span class="commentaar">    commentaar</span>
+<span class="nieuwe_code">    gewijzigde code</span>
+			</code>
+			<p>
+			</p>
+		</div>
+		
+		</div>
+
 		<div id="conclusie">
 			<div class="terug">
 				<a title="terug naar inhoud" href="#inhoud"><i class="material-icons">arrow_upward</i></a>
 			</div>
 			<h2>Conclusie</h2>
 			<p>
+				Deze CoderDojo heb je geleerd hoe je een chat client kunt maken met JavaScript, HTML en CSS.
+				Als je ook de moeilijke stappen hebt afgerond, ben ja al ver gevorderd. 				
+			</p>
+			<p>
+				Je hebt nu alleen de chat client gemaakt. Als je ook wilt weten hoe de chat server werkt, kijk
+				dan in hoofdstukje vervolg voor meer informatie.
 			</p>
 		</div>
 
@@ -131,7 +243,17 @@
 			</div>
 			<h2>Vervolg</h2>
 			<p>
+				Wil je je verder verdiepen in de gebruikte technieken? Dan kun je meer informatie vinden op de volgende
+				sites:
 			</p>
+			<ul>
+				<li>Ninja chat server code: <a href="https://github.com/coderdojonijmegen/ninja-chat/tree/master/src/server"
+					target="_blank">https://github.com/coderdojonijmegen/ninja-chat/tree/master/src/server</a></li>
+				<li>De Ninja chat client en server communiceren met elkaar via een websocket verbinding en gebruiken
+					daarvoor <a href="https://socket.io/docs/" target="_blank">https://socket.io/docs/</a> (Engelstalig)</li>
+				<li>Voor het tonen van de berichtjes is JQuery gebruikt: <a href="https://api.jquery.com/" target="_blank">https://api.jquery.com/</a> (Engelstalig)</li>
+				
+			</ul>
 		</div>
 
 
