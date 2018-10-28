@@ -1,6 +1,7 @@
 Code blokjes
 ============
 Gebruik deze blokjes om je eigen chat programma te bouwen. Enkele tips:
+
 - De HTML tag plaats je in het html bestand, op de aangegeven plek. Kies zelf in welke volgorde ze komen te staan, zodat de pagina er helemaal uit ziet zoals jij wilt!
 - De CSS regels plaats je onderin het css bestand. Experimenteer door bijvoorbeeld kleuren te veranderen en blokjes groter of kleiner te maken.
 - Veel HTML tags kunnen andere tags en teksten bevatten. Een `<div>` wordt bijvoorbeeld afgesloten met een `</div>`. Alles wat daartussen staat, komt in dat blokje te staan.
