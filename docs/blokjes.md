@@ -18,7 +18,7 @@ Gebruik dit blokje om berichten te ontvangen van de server.
     .berichten {
       background-color: green;   /* Voor een groene achtergrond */
       padding: 5px;              /* Om 5 pixels extra ruimte in de box te krijgen aan alle randen. */
-      border: 2px dotted yellow; /* Voor een gele rand.
+      border: 2px dotted yellow; /* Voor een gele rand. */
     }
 
 Bericht schrijven
@@ -48,6 +48,25 @@ Hiermee kun je instellen onder welke naam jouw berichten worden verstuurd. Stand
       background-color: black;
       color: white;
       font-weight: bold;
+    }
+
+Berichten opmaken
+-----------------
+De berichtjes verschijnen nu gewoon als tekst op de pagina, maar je kan deze ook opmaken!  
+Let op dat hier de kleur met een # is beschreven. Dat is een HEX code. Zoek zelf eens een mooie kleur uit op https://color.adobe.com/nl/ en plak daarvan de HEX in je CSS.
+
+**CSS:** Bijvoorbeeld
+
+    .bericht {
+      background-color: #86FFAC;   /* Dit is een kleur HEX.  */
+      border: 1px solid #6FE8B6;   /* Een duidelijke rand om het bericht heen. */
+      border-radius: 5px;          /* Hiermee krijg je mooie ronde hoekjes in de rand. */
+      padding: 5px;
+    }
+
+    .eigen {
+      background-color: #A4FF7A;
+      border: 1px solid #6FE872;
     }
 
 Kanaal instellen
