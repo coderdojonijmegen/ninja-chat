@@ -83,9 +83,12 @@ function berichtNaarHtml(bericht) {
       class_naam = "eigen bericht"
   }
 
-  return '<p class="' + class_naam + '"><i>'
-      + bericht.gebruiker + ' ' + bericht.tijdstip
-      + '</i><br><span>' + bericht.tekst + '</span></p>'
+  return `
+    <p class="${class_naam}">
+      <i>${bericht.gebruiker} ${bericht.tijdstip}</i>
+      <br>
+      <span>${bericht.tekst}</span>
+    </p>`
 }
 
 

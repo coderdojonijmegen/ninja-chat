@@ -54,7 +54,7 @@ Kanaal instellen
 ----------------
 Hiermee kun je een kanaal kiezen. Standaard zit je op kanaal 1, probeer zelf eens uit hoeveel kanalen je kan kiezen!
 
-**HTML Tag:** `<input id="kanaalInput">`  
+**HTML Tag:** `<input id="kanaalInput" type="number">`  
 **CSS:**
 
     #kanaalInput {
