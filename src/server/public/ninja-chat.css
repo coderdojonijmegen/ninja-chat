@@ -51,6 +51,7 @@ footer {
     border: 1px solid black;
     margin: auto;
     border-bottom: 0;
+    background-color: #cccccc;   
 }
 
 #naamInput {
