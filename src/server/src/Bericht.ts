@@ -13,7 +13,7 @@ export class Bericht {
 
     public normaliseer(): object {
         return {
-            tijdstip: this.tijdstip.toLocaleTimeString(),
+            tijdstip: this.tijdstip.toLocaleTimeString("nl-NL"),
             gebruiker: this.gebruiker.naam,
             kanaal: this.kanaal,
             tekst: JSON.stringify(this.tekst)
