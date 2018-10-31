@@ -37,6 +37,10 @@ export class Connectie {
             Messages.in.zetMaster,
             () => this.maakMaster()
         )
+        this.socket.on(
+            Messages.in.vraagDeelnemers,
+            () => this.stuurDeelnemers()
+        )
 
         this.stuurKanaal()
         this.stuurNaam()
@@ -47,6 +51,15 @@ export class Connectie {
 
     public stuurKanaal() {
         this.socket.emit(Messages.out.krijgKanaal, this.kanaal_id)
+    }
+
+    public stuurDeelnemers() {
+        let kanaal = this.vind_kanaal(this.kanaal_id)
+        let deelnemers = (kanaal === null)
+            ? [] :
+            kanaal.connecties.map(conn => conn.gebruiker.naam)
+
+        this.socket.emit(Messages.out.krijgDeelnemers, deelnemers)
     }
 
     public zetKanaal(id: number) {

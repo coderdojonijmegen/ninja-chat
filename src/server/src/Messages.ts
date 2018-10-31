@@ -7,7 +7,9 @@ export const Messages = {
         // zetNaam, params: naam (string)
         zetNaam: 'zetNaam',
         // zetMaster, geen params
-        zetMaster: 'zetMaster'
+        zetMaster: 'zetMaster',
+        // vraagDeelnemers, geen params
+        vraagDeelnemers: 'vraagDeelnemers'
     },
     out: {
         // krijgKanaal, params: id (number)
@@ -15,6 +17,8 @@ export const Messages = {
         // krijgBericht, params: bericht (Bericht object)
         krijgBericht: 'krijgBericht',
         // krijgNaam, params: naam (string)
-        krijgNaam: 'krijgNaam'
+        krijgNaam: 'krijgNaam',
+        // krijgDeelnemers, params: namen (array van strings)
+        krijgDeelnemers: 'krijgDeelnemers'
     }
 }
