@@ -1,4 +1,4 @@
-var serverIpAdresEnPoort = "http://127.0.0.1:3000";
+var serverIpAdresEnPoort = "localhost:3000";
 
 
 var socket = io(serverIpAdresEnPoort, { forceNew: true });
@@ -16,9 +16,10 @@ function zetKanaal(input) {
 function stuurBericht() {
     var berichtInput = $("#berichtInput")
     var bericht = berichtInput.val()
-
-    socket.emit('maakBericht', bericht)
-    berichtInput.val("")
+    if (bericht != "") {
+      socket.emit('maakBericht', bericht)
+      berichtInput.val("")
+    }
 }
 
 function checkEnter(event) {
@@ -43,7 +44,7 @@ function toonBericht(bericht) {
 function berichtNaarHtml(bericht) {
     var gebruiker = $("#naamInput").val()
     var class_naam = "bericht"
-    
+
     if (gebruiker === bericht.gebruiker) {
         class_naam = "eigen bericht"
     }
