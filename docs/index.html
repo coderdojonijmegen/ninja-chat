@@ -446,7 +446,6 @@
 			<div class="terug">
 				<a title="terug naar inhoud" href="#inhoud"><i class="material-icons">arrow_upward</i></a>
 			</div>
-			<h4>Stap 4: chat kanaal kiezen</h4>
 			<p>
 				
 			</p>
@@ -471,15 +470,104 @@
 			</div>
 			<h3>Moeilijk</h3>
 			<p>
+			Als al het bovenstaande te makkelijk is voor je, kunt je ook zelf een chat client maken. Je krijgt dan
+			een paar hints en een beschrijving van hoe de client met de server praat en dat is het dan.<br>
+			De rest is aan jou!
+			</p>
+
+			<div class="terug">
+				<a title="terug naar inhoud" href="#inhoud"><i class="material-icons">arrow_upward</i></a>
+			</div>
+			<h4>Tip</h4>
+			<p>
+				Hoewel het natuurlijk de bedoeling is om zelf je chat client te maken, kun je natuurlijk af en toe
+				even spieken in de HTML, JavaScript en CSS bestanden die bij <i>makkelijk</i> en <i>gemiddeld</i>
+				zijn gebruikt.
+			</p>
+
+			<div class="terug">
+				<a title="terug naar inhoud" href="#inhoud"><i class="material-icons">arrow_upward</i></a>
+			</div>
+			<h4>Voorbereidingen</h4>
+			<p>
+			Maak allereerst een map op je computer waarin je je HTML, JavaScript en CSS bestanden wilt zetten. 
+			Bijvoorbeeld <code class="bestand">Documenten\moeilijke-ninja-chat-client\</code>
+			Zorg dat de Web Server for Chrome ingesteld staat dat het bestanden uit je map serveert. Zie hoofdstukje
+			<i>benodigdheden</i> om te zien hoe je dat ook al weer moest doen. 
+			</p>
+			<p>
+			Maak nu een HTML bestand aan in je nieuwe map met de naam <code class="bestand">index.html</code> en 
+			zet het volgende er in als startpunt:
 			</p>
 			<code>
-<span class="blijvende_code">    blijvende code</span>
-<span class="commentaar">    commentaar</span>
-<span class="te_vervangen_code">    te vervangen code</span>
-<span class="nieuwe_code">    nieuwe code</span>
+<span class="nieuwe_code">
+&lt;html>
+  &lt;body>
+    &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js">&lt;/script>
+    &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js">&lt;/script>
+	
+    &lt;script src="chat.js">&lt;/script>
+  &lt;/body>
+&lt;/html>
+</span>
 			</code>
 			<p>
+			Binnen het simpele HTML raamwerk beginnen we met het laden van de JavaScript bibliotheken die we
+			vanaf het internet laden. De JQuery en Socket.io bibliotheken.
 			</p>
+			<p>
+			Het is een goede gewoonte om je JavaScript niet tussen de HTML te zetten, maar in een eigen bestand.
+			Dus maak naast het HTML bestand een bestand <code class="bestand">chat.js</code> aan. Daarin
+			kun je de volgende code zetten als allereerste start:
+			</p> 
+			<code>
+<span class="nieuwe_code">
+var socket = io(&lt;server-ip-en-poort>, { forceNew: true });
+</span>
+</code>
+			<p>
+			Vervang <code>&lt;server-ip-en-poort></code> door het IP adres en eventueel de poort zoals je die van de
+			mentoren hebt gekregen. Daarmee zet Socket.IO zijn verbinding op.
+			</p>
+			<p>
+			Met behulp van het <code>socket</code> object kun je berichtjes sturen naar de server en ze ontvangen.
+			Je hebt daarvoor twee commando's nodig:
+			</p>
+			<code>
+<span class="blijvende_code">var socket = io(&lt;server-ip-en-poort>, { forceNew: true });</span>
+<span class="nieuwe_code">
+socket.emit(&lt;commando>, &lt;parameter>);
+socket.on(&lt;commando>, &lt;parameter>);
+</span>
+</code>
+
+			<div class="terug">
+				<a title="terug naar inhoud" href="#inhoud"><i class="material-icons">arrow_upward</i></a>
+			</div>
+			<h4>Commando's</h4>
+			 <p>
+			 De gebruikte commando's moeten overeenkomen met wat er op de chat server is ge&iuml;mplementeerd. De
+			 parameter bevat dan de infromatie van het berichtje dat je verstuurd of ontvangt.<br>
+			 Onze chat server heeft de volgende commando's ge&iuml;mplementeerd:
+			 </p>
+			 Om te versturen:
+			 <ul>
+			 	<li><strong>zetNaam</strong>: stuurt de naam van de gebruiker van de chat client naar de server. 
+			 		De parameter bevat dan de naam.</li>
+			 	<li><strong>maakBericht</strong>: stuurt het berichtje naar de server. 
+			 		De parameter bevat het berichtje.</li>
+			 	<li><strong>zetKanaal</strong>: stuurt het te gebruiken chat kanaal naar de server.
+			 		De parameter bevat het kanaal nummer.</li>
+			 </ul>
+			 Om te ontvangen:
+			 <ul>
+			 	<li><strong>krijgNaam</strong>: luister naar de server dat de naam van de gebruiker stuurt
+			 		zoals deze door de server wordt bepaald. Hier komen namen als <i>anon3</i> vandaan.</li>
+			 	<li><strong>krijgBericht</strong>: luister naar berichtjes van alle andere gebruikers op hetzelfde
+			 		kanaal.</li>
+			 	<li><strong>krijgKanaal</strong>: luister naar de server dat het te gebruiken kanaal stuurt.</li>
+			 </ul>
+
 		</div>
 		
 		</div>
@@ -491,7 +579,7 @@
 			<h2>Conclusie</h2>
 			<p>
 				Deze CoderDojo heb je geleerd hoe je een chat client kunt maken met JavaScript, HTML en CSS.
-				Als je ook de moeilijke stappen hebt afgerond, ben ja al ver gevorderd. 				
+				Als je ook de moeilijke stappen hebt afgerond, ben je al ver gevorderd. 				
 			</p>
 			<p>
 				Je hebt nu alleen de chat client gemaakt. Als je ook wilt weten hoe de chat server werkt, kijk
