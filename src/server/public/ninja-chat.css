@@ -23,6 +23,8 @@ header {
 
 main {
     padding: 10px;
+    overflow-y:scroll;
+    height: 100%;
 }
 
 .bericht {
@@ -37,13 +39,6 @@ main {
 .eigen {
     position: relative;
     right: -25%;
-}
-
-footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    left: 0;
 }
 
 .footerNaam {
@@ -89,4 +84,10 @@ footer {
     width: 100%;
     background-color: transparent;
     border: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
