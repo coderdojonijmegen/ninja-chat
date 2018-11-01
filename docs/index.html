@@ -111,8 +111,8 @@
 			</div>
 			<h2>Stappen</h2>
 			<p>
-				Voor dat je zelf aan de slag gaat, kun je eens kijken hoe het er uit k&agrave;n zien. Open 
-				daarvoor een web browser en navigeer naar het adres van de chat server.
+				Voor dat je zelf aan de slag gaat, kun je eens kijken hoe het er uit kan zien. Open
+				daarvoor een web browser en ga naar het adres van de chat server.
 			</p>
 
 		<div id="stappen_makkelijk">
@@ -124,39 +124,66 @@
 			<div class="terug">
 				<a title="terug naar inhoud" href="#inhoud"><i class="material-icons">arrow_upward</i></a>
 			</div>
-			<h4>Stap 0: lokale webserver met start code opzetten</h4>
+			<h4>Stap 0: lokale webserver met startcode opzetten</h4>
 			<p>
 			Voordat we beginnen, moeten we eerst de voorbereidingen doen om aan de chat client te kunnen werken: 
 			</p>
 			<ol>
-				<li>Maak een folder <code><span class="bestand">Documenten\ninja-chat-client</span></code></li>
-				<li>Download het HTML, CSS en JavaScript bestand van <a href="https://github.com/coderdojonijmegen/ninja-chat/raw/master/src/client/" target="_blank" download>
+				<li>Maak een map <code><span class="bestand">Documenten\ninja-chat-client</span></code></li>
+				<li>Download het HTML-, CSS- en JavaScript-bestand van <a href="https://github.com/coderdojonijmegen/ninja-chat/raw/master/src/client/" target="_blank" download>
 					https://github.com/coderdojonijmegen/ninja-chat/raw/master/src/client/</a> en plaats ze in <code><span class="bestand">Documenten\ninja-chat-client</span></code></li>
-				<li>Open de <i>Web Server for Chrome</i> en kies folder <code><span class="bestand">Documenten\ninja-chat-client</span></code>. Start de webserver</li>
+				<li>Open de <i>Web Server for Chrome</i> en kies de map <code><span class="bestand">Documenten\ninja-chat-client</span></code>. Start de webserver</li>
 				<li>Open <code><span class="bestand">Documenten\ninja-chat-client\index.html</span></code> met je editor.</li>
 				<li>Vervang <code><span class="te_vervangen_code">&lt;server-ip></span></code> door het adres dat de mentoren je hebben gegeven.</li>
 				<li>Open je web browser en navigeer naar <a href="http://localhost" target="_blank">http://localhost</a>. 
 					Je zou een grijs vlak met een witte balk bovenin moeten zien. </li>
 			</ol>
+
+			<div class="terug">
+				<a title="terug naar inhoud" href="#inhoud"><i class="material-icons">arrow_upward</i></a>
+			</div>
+			<h4>Tips voordat je begint met de code</h4>
+			<p>
+				<ol>
+					<li>In <code><span class="bestand">Documenten\ninja-chat-client\basic-chat.js</span></code> is al een stukje programma in JavaScript geschreven. Je kunt dat bestand bekijken, maar daarin hoef je niets aan te passen.</li>
+					<li>Je gaat vandaag als eerste aan de slag met HTML. De HTML hoort in <code><span class="bestand">Documenten\ninja-chat-client\index.html</span></code>.</li>
+						<ul>
+							<li>Kies zelf in welke volgorde je de stukjes HTML zet, zodat de pagina er helemaal uit ziet zoals jij wilt!</li>
+							<li>In HTML gebruik je tags. Dat zijn de dingen die tussen <code><</code> en <code>></code> staan.</li>
+							<li>Voeg teksten toe om alles duidelijker te maken. In HTML kun je gewoon tekst typen en dat komt dan op de pagina!</li>
+							<li>Gebruik &lt;br> om het volgende blokje op een nieuwe regel te zetten.</li>
+						</ul>
+					<li>Als je klaar bent met de HTML, dan kun je die mooier maken met CSS. Je kunt bijvoorbeeld het lettertype of de kleur veranderen. De CSS hoort in <code><span class="bestand">Documenten\ninja-chat-client\basic-chat.css</span></code>.</li>
+						<ul>
+							<li>CSS wordt geschreven in het Engels. Alle namen voor kleuren enzovoort zijn dus in het Engels.</li>
+						</ul>
+				</ol>
+
 			<p>Klaar om aan de slag te gaan!</p>
+
+			</p>
 
 			<div class="terug">
 				<a title="terug naar inhoud" href="#inhoud"><i class="material-icons">arrow_upward</i></a>
 			</div>
 			<h4>Stap 1: berichtjes ontvangen van de chat server</h4>
 			<p>
-				In <code><span class="bestand">Documenten\ninja-chat-client/basic-chat.js</span></code> is al een stukje programma in JavaScript geschreven,
-			zodat je nu met het toevoegen van &eacute;&eacute;n enkele regel berichtjes kunt ontvangen van de chat-server:
-			</p>
-			<code>
+				Open <code><span class="bestand">Documenten\ninja-chat-client\index.html</span></code> in Notepad++ of Sublime Text.
+				<br>
+				<br>
+				Voeg de volgende <code><span class="nieuwe_code">rode code</span></code> toe:
+				<br>
+<code>
 <span class="blijvende_code">    &lt;div class="container">
-        &lt;!-- Zet je code hier neer --></span>
-<span class="nieuwe_code">    &lt;div class="berichten">&lt;/div></span>
-<span class="blijvende_code">         &lt;!-- Einde eigen code -->
+	&lt;!-- Zet je code hier neer --></span>
+	<span class="nieuwe_code">    &lt;div class="berichten">&lt;/div></span>
+	<span class="blijvende_code"> &lt;!-- Einde eigen code -->
     &lt;/div></span>
-			</code>
+</code>
+			</p>
+
 			<p>
-				Laadt de pagina opnieuw en zie dat je een welkomst berichtje krijgt van de chat server!
+				Laad de pagina opnieuw en zie dat je een welkomstberichtje krijgt van de chat server!
 			</p>
 			<p>
 				Als anderen berichtjes sturen, dan zie je ze ook op je eigen chat client verschijnen.
@@ -171,39 +198,243 @@
 				berichtjes te sturen!
 			</p>
 			<p>
-				Je kunt berichtjes sturen door een blokje toe te voegen waar je wat in kunt typen:
+				Je kunt berichtjes sturen door in <code><span class="bestand">Documenten\ninja-chat-client\index.html</span></code> een blokje toe te voegen waar je wat in kunt typen.
+				<br>
+				<br>
+				Voeg de volgende <code><span class="nieuwe_code">rode code</span></code> toe:
 			</p>
 			<code>
 <span class="blijvende_code">    &lt;div class="container">
         &lt;!-- Zet je code hier neer -->
-	&lt;div class="berichten">&lt;/div></span>
-<span class="nieuwe_code">        Schrijf bericht: &lt;input id="berichtInput"></span>
+	    &lt;div class="berichten">&lt;/div></span>
+<span class="nieuwe_code">            Schrijf bericht: &lt;input id="berichtInput"></span>
 <span class="blijvende_code">        &lt;!-- Einde eigen code -->
     &lt;/div></span>
 			</code>
 			<p>
 				Als je nu de pagina opnieuw laadt, kun je berichtjes schrijven. Het blokje waarin je kunt typen staat
-				nu onder de berichtjes. Maar, je kunt het er ook boven zetten. Doe dat eens. <br>
+				nu onder de berichtjes. <br><br> Maar je kunt het er ook boven zetten. Doe dat eens. <br><br>
 				Wat vind je fijner?
 			</p>
 			
 			<div class="terug">
 				<a title="terug naar inhoud" href="#inhoud"><i class="material-icons">arrow_upward</i></a>
 			</div>
-			<h4>Stap 3: berichtjes mooier maken</h4>
+			<h4>Stap 3: naam instellen</h4>
 			<p>
-				Je kunt nu berichtjes schrijven, maar ze zien er wel wat saai uit. Met behulp van CSS (Cascading Style Sheets)
-				kun je HTML vorm geven. De HTML bevat de tekst en de tags (&lt;tag>) geven aan wat voor tekst het is. Met 
-				CSS kun je de tekst vervolgens vormgeven.
+				Als je op dit moment chat, bepaalt de server hoe je heet, bijvoorbeeld 'anon3'. Zelf een naam instellen is natuurlijk leuker. Voeg in <code><span class="bestand">Documenten\ninja-chat-client\index.html</span></code> de volgende <code><span class="nieuwe_code">rode HTML</span></code> toe:
 			</p>
+			<code>
+<span class="blijvende_code">    &lt;div class="container">
+        &lt;!-- Zet je code hier neer -->
+	    &lt;div class="berichten">&lt;/div></span>
+<span class="nieuwe_code">            Naam: &lt;input id="naamInput"></span>
+<span class="blijvende_code">            Schrijf bericht: &lt;input id="berichtInput">
+         &lt;!-- Einde eigen code -->
+      &lt;/div></span>
+			</code>
 			<p>
-				Met de <i>div</i> tags kun je tekst dat bij elkaar hoort in een blok zetten. Alles tussen 
-				<code><span class="blijvende_code">&lt;div class="container"></span></code> en <code><span class="blijvende_code">&lt;/div></span></code> hoort bij elkaar. <i>class</i> geeft
-				dan aan wat voor blok het is. In dit geval wordt dit blok gekenmerkt als een <i>container</i> blok.
+				Laad de pagina opnieuw. Typ je naam in het vakje, en typ daarna een bericht.
 			</p>
+
+			<div class="terug">
+				<a title="terug naar inhoud" href="#inhoud"><i class="material-icons">arrow_upward</i></a>
+			</div>
+			<h4>Stap 4: kanaal instellen</h4>
 			<p>
-				Deze <i>container</i> kun je in CSS gebruiken om daar eigenschappen aan toe te kennen, zoals bijvoorbeeld
-				letter type en kleur. 
+				Tot nu toe is er maar ėėn chatkanaal. Om een ander kanaal te kiezen, voeg in <code><span class="bestand">Documenten\ninja-chat-client\index.html</span></code> de volgende <code><span class="nieuwe_code">rode HTML</span></code> toe:
+			</p>
+			<code>
+<span class="blijvende_code">    &lt;div class="container">
+        &lt;!-- Zet je code hier neer -->
+	    &lt;div class="berichten">&lt;/div></span>
+        <span class="nieuwe_code">    &lt;input id="kanaalInput" type="number"></span>
+        <span class="blijvende_code">    Naam: &lt;input id="naamInput">
+            Schrijf bericht: &lt;input id="berichtInput">
+        &lt;!-- Einde eigen code -->
+      &lt;/div></span>
+			</code>
+			<p>
+				Laad de pagina opnieuw. Typ een ander kanaalnummer in het vakje, en typ een bericht. Wat gebeurt er?
+			</p>
+
+
+			<div class="terug">
+				<a title="terug naar inhoud" href="#inhoud"><i class="material-icons">arrow_upward</i></a>
+			</div>
+			<h4>Stap 5: berichten mooier maken</h4>
+			<p>
+				Je bent nu klaar met de HTML. Je hebt alle bouwblokken die je nodig hebt om te chatten! Nu is het tijd om alles er wat leuker uit te laten zien.</p>
+			<p>Open <code><span class="bestand">Documenten\ninja-chat-client\basic-chat.css</span></code>. Voeg onderaan het bestand het volgende toe:</p>
+<code><span class="blijvende_code">/* Zet hier je eigen CSS regels neer */</span></code>
+<code><span class="nieuwe_code">
+.berichten {
+    background-color: green;
+    padding: 5px;
+    border: 2px dotted yellow;
+}</span></code>
+			<br>
+			<p>Laad de pagina opnieuw. Wat is er nu anders?</p>
+			<ol>
+				<li>Zet ook eens een andere kleur achter <code>background-color:</code>.</li>
+				<li>Wat gebeurt er als je <code>20px</code> achter <code>padding:</code> zet?</li>
+				<li>Wat gebeurt er als je <code>dotted</code> verandert in <code>dashed</code>?</li>
+			</ol>
+
+
+			<div class="terug">
+				<a title="terug naar inhoud" href="#inhoud"><i class="material-icons">arrow_upward</i></a>
+			</div>
+			<h4>Stap 6: berichtInput mooier maken</h4>
+			<p>Voeg onderaan in <code><span class="bestand">Documenten\ninja-chat-client\basic-chat.css</span></code>. de volgende <code><span class="nieuwe_code">rode CSS</span></code> toe:</p>
+			<code><span class="blijvende_code">/* Zet hier je eigen CSS regels neer */
+.berichten {
+    background-color: green;
+    padding: 5px;
+    border: 2px dotted yellow;
+}</span></code><br>
+			<code><span class="nieuwe_code">
+#berichtInput {
+    background-color: yellow;
+    color: blue;
+}
+			</span></code>
+			<p>Laad de pagina opnieuw.</p>
+			<p>Vind je geel en blauw niet mooi? Probeer dan eens andere kleuren!</p>
+
+
+			<div class="terug">
+				<a title="terug naar inhoud" href="#inhoud"><i class="material-icons">arrow_upward</i></a>
+			</div>
+			<h4>Stap 7: naamInput mooier maken</h4>
+			<p>Voeg onderaan in <code><span class="bestand">Documenten\ninja-chat-client\basic-chat.css</span></code>. de volgende <code><span class="nieuwe_code">rode CSS</span></code> toe:</p>
+			<code><span class="blijvende_code">/* Zet hier je eigen CSS regels neer */
+.berichten {
+    background-color: green;
+    padding: 5px;
+    border: 2px dotted yellow;
+}
+
+#berichtInput {
+    background-color: yellow;
+    color: blue;
+}</span></code><br>
+			<code><span class="nieuwe_code">
+#naamInput {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+}
+			</span></code>
+			<p>Laad de pagina opnieuw.</p>
+			<p>Wat gebeurt er als je <code>bold</code> verandert in <code>lighter</code>?</p>
+
+
+			<div class="terug">
+				<a title="terug naar inhoud" href="#inhoud"><i class="material-icons">arrow_upward</i></a>
+			</div>
+			<h4>Stap 8: kanaalInput mooier maken</h4>
+			<p>Voeg onderaan in <code><span class="bestand">Documenten\ninja-chat-client\basic-chat.css</span></code>. de volgende <code><span class="nieuwe_code">rode CSS</span></code> toe:</p>
+			<code><span class="blijvende_code">/* Zet hier je eigen CSS regels neer */
+.berichten {
+    background-color: green;
+    padding: 5px;
+    border: 2px dotted yellow;
+}
+
+#berichtInput {
+    background-color: yellow;
+    color: blue;
+}<br>
+#naamInput {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+}</span></code><br>
+			<code><span class="nieuwe_code">
+#kanaalInput {
+}
+			</span></code>
+			<p>Geef de kanaalInput een paarse achtergrond. Het Engelse woord voor paars in 'purple'.</p>
+			<p>Laad de pagina opnieuw om de achtergrond te zien.</p>
+			<p>Vind je het lastig? Je kunt bij de vorige voorbeelden afkijken wat je moet doen.</p>
+
+
+			<div class="terug">
+				<a title="terug naar inhoud" href="#inhoud"><i class="material-icons">arrow_upward</i></a>
+			</div>
+			<h4>Stap 9: de losse berichten mooier maken</h4>
+			<p>Voeg onderaan in <code><span class="bestand">Documenten\ninja-chat-client\basic-chat.css</span></code>. de volgende <code><span class="nieuwe_code">rode CSS</span></code> toe:</p>
+			<code><span class="blijvende_code">/* Zet hier je eigen CSS regels neer */
+.berichten {
+    background-color: green;
+    padding: 5px;
+    border: 2px dotted yellow;
+}
+
+#berichtInput {
+    background-color: yellow;
+    color: blue;
+}<br>
+#naamInput {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+}<br>
+#kanaalInput {
+    // Jouw code.
+}	</span></code><br>
+			<code><span class="nieuwe_code">
+.bericht {
+    background-color: #86FFAC;
+    border: 1px solid #6FE8B6;
+    border-radius: 5px;
+    padding: 5px;
+}
+			</span></code>
+			<p>Laad de pagina opnieuw.</p>
+			<p>Door <code>border-radius: 5px</code> krijgt de rand mooie ronde hoekjes.</p>
+			<p><code>#86FFAC</code> en <code>##6FE8B6</code> zijn HEX-codes. Daarmee kun je alle kleuren maken die je wil. Zoek zelf eens een mooie kleur uit op <a href="https://color.adobe.com/nl/">https://color.adobe.com/nl/</a> en plak daarvan de HEX in je CSS. Laad de pagina opnieuw om het resultaat te zien.</p>
+
+
+			<div class="terug">
+				<a title="terug naar inhoud" href="#inhoud"><i class="material-icons">arrow_upward</i></a>
+			</div>
+			<h4>Stap 10: je eigen berichten meer laten opvallen</h4>
+			<p>Nu zien alle berichten er hetzelfde uit. Je kunt je eigen berichten meer laten opvallen door onderaan in <code><span class="bestand">Documenten\ninja-chat-client\basic-chat.css</span></code>. de volgende <code><span class="nieuwe_code">rode CSS</span></code> toe te voegen:</p>
+			<code><span class="blijvende_code">/* Zet hier je eigen CSS regels neer */
+.berichten {
+    background-color: green;
+    padding: 5px;
+    border: 2px dotted yellow;
+}
+
+#berichtInput {
+    background-color: yellow;
+    color: blue;
+}<br>
+#naamInput {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+}<br>
+#kanaalInput {
+    // Jouw CSS.
+}<br>
+.bericht {
+    background-color: #86FFAC;
+    border: 1px solid #6FE8B6;
+    border-radius: 5px;
+    padding: 5px;
+}	</span></code><br>
+			<code><span class="nieuwe_code">
+.eigen {
+    background-color: #A4FF7A;
+    border: 1px solid #6FE872;
+}
+			</span></code>
+			<p>Laad de pagina opnieuw.</p>
+			<p>Net als bij de vorige stap kun je weer je eigen kleuren uitkiezen op <a href="https://color.adobe.com/nl/">https://color.adobe.com/nl/</a>. Laad de pagina opnieuw om het resultaat te zien.</p>
 		</div>
 
 		<div id="stappen_gemiddeld">
