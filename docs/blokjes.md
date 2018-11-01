@@ -79,3 +79,19 @@ Hiermee kun je een kanaal kiezen. Standaard zit je op kanaal 1, probeer zelf een
     #kanaalInput {
       /* Kijk bij de eerder blokjes voor voorbeelden. */
     }
+
+Scherm indelen
+--------------
+Veel apps hebben standaard boven- en onderin knoppen ed staan. Dat noem je een header (bovenin) en een footer (onderin). Alles daar tussenin heet in HTML 'main'. Deze blokken werken net als een div, maar vervullen een speciale functie. Zorg dat alle blokjes die je hebt, in ofwel de header, ofwel de footer, ofwel de main staan.
+
+**HTML Tag:**
+
+    <header>
+      <!-- Zet hier blokjes die bovenin moeten staan. -->
+    </header>
+    <main class="berichten">
+      <!-- Als de class 'berichten' is, dan komen hier dus alle berichten in te staan. -->
+    </main>
+    <footer>
+      <!-- Zet hier de blokjes die onderin het scherm moeten staan. -->
+    </footer>
