@@ -12,6 +12,7 @@ export class Kanaal {
 
     public nieuweConnectie(conn: Connectie) {
         this.connecties.push(conn)
+        this.stuurDeelnemers()
     }
 
     public spoelConnecties() {
@@ -19,6 +20,7 @@ export class Kanaal {
             conn => (conn.kanaal_id === this.id)
         )
         this.connecties = filter_connecties
+        this.stuurDeelnemers()
     }
     
     public omroep(bericht: Bericht) {
@@ -29,5 +31,11 @@ export class Kanaal {
             conn.stuurBericht(bericht)
         }
         this.geschiedenis.push(bericht)
+    }
+
+    public stuurDeelnemers() {
+        for (let conn of this.connecties) {
+            conn.stuurDeelnemers()
+        }
     }
 }

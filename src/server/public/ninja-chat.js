@@ -95,6 +95,50 @@ function berichtNaarHtml(bericht) {
     </p>`
 }
 
+/**
+ * Kijkt of de .deelnemers div al bestaat en verwijderd deze.
+ * Als de div nog niet bestaat, wordt het aangemaakt.
+ */
+function toonOfVerbergDeelnemers() {
+    var div = $('.deelnemers')
+    if (div.length > 0) {
+        // div is gevonden, verwijder.
+        div.remove()
+    }
+    else {
+        // div is niet gevonden, maak aan en verzoek server om deelnemerslijst.
+        var div = $('<div>')
+            .addClass('deelnemers')
+
+        $("header").append(div)
+        socket.emit('vraagDeelnemers')
+    }
+}
+
+/**
+ * Toont de vernieuwde deelnemerslijst, als deze zichtbaar is.
+ * 
+ * @param {string[]} deelnemers 
+ */
+function updateDeelnemers(deelnemers) {
+    var div = $('.deelnemers')
+    if (div.length > 0) {
+        div.html(deelnemersNaarHtml(deelnemers))
+    }
+}
+
+/**
+ * Hier wordt een lijst van deelnemers vertaald naar HTML.
+ * 
+ * @param {string[]} deelnemers 
+ */
+function deelnemersNaarHtml(deelnemers) {
+    var opsomming = deelnemers.join(', ')
+
+    return `
+        <p>${opsomming}</p>
+    `
+}
 
 /**
  * Dit is waar alle gebeurtenissen worden ingesteld.
@@ -104,10 +148,12 @@ function begin() {
   $("#kanaalInput").change(zetKanaal)
   $(".stuurBericht").click(stuurBericht)
   $("#berichtInput").keypress(checkEnter)
+  $(".bekijkDeelnemers").click(toonOfVerbergDeelnemers)
 
   socket.on('krijgKanaal', toonKanaal)
   socket.on('krijgNaam', toonNaam)
   socket.on('krijgBericht', toonBericht)
+  socket.on('krijgDeelnemers', updateDeelnemers)
 }
 
 $(begin)

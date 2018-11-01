@@ -102,6 +102,11 @@ export class Connectie {
     public zetNaam(naam: string) {
         this.gebruiker.naam = naam
         this.stuurNaam()
+
+        var kanaal = this.vind_kanaal(this.kanaal_id)
+        if (kanaal) {
+            kanaal.stuurDeelnemers()
+        }
     }
 
     public stuurNaam() {
