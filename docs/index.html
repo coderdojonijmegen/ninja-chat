@@ -557,7 +557,9 @@ socket.on(&lt;commando>, &lt;parameter>);
 			 	<li><strong>maakBericht</strong>: stuurt het berichtje naar de server. 
 			 		De parameter bevat het berichtje.</li>
 			 	<li><strong>zetKanaal</strong>: stuurt het te gebruiken chat kanaal naar de server.
-			 		De parameter bevat het kanaal nummer.</li>
+					 De parameter bevat het kanaal nummer.</li>
+				<li><strong>vraagDeelnemers</strong>: vraagt de server om terug te geven welke gebruikers er op dit kanaal aanwezig zijn.
+					Deze commando heeft geen parameters, de server weet al op welk kanaal je zit.</li>
 			 </ul>
 			 Om te ontvangen:
 			 <ul>
@@ -565,7 +567,9 @@ socket.on(&lt;commando>, &lt;parameter>);
 			 		zoals deze door de server wordt bepaald. Hier komen namen als <i>anon3</i> vandaan.</li>
 			 	<li><strong>krijgBericht</strong>: luister naar berichtjes van alle andere gebruikers op hetzelfde
 			 		kanaal.</li>
-			 	<li><strong>krijgKanaal</strong>: luister naar de server dat het te gebruiken kanaal stuurt.</li>
+				 <li><strong>krijgKanaal</strong>: luister naar de server dat het te gebruiken kanaal stuurt.</li>
+				 <li><strong>krijgDeelnemers</strong>: luister naar server berichten als er iemand op het kanaal erbij komt of weg gaat, of als er via vraagDeelnemers om gevraagd is.
+					Deze commando geeft een lijst van alle deelnemers in het kanaal.</li>
 			 </ul>
 
 		</div>
