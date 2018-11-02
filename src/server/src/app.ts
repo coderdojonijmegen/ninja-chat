@@ -22,11 +22,16 @@ function maak_kanalen(aantal: number): Kanaal[] {
     return kanalen
 }
 
+var port = 3000
+if (process.env.PORT != null) {
+	port = +process.env.PORT
+}
+
 var app: App = {
     koa: new Koa(),
     server: null,
     io: null,
-    port: 3000,
+    port: port,
     kanalen: maak_kanalen(15)
 }
 
