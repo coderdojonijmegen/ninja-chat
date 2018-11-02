@@ -26,7 +26,7 @@ var app: App = {
     koa: new Koa(),
     server: null,
     io: null,
-    port: 3000,
+    port: 80,
     kanalen: maak_kanalen(15)
 }
 
