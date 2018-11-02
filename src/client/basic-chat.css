@@ -22,4 +22,8 @@ main {
     height: 100%;
 }
 
+footer {
+  min-height: 100px;
+}
+
 /* Zet hier je eigen CSS regels neer */

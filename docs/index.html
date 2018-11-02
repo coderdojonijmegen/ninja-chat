@@ -435,6 +435,37 @@
 			</span></code>
 			<p>Laad de pagina opnieuw.</p>
 			<p>Net als bij de vorige stap kun je weer je eigen kleuren uitkiezen op <a href="https://color.adobe.com/nl/">https://color.adobe.com/nl/</a>. Laad de pagina opnieuw om het resultaat te zien.</p>
+
+			<div class="terug">
+					<a title="terug naar inhoud" href="#inhoud"><i class="material-icons">arrow_upward</i></a>
+				</div>
+				<h4>Stap 11: Schermindeling</h4>
+				<p>De onderdelen beginnen er al mooi uit te zien, maar om het er echt als app uit te laten zien, is het handig om een schermindeling te maken. Laten we de HTML opnieuw indelen, met een header, footer en de berichten komen in main. Een header is een blok bovenin je scherm, een footer is een blok onderin je scherm, de main is het belangrijkste deel en neemt de meeste plek in beslag. Daarom is main ideaal om de berichten in te laten verschijnen. Verwijder de HTML die je in de eerdere stappen hebt toegevoegd en zet dit er voor in de plaats:</p>
+				
+<code>
+<span class="blijvende_code">
+&lt;div class="container">
+&lt;!-- Zet je code hier neer --></span>
+<span class="nieuwe_code">	&lt;header>
+		&lt;input id="kanaalInput" type="number">
+	&lt;/header>
+	&lt;main class="berichten">&lt;/main>
+	&lt;footer>
+		Naam: &lt;input id="naamInput">
+		&lt;br>
+		Schrijf bericht: &lt;input id="berichtInput">
+	&lt;/footer></span>
+<span class="blijvende_code"> &lt;!-- Einde eigen code -->
+&lt;/div></span>
+</code>
+
+		<p>Laad de pagina opnieuw. Wat is er nu anders?</p>
+		<ol>
+			<li>Kunnen de blokjes die in <code>header</code> staan ook in de <code>footer</code> staan? En andersom?</li>
+			<li>Wat gebeurt er als je deze blokjes in de main zet?</li>
+			<li>Wat doet <code>&lt;br></code>? Wat verandert er als deze weg is?</li>
+		</ol>
+			
 		</div>
 
 		<div id="stappen_gemiddeld">
