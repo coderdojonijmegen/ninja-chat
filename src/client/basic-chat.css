@@ -23,20 +23,3 @@ main {
 }
 
 /* Zet hier je eigen CSS regels neer */
-.berichten {
-  background-color: green;   /* Voor een groene achtergrond */
-  padding: 5px;              /* Om 5 pixels extra ruimte in de box te krijgen aan alle randen. */
-  border: 2px dotted yellow; /* Voor een gele rand. */
-}
-
-
-#berichtInput {
-  background-color: yellow;
-  color: blue;
-}
-
-#naamInput {
-  background-color: black;
-  color: white;
-  font-weight: bold;
-}
