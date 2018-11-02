@@ -262,7 +262,35 @@
 			<div class="terug">
 				<a title="terug naar inhoud" href="#inhoud"><i class="material-icons">arrow_upward</i></a>
 			</div>
-			<h4>Stap 5: berichten mooier maken</h4>
+			<h4>Stap 5: deelnemers zien</h4>
+			<p>
+				Je kunt nu van kanaal wisselen, maar hoe weet je met wie je praat? Om te zien welke deelnemers een kanaal heeft, voeg in <code><span class="bestand">Documenten\ninja-chat-client\index.html</span></code> de volgende <code><span class="nieuwe_code">rode HTML</span></code> toe:
+			</p>
+			<code>
+<span class="blijvende_code">    &lt;div class="container">
+        &lt;!-- Zet je code hier neer -->
+		&lt;div class="berichten">&lt;/div>
+	    &lt;input id="kanaalInput" type="number"></span>
+        <span class="nieuwe_code">    &lt;button class="bekijkDeelnemers">Toon deelnemers&lt;/button>
+            &lt;div class="deelnemers">&lt;/div></span>
+        <span class="blijvende_code">    Naam: &lt;input id="naamInput">
+            Schrijf bericht: &lt;input id="berichtInput">
+        &lt;!-- Einde eigen code -->
+      &lt;/div></span>
+			</code>
+			<p>
+				Laad de pagina opnieuw. Klik op de knop. Wat gebeurt er?
+			</p>
+			<ol>
+				<li>Moet de <code>&lt;div class="deelnemers"></code> pers&eacute; volgen op de <code>&lt;button></code>? Wat gebeurt er als je er iets tussen zet?</li>
+				<li>Kunnen de blokjes die je tot nu toe hebt toegevoegd in een andere volgorde staan? Wat vind je belangrijk om bovenaan te hebben?</li>
+			</ol>
+
+
+			<div class="terug">
+				<a title="terug naar inhoud" href="#inhoud"><i class="material-icons">arrow_upward</i></a>
+			</div>
+			<h4>Stap 6: berichten mooier maken</h4>
 			<p>
 				Je bent nu klaar met de HTML. Je hebt alle bouwblokken die je nodig hebt om te chatten! Nu is het tijd om alles er wat leuker uit te laten zien.</p>
 			<p>Open <code><span class="bestand">Documenten\ninja-chat-client\basic-chat.css</span></code>. Voeg onderaan het bestand het volgende toe:</p>
@@ -285,7 +313,7 @@
 			<div class="terug">
 				<a title="terug naar inhoud" href="#inhoud"><i class="material-icons">arrow_upward</i></a>
 			</div>
-			<h4>Stap 6: berichtInput mooier maken</h4>
+			<h4>Stap 7: berichtInput mooier maken</h4>
 			<p>Voeg onderaan in <code><span class="bestand">Documenten\ninja-chat-client\basic-chat.css</span></code>. de volgende <code><span class="nieuwe_code">rode CSS</span></code> toe:</p>
 			<code><span class="blijvende_code">/* Zet hier je eigen CSS regels neer */
 .berichten {
@@ -306,7 +334,7 @@
 			<div class="terug">
 				<a title="terug naar inhoud" href="#inhoud"><i class="material-icons">arrow_upward</i></a>
 			</div>
-			<h4>Stap 7: naamInput mooier maken</h4>
+			<h4>Stap 8: naamInput mooier maken</h4>
 			<p>Voeg onderaan in <code><span class="bestand">Documenten\ninja-chat-client\basic-chat.css</span></code>. de volgende <code><span class="nieuwe_code">rode CSS</span></code> toe:</p>
 			<code><span class="blijvende_code">/* Zet hier je eigen CSS regels neer */
 .berichten {
@@ -333,7 +361,7 @@
 			<div class="terug">
 				<a title="terug naar inhoud" href="#inhoud"><i class="material-icons">arrow_upward</i></a>
 			</div>
-			<h4>Stap 8: kanaalInput mooier maken</h4>
+			<h4>Stap 9: kanaalInput mooier maken</h4>
 			<p>Voeg onderaan in <code><span class="bestand">Documenten\ninja-chat-client\basic-chat.css</span></code>. de volgende <code><span class="nieuwe_code">rode CSS</span></code> toe:</p>
 			<code><span class="blijvende_code">/* Zet hier je eigen CSS regels neer */
 .berichten {
@@ -363,7 +391,7 @@
 			<div class="terug">
 				<a title="terug naar inhoud" href="#inhoud"><i class="material-icons">arrow_upward</i></a>
 			</div>
-			<h4>Stap 9: de losse berichten mooier maken</h4>
+			<h4>Stap 10: de losse berichten mooier maken</h4>
 			<p>Voeg onderaan in <code><span class="bestand">Documenten\ninja-chat-client\basic-chat.css</span></code>. de volgende <code><span class="nieuwe_code">rode CSS</span></code> toe:</p>
 			<code><span class="blijvende_code">/* Zet hier je eigen CSS regels neer */
 .berichten {
@@ -400,7 +428,7 @@
 			<div class="terug">
 				<a title="terug naar inhoud" href="#inhoud"><i class="material-icons">arrow_upward</i></a>
 			</div>
-			<h4>Stap 10: je eigen berichten meer laten opvallen</h4>
+			<h4>Stap 11: je eigen berichten meer laten opvallen</h4>
 			<p>Nu zien alle berichten er hetzelfde uit. Je kunt je eigen berichten meer laten opvallen door onderaan in <code><span class="bestand">Documenten\ninja-chat-client\basic-chat.css</span></code>. de volgende <code><span class="nieuwe_code">rode CSS</span></code> toe te voegen:</p>
 			<code><span class="blijvende_code">/* Zet hier je eigen CSS regels neer */
 .berichten {
