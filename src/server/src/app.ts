@@ -22,16 +22,12 @@ function maak_kanalen(aantal: number): Kanaal[] {
     return kanalen
 }
 
-var port = 3000
-if (process.env.PORT != null) {
-	port = +process.env.PORT
-}
 
 var app: App = {
     koa: new Koa(),
     server: null,
     io: null,
-    port: port,
+    port: 3000,
     kanalen: maak_kanalen(15)
 }
 
@@ -65,12 +61,13 @@ function connect(client: SocketIO.Socket) {
 }
 
 function initialize() {
+	let port = process.env.PORT || '5000';
     app.koa.use(koa_static(__dirname + '/../public'))
     app.server = Http.createServer(app.koa.callback())
     app.io = SocketIO(app.server)
     app.io.on('connection', connect)
-    app.server.listen(app.port)
-    console.log(`Listening on http://localhost:${app.port}/`)
+    app.server.listen(port)
+    console.log(`Listening on http://localhost:${port}/`)
 }
 
 initialize()
