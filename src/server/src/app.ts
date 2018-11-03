@@ -6,11 +6,13 @@ import SocketIO = require('socket.io')
 import { Kanaal } from "./Kanaal";
 import { Connectie } from "./Connectie";
 
+const defaultPort: Number = 3000;
+
 interface App {
     koa: Koa
     server: Http.Server|null
     io : SocketIO.Server|null
-    port: number
+    port: Number
     kanalen: Kanaal[]
 }
 
@@ -27,7 +29,7 @@ var app: App = {
     koa: new Koa(),
     server: null,
     io: null,
-    port: 3000,
+    port: Number(process.env.PORT) || defaultPort,
     kanalen: maak_kanalen(15)
 }
 
@@ -61,13 +63,12 @@ function connect(client: SocketIO.Socket) {
 }
 
 function initialize() {
-    let port = process.env.PORT || '5000';
     app.koa.use(koa_static(__dirname + '/../public'))
     app.server = Http.createServer(app.koa.callback())
     app.io = SocketIO(app.server)
     app.io.on('connection', connect)
-    app.server.listen(port)
-    console.log(`Listening on http://localhost:${port}/`)
+    app.server.listen(app.port)
+    console.log(`Listening on http://localhost:${app.port}/`)
 }
 
 initialize()
