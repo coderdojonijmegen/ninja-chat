@@ -20,7 +20,6 @@
 				<li><a href="#benodigdheden">Benodigdheden</a></li>
 				<li><a href="#stappen">Stappen</a><ul>
 					<li><a href="#stappen_makkelijk">Makkelijk</a></li>
-					<li><a href="#stappen_gemiddeld">Gemiddeld</a></li>
 					<li><a href="#stappen_moeilijk">Moeilijk</a></li>
 				</ul></li>
 				<li><a href="#conclusie">Conclusie</a></li>
@@ -49,18 +48,15 @@
 			van het chatprogramma.
 			</p>
 			<p>
-			Het volledig zelf maken van een chat client is niet eenvoudig. We bieden daarom 3 niveaus aan waarop je met de chat client bezig kunt zijn:
+			Het volledig zelf maken van een chat client is niet eenvoudig. We bieden daarom 2 niveaus aan waarop je met de chat client bezig kunt zijn:
 			</p>
 			<ol>
 				<li><strong>gemakkelijk</strong>: hierbij krijg je van ons een HTML-bestand waarin al een simpele werkende client staat en waar je zelf kunt werken
 					aan het uiterlijk met HTML en CSS.</li>
-				<li><strong>gemiddeld</strong>: hierbij krijg je hetzelfde HTML-bestand dat je ook bij <i>gemakkelijk</i> krijgt, maar geven we je instructies om nog
-					meer functionaliteit aan de chat client toe te voegen, zoals bijvoorbeeld via welk kanaal je wilt chatten. Ook hier kun je het uiterlijk
-					van de client met HTML en CSS aanpassen zoals je zelf wil.</li>
-				<li><strong>moeilijk</strong>: tenslotte is er de moeilijke opdracht, waar je alleen instructies krijgt en zelf alles moet maken en vormgeven.</li>
+				<li><strong>moeilijk</strong>: hierbij krijg je alleen instructies en moet je zelf alles maken en vormgeven.</li>
 			</ol>
 			<p>
-			Niveau gemiddeld kan voortbouwen op niveau gemakkelijk. Voor moelijk moet je vanuit niets beginnen. Dus denk even na met welk niveau je aan de slag wil gaan.
+				Voor moelijk moet je vanuit niets beginnen. Dus denk even na met welk niveau je aan de slag wil gaan.
 			</p>
 			<p>
 			<strong>LET OP</strong>: de regels in de voorbeeldcode die beginnen met <code><span class="commentaar">--</span></code>
@@ -81,7 +77,7 @@
 			</p>
 			<ul>
 				<li>deze instructie: <a href="https://coderdojonijmegen.github.io/ninja-chat/" target="_blank">https://coderdojonijmegen.github.io/ninja-chat/</a></li>
-				<li>voor de niveaus <i>gemakkelijk</i> en <i>gemiddeld</i>: HTML, CSS en JavaScript bestanden voor de chat client. Dat bestand kun hier downloaden:
+				<li>voor het niveau <i>gemakkelijk</i>: HTML-, CSS- en JavaScript-bestanden voor de chat client. Dat bestand kun hier downloaden:
 					<a href="https://github.com/coderdojonijmegen/ninja-chat/raw/master/src/client/" target="_blank" download>
 					https://github.com/coderdojonijmegen/ninja-chat/raw/master/src/client/</a></li>
 				<li>een goede teksteditor om de HTML-pagina aan te passen. Een voorbeeld is: <a href="https://notepad-plus-plus.org/download" target="_blank">Notepad++</a>
@@ -111,7 +107,7 @@
 			</div>
 			<h2>Stappen</h2>
 			<p>
-				Voor dat je zelf aan de slag gaat, kun je eens kijken hoe het er uit kan zien. Open
+				Voordat je zelf aan de slag gaat, kun je eens kijken hoe het er uit kan zien. Open
 				daarvoor een web browser en ga naar het adres van de chat server.
 			</p>
 
@@ -174,11 +170,11 @@
 				Voeg de volgende <code><span class="nieuwe_code">rode code</span></code> toe:
 				<br>
 <code>
-<span class="blijvende_code">    &lt;div class="container">
-	&lt;!-- Zet je code hier neer --></span>
+<span class="blijvende_code">    &lt;div class="container"></span>
+	<span class="commentaar">&lt;!-- Zet je code hier neer --></span>
 	<span class="nieuwe_code">    &lt;div class="berichten">&lt;/div></span>
-	<span class="blijvende_code"> &lt;!-- Einde eigen code -->
-    &lt;/div></span>
+        <span class="commentaar">&lt;!-- Einde eigen code --></span>
+    <span class="blijvende_code">&lt;/div></span>
 </code>
 			</p>
 
@@ -204,12 +200,12 @@
 				Voeg de volgende <code><span class="nieuwe_code">rode code</span></code> toe:
 			</p>
 			<code>
-<span class="blijvende_code">    &lt;div class="container">
-        &lt;!-- Zet je code hier neer -->
+<span class="blijvende_code">    &lt;div class="container"></span>
+	<span class="commentaar">&lt;!-- Zet je code hier neer --></span>
 	    &lt;div class="berichten">&lt;/div></span>
 <span class="nieuwe_code">            Schrijf bericht: &lt;input id="berichtInput"></span>
-<span class="blijvende_code">        &lt;!-- Einde eigen code -->
-    &lt;/div></span>
+        <span class="commentaar">&lt;!-- Einde eigen code --></span>
+    <span class="blijvende_code">&lt;/div></span>
 			</code>
 			<p>
 				Als je nu de pagina opnieuw laadt, kun je berichtjes schrijven. Het blokje waarin je kunt typen staat
@@ -225,13 +221,13 @@
 				Als je op dit moment chat, bepaalt de server hoe je heet, bijvoorbeeld 'anon3'. Zelf een naam instellen is natuurlijk leuker. Voeg in <code><span class="bestand">Documenten\ninja-chat-client\index.html</span></code> de volgende <code><span class="nieuwe_code">rode HTML</span></code> toe:
 			</p>
 			<code>
-<span class="blijvende_code">    &lt;div class="container">
-        &lt;!-- Zet je code hier neer -->
+<span class="blijvende_code">    &lt;div class="container"></span>
+    <span class="commentaar">    &lt;!-- Zet je code hier neer --></span>
 	    &lt;div class="berichten">&lt;/div></span>
 <span class="nieuwe_code">            Naam: &lt;input id="naamInput"></span>
 <span class="blijvende_code">            Schrijf bericht: &lt;input id="berichtInput">
-         &lt;!-- Einde eigen code -->
-      &lt;/div></span>
+        <span class="commentaar">&lt;!-- Einde eigen code --></span>
+    <span class="blijvende_code">&lt;/div></span>
 			</code>
 			<p>
 				Laad de pagina opnieuw. Typ je naam in het vakje, en typ daarna een bericht.
@@ -245,14 +241,14 @@
 				Tot nu toe is er maar ėėn chatkanaal. Om een ander kanaal te kiezen, voeg in <code><span class="bestand">Documenten\ninja-chat-client\index.html</span></code> de volgende <code><span class="nieuwe_code">rode HTML</span></code> toe:
 			</p>
 			<code>
-<span class="blijvende_code">    &lt;div class="container">
-        &lt;!-- Zet je code hier neer -->
+<span class="blijvende_code">    &lt;div class="container"></span>
+	<span class="commentaar">&lt;!-- Zet je code hier neer --></span>
 	    &lt;div class="berichten">&lt;/div></span>
         <span class="nieuwe_code">    &lt;input id="kanaalInput" type="number"></span>
         <span class="blijvende_code">    Naam: &lt;input id="naamInput">
             Schrijf bericht: &lt;input id="berichtInput">
-        &lt;!-- Einde eigen code -->
-      &lt;/div></span>
+        <span class="commentaar">&lt;!-- Einde eigen code --></span>
+    <span class="blijvende_code">&lt;/div></span>
 			</code>
 			<p>
 				Laad de pagina opnieuw. Typ een ander kanaalnummer in het vakje, en typ een bericht. Wat gebeurt er?
@@ -267,16 +263,16 @@
 				Je kunt nu van kanaal wisselen, maar hoe weet je met wie je praat? Om te zien welke deelnemers een kanaal heeft, voeg in <code><span class="bestand">Documenten\ninja-chat-client\index.html</span></code> de volgende <code><span class="nieuwe_code">rode HTML</span></code> toe:
 			</p>
 			<code>
-<span class="blijvende_code">    &lt;div class="container">
-        &lt;!-- Zet je code hier neer -->
-		&lt;div class="berichten">&lt;/div>
+<span class="blijvende_code">    &lt;div class="container"></span>
+    <span class="commentaar">    &lt;!-- Zet je code hier neer --></span>
+	    <span class="blijvende_code">&lt;div class="berichten">&lt;/div>
 	    &lt;input id="kanaalInput" type="number"></span>
         <span class="nieuwe_code">    &lt;button class="bekijkDeelnemers">Toon deelnemers&lt;/button>
             &lt;div class="deelnemers">&lt;/div></span>
         <span class="blijvende_code">    Naam: &lt;input id="naamInput">
             Schrijf bericht: &lt;input id="berichtInput">
-        &lt;!-- Einde eigen code -->
-      &lt;/div></span>
+        <span class="commentaar">&lt;!-- Einde eigen code --></span>
+    <span class="blijvende_code">&lt;/div></span>
 			</code>
 			<p>
 				Laad de pagina opnieuw. Klik op de knop. Wat gebeurt er?
@@ -294,7 +290,7 @@
 			<p>
 				Je bent nu klaar met de HTML. Je hebt alle bouwblokken die je nodig hebt om te chatten! Nu is het tijd om alles er wat leuker uit te laten zien.</p>
 			<p>Open <code><span class="bestand">Documenten\ninja-chat-client\basic-chat.css</span></code>. Voeg onderaan het bestand het volgende toe:</p>
-<code><span class="blijvende_code">/* Zet hier je eigen CSS regels neer */</span></code>
+<code><span class="commentaar">/* Zet hier je eigen CSS regels neer */</span></code>
 <code><span class="nieuwe_code">
 .berichten {
     background-color: green;
@@ -315,8 +311,8 @@
 			</div>
 			<h4>Stap 7: berichtInput mooier maken</h4>
 			<p>Voeg onderaan in <code><span class="bestand">Documenten\ninja-chat-client\basic-chat.css</span></code>. de volgende <code><span class="nieuwe_code">rode CSS</span></code> toe:</p>
-			<code><span class="blijvende_code">/* Zet hier je eigen CSS regels neer */
-.berichten {
+			<code><span class="commentaar">/* Zet hier je eigen CSS regels neer */</span></code><br>
+<code><span class="blijvende_code">.berichten {
     background-color: green;
     padding: 5px;
     border: 2px dotted yellow;
@@ -336,8 +332,8 @@
 			</div>
 			<h4>Stap 8: naamInput mooier maken</h4>
 			<p>Voeg onderaan in <code><span class="bestand">Documenten\ninja-chat-client\basic-chat.css</span></code>. de volgende <code><span class="nieuwe_code">rode CSS</span></code> toe:</p>
-			<code><span class="blijvende_code">/* Zet hier je eigen CSS regels neer */
-.berichten {
+			<code><span class="commentaar">/* Zet hier je eigen CSS regels neer */</span></code><br>
+<code><span class="blijvende_code">.berichten {
     background-color: green;
     padding: 5px;
     border: 2px dotted yellow;
@@ -363,8 +359,8 @@
 			</div>
 			<h4>Stap 9: kanaalInput mooier maken</h4>
 			<p>Voeg onderaan in <code><span class="bestand">Documenten\ninja-chat-client\basic-chat.css</span></code>. de volgende <code><span class="nieuwe_code">rode CSS</span></code> toe:</p>
-			<code><span class="blijvende_code">/* Zet hier je eigen CSS regels neer */
-.berichten {
+			<code><span class="commentaar">/* Zet hier je eigen CSS regels neer */</span></code><br>
+<code><span class="blijvende_code">.berichten {
     background-color: green;
     padding: 5px;
     border: 2px dotted yellow;
@@ -393,8 +389,8 @@
 			</div>
 			<h4>Stap 10: de losse berichten mooier maken</h4>
 			<p>Voeg onderaan in <code><span class="bestand">Documenten\ninja-chat-client\basic-chat.css</span></code>. de volgende <code><span class="nieuwe_code">rode CSS</span></code> toe:</p>
-			<code><span class="blijvende_code">/* Zet hier je eigen CSS regels neer */
-.berichten {
+			<code><span class="commentaar">/* Zet hier je eigen CSS regels neer */</span></code><br>
+<code><span class="blijvende_code">.berichten {
     background-color: green;
     padding: 5px;
     border: 2px dotted yellow;
@@ -410,7 +406,7 @@
     font-weight: bold;
 }<br>
 #kanaalInput {
-    // Jouw code.
+    // Jouw CSS.
 }	</span></code><br>
 			<code><span class="nieuwe_code">
 .bericht {
@@ -430,8 +426,8 @@
 			</div>
 			<h4>Stap 11: je eigen berichten meer laten opvallen</h4>
 			<p>Nu zien alle berichten er hetzelfde uit. Je kunt je eigen berichten meer laten opvallen door onderaan in <code><span class="bestand">Documenten\ninja-chat-client\basic-chat.css</span></code>. de volgende <code><span class="nieuwe_code">rode CSS</span></code> toe te voegen:</p>
-			<code><span class="blijvende_code">/* Zet hier je eigen CSS regels neer */
-.berichten {
+			<code><span class="commentaar">/* Zet hier je eigen CSS regels neer */</span></code><br>
+<code><span class="blijvende_code">.berichten {
     background-color: green;
     padding: 5px;
     border: 2px dotted yellow;
@@ -467,24 +463,24 @@
 			<div class="terug">
 					<a title="terug naar inhoud" href="#inhoud"><i class="material-icons">arrow_upward</i></a>
 				</div>
-				<h4>Stap 11: Schermindeling</h4>
+				<h4>Stap 12: Schermindeling</h4>
 				<p>De onderdelen beginnen er al mooi uit te zien, maar om het er echt als app uit te laten zien, is het handig om een schermindeling te maken. Laten we de HTML opnieuw indelen, met een header, footer en de berichten komen in main. Een header is een blok bovenin je scherm, een footer is een blok onderin je scherm, de main is het belangrijkste deel en neemt de meeste plek in beslag. Daarom is main ideaal om de berichten in te laten verschijnen. Verwijder de HTML die je in de eerdere stappen hebt toegevoegd en zet dit er voor in de plaats:</p>
 				
 <code>
 <span class="blijvende_code">
-&lt;div class="container">
-&lt;!-- Zet je code hier neer --></span>
+    &lt;div class="container"></span>
+<span class="commentaar">    &lt;!-- Zet je code hier neer --></span>
 <span class="nieuwe_code">	&lt;header>
-		&lt;input id="kanaalInput" type="number">
+	    &lt;input id="kanaalInput" type="number">
 	&lt;/header>
 	&lt;main class="berichten">&lt;/main>
 	&lt;footer>
-		Naam: &lt;input id="naamInput">
-		&lt;br>
-		Schrijf bericht: &lt;input id="berichtInput">
+	    Naam: &lt;input id="naamInput">
+	    &lt;br>
+	    Schrijf bericht: &lt;input id="berichtInput">
 	&lt;/footer></span>
-<span class="blijvende_code"> &lt;!-- Einde eigen code -->
-&lt;/div></span>
+    <span class="commentaar">&lt;!-- Einde eigen code --></span>
+    <span class="blijvende_code">&lt;/div></span>
 </code>
 
 		<p>Laad de pagina opnieuw. Wat is er nu anders?</p>
@@ -493,34 +489,13 @@
 			<li>Wat gebeurt er als je deze blokjes in de main zet?</li>
 			<li>Wat doet <code>&lt;br></code>? Wat verandert er als deze weg is?</li>
 		</ol>
-			
+
+
+		<div class="terug">
+			<a title="terug naar inhoud" href="#inhoud"><i class="material-icons">arrow_upward</i></a>
 		</div>
-
-		<div id="stappen_gemiddeld">
-			<div class="terug">
-				<a title="terug naar inhoud" href="#inhoud"><i class="material-icons">arrow_upward</i></a>
-			</div>
-			<h3>Gemiddeld</h3>
-				
-			<div class="terug">
-				<a title="terug naar inhoud" href="#inhoud"><i class="material-icons">arrow_upward</i></a>
-			</div>
-			<p>
-				
-			</p>
-
-
-			<p>
-			
-			</p>
-			<code>
-<span class="blijvende_code">    blijvende code</span>
-<span class="commentaar">    commentaar</span>
-<span class="te_vervangen_code">    te vervangen code</span>
-<span class="nieuwe_code">    nieuwe code</span>
-			</code>
-			<p>
-			</p>
+		<h4>Klaar?</h4>
+		Als je klaar bent met alle 12 stappen, dan kun je zelf de chat nog mooier maken met CSS. Probeer de kleuren maar eens te veranderen, of een rand om de hele chat toe te voegen. Heb je nog meer ideeën nodig? Vraag ernaar bij een van de mentoren!
 		</div>
 
 		<div id="stappen_moeilijk">
@@ -540,7 +515,7 @@
 			<h4>Tip</h4>
 			<p>
 				Hoewel het natuurlijk de bedoeling is om zelf je chat client te maken, kun je natuurlijk af en toe
-				even spieken in de HTML, JavaScript en CSS bestanden die bij <i>makkelijk</i> en <i>gemiddeld</i>
+				even spieken in de HTML, JavaScript en CSS bestanden die bij <i>makkelijk</i>
 				zijn gebruikt.
 			</p>
 
