@@ -61,7 +61,7 @@ function connect(client: SocketIO.Socket) {
 }
 
 function initialize() {
-	let port = process.env.PORT || '5000';
+    let port = process.env.PORT || '5000';
     app.koa.use(koa_static(__dirname + '/../public'))
     app.server = Http.createServer(app.koa.callback())
     app.io = SocketIO(app.server)
