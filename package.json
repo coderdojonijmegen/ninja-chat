@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc --outDir src/server/build/ src/server/src/app.ts",
     "start": "node src/server/build/app.js",
-	"postinstall": "npm run build"
+    "postinstall": "npm run build"
   },
   "devDependencies": {
   },
