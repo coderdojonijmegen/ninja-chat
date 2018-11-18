@@ -6,11 +6,13 @@ import SocketIO = require('socket.io')
 import { Kanaal } from "./Kanaal";
 import { Connectie } from "./Connectie";
 
+const defaultPort: Number = 3000;
+
 interface App {
     koa: Koa
     server: Http.Server|null
     io : SocketIO.Server|null
-    port: number
+    port: Number
     kanalen: Kanaal[]
 }
 
@@ -22,16 +24,12 @@ function maak_kanalen(aantal: number): Kanaal[] {
     return kanalen
 }
 
-var port = 3000
-if (process.env.PORT != null) {
-	port = +process.env.PORT
-}
 
 var app: App = {
     koa: new Koa(),
     server: null,
     io: null,
-    port: port,
+    port: Number(process.env.PORT) || defaultPort,
     kanalen: maak_kanalen(15)
 }
 
