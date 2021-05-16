@@ -67,7 +67,8 @@ function initialize() {
     app.server = Http.createServer(app.koa.callback())
     app.io = new Server(app.server, {
         cors: {
-            origin: false
+            origin: "*",
+            methods: ["GET"]
         }
     })
     app.io.on('connection', connect)
