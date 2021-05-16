@@ -1,7 +1,7 @@
-import Http = require('http')
+import * as Http from 'http'
 import Koa = require('koa')
 import koa_static = require('koa-static')
-import SocketIO = require('socket.io')
+import { Server, Socket } from 'socket.io'
 
 import { Kanaal } from "./Kanaal";
 import { Connectie } from "./Connectie";
@@ -11,7 +11,7 @@ const defaultPort: Number = 3000;
 interface App {
     koa: Koa
     server: Http.Server|null
-    io : SocketIO.Server|null
+    io : Server|null
     port: Number
     kanalen: Kanaal[]
 }
@@ -55,7 +55,7 @@ function disconnect(connectie: Connectie) {
     }
 }
 
-function connect(client: SocketIO.Socket) {
+function connect(client: Socket) {
     const connectie = new Connectie(vind_kanaal, 1, client)
     connectie.initialize()
     app.kanalen[0].nieuweConnectie(connectie)
@@ -65,7 +65,11 @@ function connect(client: SocketIO.Socket) {
 function initialize() {
     app.koa.use(koa_static(__dirname + '/../public'))
     app.server = Http.createServer(app.koa.callback())
-    app.io = SocketIO(app.server)
+    app.io = new Server(app.server, {
+        cors: {
+            origin: false
+        }
+    })
     app.io.on('connection', connect)
     app.server.listen(app.port)
     console.log(`Listening on http://localhost:${app.port}/`)
