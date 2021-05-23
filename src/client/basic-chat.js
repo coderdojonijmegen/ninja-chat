@@ -6,8 +6,8 @@ var socket = io(serverIpAdresEnPoort, { forceNew: true });
  * @param {jQuery.Event} input 
  */
 function zetNaam(input) {
-  var naam = input.target.value
-  socket.emit('zetNaam', naam)
+    var naam = input.target.value
+    socket.emit('zetNaam', naam)
 }
 
 /**
@@ -16,7 +16,7 @@ function zetNaam(input) {
  * @param {jQuery.Event} input 
  */
 function zetKanaal(input) {
-  var kanaal = input.target.value
+    var kanaal = input.target.value
   socket.emit('zetKanaal', kanaal)
 }
 
@@ -24,11 +24,11 @@ function zetKanaal(input) {
  * Stuurt een bericht naar de server en maakt de bericht-input weer leeg.
  */
 function stuurBericht() {
-  var berichtInput = $(".berichtInput")
-  var bericht = berichtInput.val()
-
-  socket.emit('maakBericht', bericht)
-  berichtInput.val("")
+    var berichtInput = $(".berichtInput")
+    var bericht = berichtInput.val()
+  
+    socket.emit('maakBericht', bericht)
+    berichtInput.val("")
 }
 
 /**
@@ -37,9 +37,10 @@ function stuurBericht() {
  * @param {Event} event 
  */
 function checkEnter(event) {
-  if (event.which === 13) {
-      stuurBericht()
-  }
+    if (event.which === 13) {
+        stuurBericht()
+        event.preventDefault()
+    }
 }
 
 /**
@@ -48,7 +49,7 @@ function checkEnter(event) {
  * @param {string} naam 
  */
 function toonNaam(naam) {
-  $(".naamInput").val(naam)
+    $(".naamInput").val(naam)
 }
 
 /**
@@ -57,7 +58,7 @@ function toonNaam(naam) {
  * @param {number} kanaal 
  */
 function toonKanaal(kanaal) {
-  $(".kanaalInput").val(kanaal)
+    $(".kanaalInput").val(kanaal)
 }
 
 /**
@@ -66,8 +67,8 @@ function toonKanaal(kanaal) {
  * @param {object} bericht 
  */
 function toonBericht(bericht) {
-  var div = $('<div>').html(berichtNaarHtml(bericht))
-  $(".berichten").append(div)
+    var div = $('<div>').html(berichtNaarHtml(bericht))
+    $(".berichten").append(div)
 }
 
 /**
@@ -76,19 +77,19 @@ function toonBericht(bericht) {
  * @param {object} bericht 
  */
 function berichtNaarHtml(bericht) {
-  var gebruiker = $(".naamInput").val()
-  var class_naam = "bericht"
+    var gebruiker = $(".naamInput").val()
+    var class_naam = "bericht"
+    
+    if (gebruiker === bericht.gebruiker) {
+        class_naam = "eigen bericht"
+    }
   
-  if (gebruiker === bericht.gebruiker) {
-      class_naam = "eigen bericht"
-  }
-
-  return `
-    <p class="${class_naam}">
-      <i>${bericht.gebruiker} ${bericht.tijdstip}</i>
-      <br>
-      <span>${bericht.tekst}</span>
-    </p>`
+    return `
+        <div class="${class_naam}">
+            <i>${bericht.gebruiker} ${bericht.tijdstip}</i>
+            <br>
+            <span>${bericht.tekst}</span>
+        </div>`
 }
 
 /**
@@ -96,19 +97,19 @@ function berichtNaarHtml(bericht) {
  * Als de div nog niet bestaat, wordt het aangemaakt.
  */
 function toonOfVerbergDeelnemers() {
-  var div = $('.deelnemerLijst')
-  if (div.length > 0) {
-      // div is gevonden, verwijder.
-      div.remove()
-  }
-  else {
-      // div is niet gevonden, maak aan en verzoek server om deelnemerslijst.
-      var div = $('<div>')
-          .addClass('deelnemerLijst')
-
-      $(".deelnemers").append(div)
-      socket.emit('vraagDeelnemers')
-  }
+    var div = $('.deelnemerLijst')
+    if (div.length > 0) {
+        // div is gevonden, verwijder.
+        div.remove()
+    }
+    else {
+        // div is niet gevonden, maak aan en verzoek server om deelnemerslijst.
+        var div = $('<div>')
+            .addClass('deelnemerLijst')
+  
+        $(".deelnemers").append(div)
+        socket.emit('vraagDeelnemers')
+    }
 }
 
 /**
@@ -117,10 +118,10 @@ function toonOfVerbergDeelnemers() {
 * @param {string[]} deelnemers 
 */
 function updateDeelnemers(deelnemers) {
-  var div = $('.deelnemerLijst')
-  if (div.length > 0) {
-      div.html(deelnemersNaarHtml(deelnemers))
-  }
+    var div = $('.deelnemerLijst')
+    if (div.length > 0) {
+        div.html(deelnemersNaarHtml(deelnemers))
+    }
 }
 
 /**
@@ -129,27 +130,27 @@ function updateDeelnemers(deelnemers) {
 * @param {string[]} deelnemers 
 */
 function deelnemersNaarHtml(deelnemers) {
-  var opsomming = deelnemers.join(', ')
-
-  return `
-      <p>${opsomming}</p>
-  `
+    var opsomming = deelnemers.join(', ')
+  
+    return `
+        <p>${opsomming}</p>
+    `
 }
 
 /**
  * Dit is waar alle gebeurtenissen worden ingesteld.
  */
 function begin() {
-  $(".naamInput").change(zetNaam)
-  $(".kanaalInput").change(zetKanaal)
-  $(".stuurBericht").click(stuurBericht)
-  $(".berichtInput").keypress(checkEnter)
-  $(".bekijkDeelnemers").click(toonOfVerbergDeelnemers)
-
-  socket.on('krijgKanaal', toonKanaal)
-  socket.on('krijgNaam', toonNaam)
-  socket.on('krijgBericht', toonBericht)
-  socket.on('krijgDeelnemers', updateDeelnemers)
+    $(".naamInput").change(zetNaam)
+    $(".kanaalInput").change(zetKanaal)
+    $(".stuurBericht").click(stuurBericht)
+    $(".berichtInput").keypress(checkEnter)
+    $(".bekijkDeelnemers").click(toonOfVerbergDeelnemers)
+  
+    socket.on('krijgKanaal', toonKanaal)
+    socket.on('krijgNaam', toonNaam)
+    socket.on('krijgBericht', toonBericht)
+    socket.on('krijgDeelnemers', updateDeelnemers)
 }
 
 $(begin)
