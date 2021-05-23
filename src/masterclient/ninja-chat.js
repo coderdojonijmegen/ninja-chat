@@ -27,7 +27,7 @@ function zetKanaal(input) {
  * Stuurt een bericht naar de server en maakt de bericht-input weer leeg.
  */
 function stuurBericht() {
-  var berichtInput = $("#berichtInput")
+  var berichtInput = $(".berichtInput")
   var bericht = berichtInput.val()
   if (bericht != "") {
     socket.emit('maakBericht', bericht)
@@ -52,7 +52,7 @@ function checkEnter(event) {
  * @param {string} naam
  */
 function toonNaam(naam) {
-  $("#naamInput").val(naam)
+  $(".naamInput").val(naam)
 }
 
 /**
@@ -61,7 +61,7 @@ function toonNaam(naam) {
  * @param {number} kanaal
  */
 function toonKanaal(kanaal) {
-  $("#kanaalInput").val(kanaal)
+  $(".kanaalInput").val(kanaal)
 }
 
 /**
@@ -81,7 +81,7 @@ function toonBericht(bericht) {
  * @param {object} bericht
  */
 function berichtNaarHtml(bericht) {
-  var gebruiker = $("#naamInput").val()
+  var gebruiker = $(".naamInput").val()
   var class_naam = "bericht"
 
   if (gebruiker === bericht.gebruiker) {
@@ -146,12 +146,12 @@ function deelnemersNaarHtml(deelnemers) {
  * Dit is waar alle gebeurtenissen worden ingesteld.
  */
 function begin() {
-  // $("#naamInput").change(zetNaam)
+  // $(".naamInput").change(zetNaam)
   socket.emit("zetMaster")
 
-  $("#kanaalInput").change(zetKanaal)
+  $(".kanaalInput").change(zetKanaal)
   $(".stuurBericht").click(stuurBericht)
-  $("#berichtInput").keypress(checkEnter)
+  $(".berichtInput").keypress(checkEnter)
   $(".bekijkDeelnemers").click(toonOfVerbergDeelnemers)
 
   socket.on('krijgKanaal', toonKanaal)
