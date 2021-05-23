@@ -9,20 +9,20 @@
     <div class="container">
         <header>
             <span>Kanaal</span>
-            <input type="number" name="kanaal" id="kanaalInput">
+            <input type="number" name="kanaal" class="kanaalInput">
             <button class="bekijkDeelnemers">Bekijk deelnemers</button>
         </header>
 
         <main class="berichten"></main>
 
         <footer>
-            <div class="footerNaam"><input type="text" name="naamInput" id="naamInput"></div>
-            <div class="footerBericht"><input type="text" name="berichtInput" id="berichtInput" placeholder="Type je bericht..."></div>
+            <div class="footerNaam"><input type="text" name="naamInput" class="naamInput"></div>
+            <div class="footerBericht"><input type="text" name="berichtInput" class="berichtInput" placeholder="Type je bericht..."></div>
             <div class="footerKnop"><button class="stuurBericht">Stuur</button></div>
         </footer>
     </div>
 
-    <script src="jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.socket.io/4.1.1/socket.io.min.js" integrity="sha384-cdrFIqe3RasCMNE0jeFG9xJHog/tgOVC1E9Lzve8LQN1g5WUHo0Kvk1mawWjxX7a" crossorigin="anonymous"></script>
     <script src="ninja-chat.js"></script>
 </body>
