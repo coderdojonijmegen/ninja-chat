@@ -1,29 +1,67 @@
-body {
-  background-color: lightgrey;
-  padding: 0;
-  margin: 0;
+* {
+   box-sizing: border-box; 
+   font-family: 'Roboto', sans-serif;
 }
 
-.container {
-  position: relative;
-  background-color: white;
-  width: 100%;
-  max-width: 600px;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  padding: 10px;
-  margin: auto;
-}
-
-
-main {
-    overflow-y:scroll;
+body, html, .container {
+    margin: 0;
+    padding: 0;
     height: 100%;
 }
 
-footer {
-  min-height: 100px;
+.container {
+    display: flex;
+    flex-direction: column;
 }
 
-/* Zet hier je eigen CSS regels neer */
+.container > div {
+    display: flex;
+    flex-direction: row;
+}
+
+.boven {
+    flex: 0 0 80px;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: darkgreen;
+    padding: 5px;
+}
+
+.midden {
+    flex: 1 0 80px;
+    justify-content: center;
+    background-color: lightyellow;
+    padding: 5px;
+}
+
+.onder {
+    flex: 0 0 80px;
+    background-color: lightgrey;
+    padding: 5px;
+}
+
+.berichten {
+    flex: 1 0 200px;
+    max-width: 800px;
+}
+
+.bericht {
+    overflow: auto;
+    background-color: white;
+    padding: 5px;
+    width: 70%;
+    border-radius: 7px;
+    border: 1px solid black;
+    margin: 5px;
+}
+
+.eigen {
+    position: relative;
+    right: -25%;
+}
+
+.berichtInput {
+    flex: 1 0 200px;
+}
+
