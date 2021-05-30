@@ -13,7 +13,7 @@ In het begin zul je nog niet alles snappen wat in de bestanden staat. Dat is ok&
 
 - Open de app en de developers tools (zie [Benodigdheden](benodigdheden.md)).
 - Klik op Inspect Element *(TODO: inline afbeelding van de knop)*.
-- Beweeg de muis over de groene, gele en grijze balken in de app.
+- Beweeg de muis over de groene, gele en grijze balken in de appkv.
 
 Je ziet de 'div' elementen in de Developers Tools oplichten. Dat zijn de 'blokjes' waarmee je begint. Een paar dingen moet je weten over die blokjes:
 
@@ -58,23 +58,80 @@ Voeg deze code in, in het blokje *"onder"*:
 
 Als het goed is, zie je *"Type hier..."* op je scherm, maar als je daar klikt, kun je nog niet typen. Dat komt, omdat *div* daar niet voor is gemaakt. Verander het woord *div* in *textarea*, en ineens ziet het er heel anders uit:
 
-> \<textarea class="berichtInput"\>Type hier...\</textarea\>
+> \<textarea class="berichtInput" placeholder="Type hier..."\>\</textarea\>
 
 > TODO: screenshot.
 
-Je kunt nu tekst typen. Als je op enter drukt, wordt je bericht verstuurd!
+Je kunt nu tekst typen. Als je op enter drukt, wordt je bericht verstuurd!  
 
 Meer onderdelen
 ===============
-> TODO: opsommen van onderdelen, waarvan de kids zelf kunnen bepalen waar het op het scherm komt.
+Laten we nog wat meer onderdelen toevoegen. Kopieer deze blokjes en plak ze in de boven/midden/onder blokjes. Je mag zelf bepalen waar deze blokjes in je app komen en in welke volgorde. Je kan ook ons voorbeeld onderin deze pagina na maken.
+
+**Tips:**
+- Probeer niet alles tegelijk te doen. Plak een blokje in de index.html, sla op en ververs de pagina in chrome.
+- Staat een blokje niet op de plek die je had verwacht? Gebruik de Inspect Element knop om te ontdekken wat er mis is gegaan!
+- De boven/midden/onder classes heb elk hun eigen manier van blokjes plaatsen. Hier gaan we in het volgende hoofdstuk verder op in.
+- Verander teksten en de type blokjes, je kan er vanalles van maken. Zolang de 'class' klopt, zou het moeten blijven werken.
+
+De blokjes
+----------
+
+> \<h1\>Ninja chat\</h1\>
+
+Met h1 plaats je een titel, de letters zijn dan groter en dikker. Het heeft verder geen speciale effecten, dus h1 is net als een div. Probeer ook h2 en h3 voor verschillende grooottes.
+
+> \<div\>Naam: \<input type="text" class="naamInput"\>\</div\>
+
+Een input is een speciaal soort blokje, waar je iets kan typen of aanklikken. Een input hoeft niet afgesloten te worden, want er kan nooit html *in* een input staan. Met *type="text"* wordt gezegd dat je tekst kan typen. De class *'naamInput'* is voor het invoeren van je naam. We hebben de input in een div blokje geplaatst, zodat de tekst "Naam" er mooi bij komt te staan. Verander de standaard naam in je eigen naam, omdat bij de berichten terug te zien.
+
+> \<div\>Kanaal: \<input type="number" class="kanaalInput"\>\</div\>
+
+Ook dit is een input, nu met type *'number'*, zodat je alleen een getal kan invullen. Elk bericht hoort bij een kanaal en je kanaal is standaard '1'.
+
+> \<button class="stuurBericht"\>Stuur bericht\</button\>
+
+Button is Engels voor het woord 'knop'. Tot nu toe stuurde je berichten door op 'enter' te drukken, nu kan het ook door op deze knop te klikken.
+
+> \<div class="deelnemers"\>\</div\>
+
+Deze div is nog leeg, het doet niets totdat er op de deelnemers knop wordt gedrukt. Maar die knop heb je nog niet, dus die volgt nu:
+
+> \<button class="bekijkDeelnemers"\>Bekijk deelnemers\</button\>
+
+Je krijgt dus een knop waarmee je deelnemers kan bekijken, zodra daar op wordt geklikt wordt de 'deelnemers' div gevuld met de namen van de andere ninja's en mentoren. Deze knop mag ook *in* de 'deelnemers' div staan, zodat de namen en de knop mooi bij elkaar staan.
+
+> TODO: screenshot van de voorbeeld app.
 
 HTML in berichten
 =================
-> TODO: laat kinderen \<em\> en \<strong> en \<h1\> blocks in hun berichten gebruiken.
+Wat de ninja-chat zo bijzonder maakt, is dat je HTML in je berichten kan gebruiken. Type maar eens als bericht in de chat:
+
+> \<h1\>Hallo wereld!\<h1\>
+
+Zoals eerder gezegd, is h1 een blokje zoals de div. Maar niet elke HTML code is een eigen blokje. Je kan ook HTML gebruiken om een woord of meerdere woorden op te maken. Type dit als bericht in de chat:
+
+> Hier is woord \<strong\>dikgedrukt\</strong\> en twee woorden \<em\>schuin gedrukt\</em\>!
+
+Probeer ook andere HTML code die je hebt geleerd in je berichten. Alles mag!
 
 Afbeeldingen
 ============
-> TODO: laat kids hun app opleuken met afbeeldingen, beschrijf ook hoe afbeeldingen in de berichten kunnen worden gevoegd.
+Het mooiste HTML blokje hebben we bewaard voor het laatst: je kan plaatjes zien in je app!
+
+> \<img src="coderdojo.png"\>
+
+Net als een input blokje, hoeft de img niet afgesloten te worden. De link voor het plaatje schrijf je in *src=""*. We gebruiken nu de bijgesloten coderdojo.png als voorbeeld, maar het kan elk plaatje zijn wat je maar wilt.
+
+Zo kies je je eigen plaatjes:
+
+- Zoek op internet een plaatje dat je in de app wilt hebben.
+- Klik met rechtermuisknop op het plaatje en selecteer *"afbeeldingsadres kopi&euml;ren"*.
+- Type een nieuw *img* blok in je index.html en ze je cursor in de aanhalingstekens van de *src*.
+- Gebruik rechtermuisknop en klik op plakken, of type CTRL-V om te plakken.
+- Sla op en bekijk je plaatje in de app.
+
+*Tip:* Op deze manier kun je ook plaatjes in je chat berichten plaatsen.
 
 
 [Volgende: stijl](stijl.md)
