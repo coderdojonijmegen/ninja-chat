@@ -121,6 +121,8 @@ Het mooiste HTML blokje hebben we bewaard voor het laatst: je kan plaatjes zien 
 
 > \<img src="coderdojo.png"\>
 
+> TODO: width en height attributes uitleggen.
+
 Net als een input blokje, hoeft de img niet afgesloten te worden. De link voor het plaatje schrijf je in *src=""*. We gebruiken nu de bijgesloten coderdojo.png als voorbeeld, maar het kan elk plaatje zijn wat je maar wilt.
 
 Zo kies je je eigen plaatjes:
