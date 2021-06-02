@@ -53,7 +53,6 @@ Om je app te zien, moet je een web server hebben die naar je map verwijst. Daarn
 Wij adviseren [Web Server for Chrome](https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb). Installeer de web server en open de app. Je zie dan een instellingen pagina. Selecteer hier de uitgepakte map en stel de server in zoals op deze afbeelding:
 
 ![Chrome web server settings](images/settings-webserver-for-chrome.png)
-> TODO: screenshot van de instellingen.
 
 *Let op*: De CORS headers zijn heel belangrijk om de chat werkend te krijgen.
 
@@ -77,11 +76,9 @@ Als het goed is, heb je nu alles om je app te bouwen. Open de link van je web se
 
 Klik met je rechter muisknop op &egrave;&egrave;n van die balken en klik op "Inspect Element". Hiermee open je de developers tools van Chrome, waar je kan sleutelen aan alle onderdelen van de app.
 
-> TODO: screenshot van knopje waarmee je de tools verticaal zet.
-
 Voor de chat app is het fijn om de developers tools rechts van je scherm te zetten met *deze* knop, rechts van je tools. Sleep de rand van de tools dan zo, dat het ongeveer de helft van je scherm in beslag neemt.
 
-> TODO: screenshot van de developers tools.
+![Developers tools](images/developers-tools.png)
 
 
 ## Structuur (HTML)
@@ -98,8 +95,9 @@ Bij elk hoofdstuk hoort een bestand. Voor dit hoofdstuk werken we in de *index.h
 In het begin zul je nog niet alles snappen wat in de bestanden staat. Dat is ok&egrave;! Laten we eerst rond kijken en dan gaan we onze eigen onderdelen toevoegen:
 
 - Open de app en de developers tools (zie [Benodigdheden](benodigdheden.md)).
-- Klik op Inspect Element *(TODO: inline afbeelding van de knop)*.
-- Beweeg de muis over de groene, gele en grijze balken in de appkv.
+- Klik op de Inspect Element knop (zie afbeelding), zodat deze blauw wordt.   
+![Inspect element](images/inspect-element.png)
+- Beweeg de muis over de groene, gele en grijze balken in de app.
 
 Je ziet de 'div' elementen in de Developers Tools oplichten. Dat zijn de 'blokjes' waarmee je begint. Een paar dingen moet je weten over die blokjes:
 
@@ -122,7 +120,7 @@ In de HTML kun je tekst typen. Afhankelijk van waar je die tekst typt, komt het 
 - Wat gebeurt er als je tekst typt in de container, maar *buiten* de boven/midden/onder blokjes?
 - Wat gebeurt er als je tekst typt *buiten* de container (maar wel in de **\<body\>**)?
 
-> TODO: screenshot als voorbeeld.
+![Test teksten](images/test-teksten.png)
 
 ### Chat berichten
 
@@ -133,7 +131,7 @@ Voeg deze code in, in het blokje *"midden"*:
 
 Ververs de pagina. Als het goed is, verschijnen nu de chat berichten op je scherm! Zo makkelijk kan het zijn om onderdelen toe te voegen.
 
-> TODO: screenshot.
+![Chat bericht](images/chat-bericht.png)
 
 #### Berichten typen
 
@@ -146,7 +144,7 @@ Als het goed is, zie je *"Type hier..."* op je scherm, maar als je daar klikt, k
 
 > \<textarea class="berichtInput" placeholder="Type hier..."\>\</textarea\>
 
-> TODO: screenshot.
+![Textarea](images/textarea.png)
 
 Je kunt nu tekst typen. Als je op enter drukt, wordt je bericht verstuurd!
 
@@ -186,7 +184,7 @@ Deze div is nog leeg, het doet niets totdat er op de deelnemers knop wordt gedru
 
 Je krijgt dus een knop waarmee je deelnemers kan bekijken, zodra daar op wordt geklikt wordt de 'deelnemers' div gevuld met de namen van de andere ninja's en mentoren. Deze knop mag ook *in* de 'deelnemers' div staan, zodat de namen en de knop mooi bij elkaar staan.
 
-> TODO: screenshot van de voorbeeld app.
+![Voorbeeld app](images/voorbeeld-app.png)
 
 ### HTML in berichten
 
@@ -206,7 +204,9 @@ Het mooiste HTML blokje hebben we bewaard voor het laatst: je kan plaatjes zien 
 
 > \<img src="coderdojo.png"\>
 
-> TODO: width en height attributes uitleggen.
+Het plaatje is erg groot, eigenlijk te groot om mooi in de app te passen. Dit is makkelijk op te lossen door een width (= breedte) en een height (= hoogte) bij te voegen:
+
+> \<img src="coderdojo.png" width="32" height="32"\>
 
 Net als een input blokje, hoeft de img niet afgesloten te worden. De link voor het plaatje schrijf je in *src=""*. We gebruiken nu de bijgesloten coderdojo.png als voorbeeld, maar het kan elk plaatje zijn wat je maar wilt.
 
@@ -238,7 +238,11 @@ Laten we eerst kleuren aanpassen:
 - Zie hoe de kleur van het midden blok is veranderd!
 - Verander van andere blokjes ook de background-color. Probeer verschillende kleuren uit.
 
-De kleuren die je nu in stelt worden nog niet opgeslagen. De volgende keer dat je refresht is alles weer terug naar hoe het was. Dit is hoe je je kleuren kan opslaan:
+De kleuren die je nu in stelt worden nog niet opgeslagen. De volgende keer dat je refresht is alles weer terug naar hoe het was.
+
+#### Styling opslaan
+
+Dit is hoe je je kleuren kan opslaan:
 
 - Noteer of kopieer de naam van de kleur die je wilt opslaan.
 - Je kunt ook een kleur kiezen op deze website: [csscolornames.com](http://csscolornames.com/)
@@ -247,11 +251,17 @@ De kleuren die je nu in stelt worden nog niet opgeslagen. De volgende keer dat j
 - Verander de background-color in een kleur naar keuze en sla het bestand op.
 - Refresh je browser en zie de kleur die je hebt gekozen in het midden blok.
 
-Op deze manier kun je alle achtergrond kleuren instellen die je wilt.
+Op deze manier kun je alle achtergrond kleuren instellen die je wilt. Zoek de andere onderdelen van je app op in het CSS bestand en geef ze een kleur die je leuk vindt.
 
-> TODO: Nieuwe CSS classes toevoegen.
-> TODO: Style keuzes voor tekst kleur en lettertype toevoegen.
-> TODO: Verschillende lettertypes toevoegen.
+#### Tekst
+
+Je kunt ook teksten er anders uit laten zien. Voeg deze regels eens toe, bijvoorbeeld bij .bericht:
+
+> color: darkred;  
+> font-family: 'Indie Flower', cursive;
+
+*color* verandert de kleur van de tekst. Je kunt dezelfde kleuren gebruiken als voor *background-color*.  
+*font-family* verandert het lettertype. Kun je ontdekken welk lettertype nog meer wordt gebruikt in de app?
 
 > TODO: screenshots en laat de kinderen die na maken.
 
