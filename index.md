@@ -4,8 +4,12 @@ date: 2021-05-24T13:44:02+02:00
 draft: false
 toc: true
 headercolor: "teal-background"
-taal: 
+taal: Javascript
 ---
+
+We gaan een chat programma maken!
+
+<!--more-->
 
 ## Benodigdheden
 
@@ -97,7 +101,7 @@ Bij elk hoofdstuk hoort een bestand. Voor dit hoofdstuk werken we in de *index.h
 
 In het begin zul je nog niet alles snappen wat in de bestanden staat. Dat is ok&egrave;! Laten we eerst rond kijken en dan gaan we onze eigen onderdelen toevoegen:
 
-- Open de app en de developers tools (zie [Benodigdheden](benodigdheden.md)).
+- Open de app en de developers tools (zie [Benodigdheden](#benodigdheden)).
 - Klik op Inspect Element *(TODO: inline afbeelding van de knop)*.
 - Beweeg de muis over de groene, gele en grijze balken in de appkv.
 
