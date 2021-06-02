@@ -70,7 +70,7 @@ Zoek de volgende regel in je index.html bestand, en plak de chat server url tuss
 
 {{<highlight javascript>}}
 <script>
-    var serverIpAdresEnPoort = "http://127.0.0.1:3000";
+    var serverIpAdresEnPoort = "https://chat.coderdojo-nijmegen.nl";
 </script>
 {{</highlight>}}
 
