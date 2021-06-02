@@ -131,7 +131,9 @@ In de HTML kun je tekst typen. Afhankelijk van waar je die tekst typt, komt het 
 Nu dat je snapt hoe de HTML blokjes werken, kun je je eigen blokjes toe voegen.  
 Voeg deze code in, in het blokje *"midden"*:
 
-> \<div class="berichten"\>\</div\>
+{{<highlight html>}}
+\<div class="berichten"\>\</div\>
+{{</highlight>}}
 
 Ververs de pagina. Als het goed is, verschijnen nu de chat berichten op je scherm! Zo makkelijk kan het zijn om onderdelen toe te voegen.
 
@@ -142,11 +144,15 @@ Ververs de pagina. Als het goed is, verschijnen nu de chat berichten op je scher
 We willen natuurlijk ook berichten kunnen sturen.  
 Voeg deze code in, in het blokje *"onder"*:
 
-> \<div class="berichtInput"\>Type hier...\</div\>
+{{<highlight html>}}
+\<div class="berichtInput"\>Type hier...\</div\>
+{{</highlight>}}
 
 Als het goed is, zie je *"Type hier..."* op je scherm, maar als je daar klikt, kun je nog niet typen. Dat komt, omdat *div* daar niet voor is gemaakt. Verander het woord *div* in *textarea*, en ineens ziet het er heel anders uit:
 
-> \<textarea class="berichtInput" placeholder="Type hier..."\>\</textarea\>
+{{<highlight html>}}
+\<textarea class="berichtInput" placeholder="Type hier..."\>\</textarea\>
+{{</highlight>}}
 
 ![Textarea](images/textarea.png)
 
@@ -164,27 +170,39 @@ Laten we nog wat meer onderdelen toevoegen. Kopieer deze blokjes en plak ze in d
 
 #### De blokjes
 
-> \<h1\>Ninja chat\</h1\>
+{{<highlight html>}}
+\<h1\>Ninja chat\</h1\>
+{{</highlight>}}
 
 Met h1 plaats je een titel, de letters zijn dan groter en dikker. Het heeft verder geen speciale effecten, dus h1 is net als een div. Probeer ook h2 en h3 voor verschillende grooottes.
 
-> \<div\>Naam: \<input type="text" class="naamInput"\>\</div\>
+{{<highlight html>}}
+\<div\>Naam: \<input type="text" class="naamInput"\>\</div\>
+{{</highlight>}}
 
 Een input is een speciaal soort blokje, waar je iets kan typen of aanklikken. Een input hoeft niet afgesloten te worden, want er kan nooit html *in* een input staan. Met *type="text"* wordt gezegd dat je tekst kan typen. De class *'naamInput'* is voor het invoeren van je naam. We hebben de input in een div blokje geplaatst, zodat de tekst "Naam" er mooi bij komt te staan. Verander de standaard naam in je eigen naam, omdat bij de berichten terug te zien.
 
-> \<div\>Kanaal: \<input type="number" class="kanaalInput"\>\</div\>
+{{<highlight html>}}
+\<div\>Kanaal: \<input type="number" class="kanaalInput"\>\</div\>
+{{</highlight>}}
 
 Ook dit is een input, nu met type *'number'*, zodat je alleen een getal kan invullen. Elk bericht hoort bij een kanaal en je kanaal is standaard '1'.
 
-> \<button class="stuurBericht"\>Stuur bericht\</button\>
+{{<highlight html>}}
+\<button class="stuurBericht"\>Stuur bericht\</button\>
+{{</highlight>}}
 
 Button is Engels voor het woord 'knop'. Tot nu toe stuurde je berichten door op 'enter' te drukken, nu kan het ook door op deze knop te klikken.
 
-> \<div class="deelnemers"\>\</div\>
+{{<highlight html>}}
+\<div class="deelnemers"\>\</div\>
+{{</highlight>}}
 
 Deze div is nog leeg, het doet niets totdat er op de deelnemers knop wordt gedrukt. Maar die knop heb je nog niet, dus die volgt nu:
 
-> \<button class="bekijkDeelnemers"\>Bekijk deelnemers\</button\>
+{{<highlight html>}}
+\<button class="bekijkDeelnemers"\>Bekijk deelnemers\</button\>
+{{</highlight>}}
 
 Je krijgt dus een knop waarmee je deelnemers kan bekijken, zodra daar op wordt geklikt wordt de 'deelnemers' div gevuld met de namen van de andere ninja's en mentoren. Deze knop mag ook *in* de 'deelnemers' div staan, zodat de namen en de knop mooi bij elkaar staan.
 
@@ -194,11 +212,13 @@ Je krijgt dus een knop waarmee je deelnemers kan bekijken, zodra daar op wordt g
 
 Wat de ninja-chat zo bijzonder maakt, is dat je HTML in je berichten kan gebruiken. Type maar eens als bericht in de chat:
 
-> \<h1\>Hallo wereld!\<h1\>
+{{<highlight html>}}
+\<h1\>Hallo wereld!\<h1\>
+{{</highlight>}}
 
 Zoals eerder gezegd, is h1 een blokje zoals de div. Maar niet elke HTML code is een eigen blokje. Je kan ook HTML gebruiken om een woord of meerdere woorden op te maken. Type dit als bericht in de chat:
 
-> Hier is woord \<strong\>dikgedrukt\</strong\> en twee woorden \<em\>schuin gedrukt\</em\>!
+Hier is woord \<strong\>dikgedrukt\</strong\> en twee woorden \<em\>schuin gedrukt\</em\>!
 
 Probeer ook andere HTML code die je hebt geleerd in je berichten. Alles mag!
 
@@ -206,11 +226,15 @@ Probeer ook andere HTML code die je hebt geleerd in je berichten. Alles mag!
 
 Het mooiste HTML blokje hebben we bewaard voor het laatst: je kan plaatjes zien in je app!
 
-> \<img src="coderdojo.png"\>
+{{<highlight html>}}
+\<img src="coderdojo.png"\>
+{{</highlight>}}
 
 Het plaatje is erg groot, eigenlijk te groot om mooi in de app te passen. Dit is makkelijk op te lossen door een width (= breedte) en een height (= hoogte) bij te voegen:
 
-> \<img src="coderdojo.png" width="32" height="32"\>
+{{<highlight html>}}
+\<img src="coderdojo.png" width="32" height="32"\>
+{{</highlight>}}
 
 Net als een input blokje, hoeft de img niet afgesloten te worden. De link voor het plaatje schrijf je in *src=""*. We gebruiken nu de bijgesloten coderdojo.png als voorbeeld, maar het kan elk plaatje zijn wat je maar wilt.
 
@@ -261,8 +285,10 @@ Op deze manier kun je alle achtergrond kleuren instellen die je wilt. Zoek de an
 
 Je kunt ook teksten er anders uit laten zien. Voeg deze regels eens toe, bijvoorbeeld bij .bericht:
 
-> color: darkred;  
-> font-family: 'Indie Flower', cursive;
+{{<highlight css>}}
+    color: darkred;  
+    font-family: 'Indie Flower', cursive;
+{{</highlight>}}
 
 *color* verandert de kleur van de tekst. Je kunt dezelfde kleuren gebruiken als voor *background-color*.  
 *font-family* verandert het lettertype. Kun je ontdekken welk lettertype nog meer wordt gebruikt in de app?
