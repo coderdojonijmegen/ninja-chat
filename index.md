@@ -299,13 +299,47 @@ Probeer deze kleuren eens na te maken. *Tip:* Geef de titel een nieuwe class naa
 
 ### Vormen en randen
 
-> TODO: laat de kinderen de flex afmetingen aanpassen en presenteer de CSS opdrachten voor border en padding. Presenteer ook de border-radius optie.
+Alles op het scherm kunnen we groter of kleiner maken. Probeer dit eens uit:
 
-> TODO: screenshots en laat de kinderen die na maken.
+ - Klik op één van de berichten, met Inspect Element.
+ - Bij de styles zie je onder andere padding, border en margin.
+ - Verander de getallen één voor één en kijk wat er gebeurt: maak ze 40px, of 1px, of 0.
+ - Je ziet ook border-radius, verander daarvan ook het getal.
+ - Verander de kleur van 'border' (border is Engels voor 'rand').
+ - Verander bij de border het woord 'solid' in 'dotted' en kijk wat er gebeurt.
+
+![Border](images/border.png)
+
+Het is makkelijker om te zien wat het doet, dan om het uit te leggen. In het kort:
+
+ - *10px* betekent 10 pixels. Een pixels is een punt op je scherm.
+ - *border* is de rand van een blokje. Het is een lijn of stippels, heeft een kleur en een dikte.
+ - *padding* is hoeveel ruimte er IN het blokje is, voordat de tekst begint.
+ - *margin* is hoeveel ruimte er OM het blokje heen is.
+ - *border-radius* is om te rand rond te maken.
+
+*Tip:* Probeer eens een blokje helemaal rond te maken met border-radius.
+
+### Meer CSS
+
+Met CSS kun je van elk blokje zeggen hoe het eruit moet zien. Als je het leuk vindt, kun je in de basic-chat.css nog andere blokjes aanpassen met de border en padding enzo. Je kunt ook kijken welke CSS opdrachten er nog meer in staan. We hebben zoveel mogelijk in het bestand beschreven wat we doen, als je twijfelt kun je altijd nog op internet zoeken. Succes!
 
 ### Styling in berichten
 
-> TODO: beschrijf hoe inline styling werkt en laat de kinderen gestylde berichten naar elkaar sturen.
+Je kunt ook CSS in je berichten gebruiken! Schrijf bijvoorbeeld eens:
+
+{{<highlight html>}}
+Hier is een stukje tekst <span style='color:blue;'>blauw</span>
+{{</highlight>}}
+
+Met *style=""* kun je CSS in een HTML blokje stoppen. Dat werkt dan alleen voor dat ene blokje, maar dat is perfect voor in berichten. Probeer ook eens de andere CSS commando's die je hebt geleerd, zoals border en font-family.
+
+*Tip:* als je meerdere CSS commando's in één blokje wilt, zet je er een ; tussen. Bijvoorbeeld:
+
+{{<highlight html>}}
+<span style='color:white;background-color:black'>Dit bericht is zwart/wit.</span>
+{{</highlight>}}
+
 
 ## Scripts (JavaScript)
 
