@@ -286,14 +286,16 @@ Op deze manier kun je alle achtergrond kleuren instellen die je wilt. Zoek de an
 Je kunt ook teksten er anders uit laten zien. Voeg deze regels eens toe, bijvoorbeeld bij .bericht:
 
 {{<highlight css>}}
-    color: darkred;  
+    color: yellow;  
     font-family: 'Indie Flower', cursive;
 {{</highlight>}}
 
 *color* verandert de kleur van de tekst. Je kunt dezelfde kleuren gebruiken als voor *background-color*.  
 *font-family* verandert het lettertype. Kun je ontdekken welk lettertype nog meer wordt gebruikt in de app?
 
-> TODO: screenshots en laat de kinderen die na maken.
+Probeer deze kleuren eens na te maken. *Tip:* Geef de titel een nieuwe class naam en gebruik die class naam om in de CSS het lettertype in te stellen.
+
+![Kleuren](images/kleuren.png)
 
 ### Vormen en randen
 
