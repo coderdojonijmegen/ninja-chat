@@ -329,7 +329,7 @@ Met CSS kun je van elk blokje zeggen hoe het eruit moet zien. Als je het leuk vi
 Je kunt ook CSS in je berichten gebruiken! Schrijf bijvoorbeeld eens:
 
 {{<highlight html>}}
-Hier is een stukje tekst <span style='color:blue;'>blauw</span>
+Hier is een stukje tekst <span style="color:blue;">blauw</span>
 {{</highlight>}}
 
 Met *style=""* kun je CSS in een HTML blokje stoppen. Dat werkt dan alleen voor dat ene blokje, maar dat is perfect voor in berichten. Probeer ook eens de andere CSS commando's die je hebt geleerd, zoals border en font-family.
@@ -337,7 +337,7 @@ Met *style=""* kun je CSS in een HTML blokje stoppen. Dat werkt dan alleen voor 
 *Tip:* als je meerdere CSS commando's in één blokje wilt, zet je er een ; tussen. Bijvoorbeeld:
 
 {{<highlight html>}}
-<span style='color:white;background-color:black'>Dit bericht is zwart/wit.</span>
+<span style="color:white;background-color:black">Dit bericht is zwart/wit.</span>
 {{</highlight>}}
 
 
