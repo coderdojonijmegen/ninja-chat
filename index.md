@@ -377,7 +377,7 @@ Kun je op die manier ook het kanaal op vragen? Of een bericht in de chat?
 
 Met variabelen (var) kan de browser dingen onthouden:
 
-{{<hightlight javascript>}}
+{{<highlight javascript>}}
 var naam = $(".naamInput").val()
 socket.emit("maakBericht", "Hallo, mijn naam is " + naam)
 {{</highlight>}}
@@ -388,7 +388,7 @@ Je hebt nu een bericht verstuurd met je naam er in! Kun je hetzelfde doen met je
 
 Computers zijn ook heel goed in rekenen. Het woord computer is zelfs Engels voor "berekenaar"! Type het volgende maar eens om uit te proberen:
 
-{{<hightlight javascript>}}
+{{<highlight javascript>}}
 var kanaal = $(".kanaalInput").val()
 kanaal + 2
 {{</highlight>}}
@@ -401,7 +401,7 @@ parseInt(kanaal) + 2
 
 Nu zie je je kanaal, met twee erbij opgeteld. Om de oefening af te maken, laten we de server vertellen dat we een nieuw kanaal willen:
 
-{{<hightlight javascript>}}
+{{<highlight javascript>}}
 socket.emit("zetKanaal", parseInt(kanaal) + 2)
 {{</highlight>}}
 
@@ -409,7 +409,7 @@ socket.emit("zetKanaal", parseInt(kanaal) + 2)
 
 Je hebt al verschillende commando's aangeroepen, zoals socket.emit en parseInt, maar je kan ook je eigen commando's maken. Dat noemen we *functions*. Type dit eens in je console:
 
-{{<hightlight javascript>}}
+{{<highlight javascript>}}
 function hallo(naam) {
     socket.emit("maakBericht", "Hallo " + naam + "!")
 }
@@ -417,7 +417,7 @@ function hallo(naam) {
 
 Er gebeurt nog niets. Dat komt omdat je de function eerst moet aanroepen, voordat er iets gebeurt:
 
-{{<hightlight javascript>}}
+{{<highlight javascript>}}
 hallo("ninjas")
 hallo("ikzelf")
 hallo("javascript")
@@ -429,7 +429,7 @@ Je kan de functie zo vaak aanroepen als je maar wilt.
 
 Je weet nu al veel over hoe je commando's geeft en maakt in Javascript. Met functions kun je ook reageren op dingen die gebeuren. Zo kun je een function schrijven die reageert op berichten in de chat:
 
-{{<hightlight javascript>}}
+{{<highlight javascript>}}
 function hoiDoei(bericht) {
     if (bericht.tekst == "hoi") {
         socket.emit("maakBericht", "doei")
@@ -439,7 +439,7 @@ function hoiDoei(bericht) {
 
 Het woord *if* is Engels voor 'als'. Er staat dus: *als* het bericht "hoi" is, zeg dan "doei". Maar hoe ontvangen we berichten?
 
-{{<hightlight javascript>}}
+{{<highlight javascript>}}
 socket.on("krijgBericht", hoiDoei)
 {{</highlight>}}
 
