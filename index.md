@@ -348,17 +348,105 @@ Voor dit hoofdstuk werk je in het bestand *basic-chat.js*.
 
 ### Javascript: de basis
 
-> TODO: laat de kinderen in de console wat basale javascript uitproberen: vestuur een bericht via de console, laat ze het kanaal instellen op basis van een +1 berekening.
+Javascript is de programmeertaal van het web. Alle HTML blokjes die je nu in je app hebt, kun je met Javascript aan sturen. Je kunt ook berichten sturen naar de server en ontvangen van de server. Daar gaan we mee aan de slag.
+
+ - Klik bovenin de Developers Tools op het tabblad "Console".
+ - Je ziet een groot vlak en misschien een paar berichten. Onder de berichten, zie je een blauwe *>*, klik daar naast zodat je kan typen.
+ - Type de onderstaande berichten. Druk na elk bericht op enter en zie wat er gebeurt:
+
+{{<highlight javascript>}}
+console.log("Hallo console!")
+socket.emit("maakBericht", "Hallo websocket!")
+{{</highlight>}}
+
+Je hebt nu een berichtje in de console én je hebt een berichtje via de chat verstuurd! Allebei kunnen ze heel handig zijn! Laten we zien wat we nog meer kunnen met Javascript.  
+Als je iets wilt weten van je app, kun je een commando geven dat iets terug geeft om te onthouden. Type eens:
+
+{{<highlight javascript>}}
+$(".naamInput").val()
+{{</highlight>}}
+
+Je ziet je naam nu terug in de console! Deze commando ziet er misschien gek uit, dit is wat er gebeurt:
+
+ - *$(".naamInput")* zoekt de blokjes op met de class 'naamInput'.
+ - *.val()* vraagt om de tekst die staat ingevuld bij het eerst gevonden blokje.
+
+Kun je op die manier ook het kanaal op vragen? Of een bericht in de chat?
+
+### Variabelen
+
+Met variabelen (var) kan de browser dingen onthouden:
+
+{{<hightlight javascript>}}
+var naam = $(".naamInput").val()
+socket.emit("maakBericht", "Hallo, mijn naam is " + naam)
+{{</highlight>}}
+
+Je hebt nu een bericht verstuurd met je naam er in! Kun je hetzelfde doen met je kanaal?
+
+#### Berekeningen
+
+Computers zijn ook heel goed in rekenen. Het woord computer is zelfs Engels voor "berekenaar"! Type het volgende maar eens om uit te proberen:
+
+{{<hightlight javascript>}}
+var kanaal = $(".kanaalInput").val()
+kanaal + 2
+{{</highlight>}}
+
+Dit gaat nog niet goed: het getal 2 is achter het kanaal nummer geplaatst. Dat komt omdat javascript niet gelijk snapt dat het een getal is:
+
+{{<highlight javascript>}}
+parseInt(kanaal) + 2
+{{</highlight>}}
+
+Nu zie je je kanaal, met twee erbij opgeteld. Om de oefening af te maken, laten we de server vertellen dat we een nieuw kanaal willen:
+
+{{<hightlight javascript>}}
+socket.emit("zetKanaal", parseInt(kanaal) + 2)
+{{</highlight>}}
 
 ### Functies en parameters
 
-> TODO: laat de kinderen een functie schrijven, waarmee ze een bericht ontvangen en die loggen in de console.
+Je hebt al verschillende commando's aangeroepen, zoals socket.emit en parseInt, maar je kan ook je eigen commando's maken. Dat noemen we *functions*. Type dit eens in je console:
+
+{{<hightlight javascript>}}
+function hallo(naam) {
+    socket.emit("maakBericht", "Hallo " + naam + "!")
+}
+{{</highlight>}}
+
+Er gebeurt nog niets. Dat komt omdat je de function eerst moet aanroepen, voordat er iets gebeurt:
+
+{{<hightlight javascript>}}
+hallo("ninjas")
+hallo("ikzelf")
+hallo("javascript")
+{{</highlight>}}
+
+Je kan de functie zo vaak aanroepen als je maar wilt.
 
 ### Je eigen bot
 
-> TODO: Gebruik Regex en ifjes om berichten te herkennen en er automatisch op te reageren.
+Je weet nu al veel over hoe je commando's geeft en maakt in Javascript. Met functions kun je ook reageren op dingen die gebeuren. Zo kun je een function schrijven die reageert op berichten in de chat:
 
-> TODO: opdrachten zoals automatische kanaalwissel of getimede ping/pong berichten.
+{{<hightlight javascript>}}
+function hoiDoei(bericht) {
+    if (bericht.tekst == "hoi") {
+        socket.emit("maakBericht", "doei")
+    }
+}
+{{</highlight>}}
 
+Het woord *if* is Engels voor 'als'. Er staat dus: *als* het bericht "hoi" is, zeg dan "doei". Maar hoe ontvangen we berichten?
+
+{{<hightlight javascript>}}
+socket.on("krijgBericht", hoiDoei)
+{{</highlight>}}
+
+Elke keer als er een bericht binnen komt, wordt de commando hoiDoei aangeroepen. Type maar eens het woord "hoi" in de chat!
+
+### Nog veel meer
+
+Met HTML, CSS en Javascript kun je hele programma's bouwen, zoals je ziet. Er valt nog ontzettend veel te leren! De eerst volgende stap is om de *basic-chat.js* te lezen en je kan dat bestand ook aanpassen, om andere dingen te doen: automatisch van kanaal wisselen bij een bericht, je naam veranderen via een bericht, enzovoorts. Je kunt ook altijd op internet zoeken naar wat je nog meer kan met HTML, CSS en Javascript, de website https://www.w3schools.com/ is een leuke plek om te beginnen. Heel veel plezier en heel veel succes!
 
 {{< licentie rel="http://creativecommons.org/licenses/by-nc-sa/4.0/">}}
