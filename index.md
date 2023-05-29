@@ -4,7 +4,7 @@ date: 2021-05-24T13:44:02+02:00
 draft: false
 toc: true
 headercolor: "teal-background"
-taal: Javascript
+onderwerp: Javascript
 ---
 
 We gaan een chat programma maken!
