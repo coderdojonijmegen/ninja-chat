@@ -37,7 +37,7 @@ Als je ergens een foutje maakt, kun je de bestanden altijd opnieuw uitpakken.
 
 ### Een tekst editor
 
-Als je nog geen tekst editor hebt, adviseren wij [Visual Studio Code](www.vscode.com).
+Als je nog geen tekst editor hebt, adviseren wij [Visual Studio Code](https://code.visualstudio.com/).
 
 Download, installeer en open VS Code. In VS Code klik je op "Open Folder", selecteer dan de map waar je de skeleton app hebt uitgepakt.
 
@@ -46,7 +46,7 @@ Andere tekst editors zijn ook prima, als je aan iets anders gewend bent. Bijvoor
 
 ### Een web browser
 
-In alle voorbeelden gebruiken wij [Google Chrome](www.googlechrome.com). Andere browsers, zoals Firefox of Edge, zijn ook prima, mogelijk zien de app en developers tools er dan wel anders uit dan in Chrome.
+In alle voorbeelden gebruiken wij [Google Chrome](https://www.google.com/chrome/). Andere browsers, zoals Firefox of Edge, zijn ook prima, mogelijk zien de app en developers tools er dan wel anders uit dan in Chrome.
 
 Controleer ook of je de nieuwste versie hebt van de browser, om zeker te weten dat de app goed werkt.
 
@@ -98,7 +98,7 @@ Bij elk hoofdstuk hoort een bestand. Voor dit hoofdstuk werken we in de *index.h
 
 In het begin zul je nog niet alles snappen wat in de bestanden staat. Dat is ok&egrave;! Laten we eerst rond kijken en dan gaan we onze eigen onderdelen toevoegen:
 
-- Open de app en de developers tools (zie [Benodigdheden]((#benodigdheden))).
+- Open de app en de developers tools (zie [Benodigdheden](#benodigdheden)).
 - Klik op de Inspect Element knop (zie afbeelding), zodat deze blauw wordt.   
 ![Inspect element](images/inspect-element.png)
 - Beweeg de muis over de groene, gele en grijze balken in de app.
