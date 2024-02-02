@@ -44,28 +44,42 @@ Download, installeer en open VS Code. In VS Code klik je op "Open Folder", selec
 Andere tekst editors zijn ook prima, als je aan iets anders gewend bent. Bijvoorbeeld: Notepad++ of Sublime Text.
 
 
-### Een web browser
+### Een webbrowser
 
 In alle voorbeelden gebruiken wij [Google Chrome](https://www.google.com/chrome/). Andere browsers, zoals Firefox of Edge, zijn ook prima, mogelijk zien de app en developers tools er dan wel anders uit dan in Chrome.
 
 Controleer ook of je de nieuwste versie hebt van de browser, om zeker te weten dat de app goed werkt.
 
-### Een web server
+### Een webserver
 
-Om je app te zien, moet je een web server hebben die naar je map verwijst. Daarnaast zijn er een paar instellingen belangrijk.
+Om je app te zien, moet je een webserver hebben die je browser de app laat openen.  
+Een eenvoudig programma om op je eigen computer een webserver te draaien is [Caddy](https://caddyserver.com/).
+Je kunt Caddy downloaden voor
+[Windows](https://github.com/caddyserver/caddy/releases/download/v2.7.6/caddy_2.7.6_windows_amd64.zip), 
+[MacOS](https://github.com/caddyserver/caddy/releases/download/v2.7.6/caddy_2.7.6_mac_amd64.tar.gz) en
+[Linux](https://github.com/caddyserver/caddy/releases/download/v2.7.6/caddy_2.7.6_linux_amd64.tar.gz).  
+Pak Caddy uit en zet het in de map waar je eerder `client.zip` hebt uitgepakt.
+Nadat je het bestand hebt uitgepakt, heb je slechts één bestand: `caddy` (of `caddy.exe` voor Windows).
 
-Wij adviseren [Web Server for Chrome](https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb). Installeer de web server en open de app. Je zie dan een instellingen pagina. Selecteer hier de uitgepakte map en stel de server in zoals op deze afbeelding:
+Open een command prompt (cmd) of *terminal* en start Caddy met het volgende commando: 
+{{<highlight bash>}}
+caddy file-server --browse --listen :8123
+{{</highlight>}}
 
-![Chrome web server settings](images/settings-webserver-for-chrome.png)
+Open vervolgens je browser en ga naar <a href="http://localhost:8123" target="_blank">http://localhost:8123</a>.  
+Als alles goed is gegaan, zie je dit:  
+![Screenshot skeleton app](screenshot-skeleton-app.png)
 
-*Let op*: De CORS headers zijn heel belangrijk om de chat werkend te krijgen.
+Als iets fout is gegaan, kun je iets zien zoals dit:
 
+![Screenshot Caddy file index](screenshot-caddy-file-index.png)
+
+Vraag dan een mentor even mee te kijken.
 
 ### De chat server URL
 
-Als het goed is, hebben de mentoren je een link gegeven van de chat server. Dit is belangrijk om te kunnen praten met de andere ninja's in de groep.
-
-Zoek de volgende regel in je index.html bestand, en plak de chat server url tussen de haakjes:
+Je app moet weten waar de chat server is, zodat je met anderen berichtjes kunt uitwisselen.  
+Zoek `serverIpAddresEnPoort` in je `index.html` bestand om te zien waar de server is:
 
 {{<highlight javascript>}}
 <script>
@@ -76,9 +90,9 @@ Zoek de volgende regel in je index.html bestand, en plak de chat server url tuss
 
 ### De developers tools
 
-Als het goed is, heb je nu alles om je app te bouwen. Open de link van je web server in Chrome, als het goed is zie je dan drie gekleurde balken.
+Als het goed is, heb je nu alles om je app te bouwen. Open de link van je webserver in Chrome, als het goed is zie je dan drie gekleurde balken.
 
-Klik met je rechter muisknop op &egrave;&egrave;n van die balken en klik op "Inspect Element". Hiermee open je de developers tools van Chrome, waar je kan sleutelen aan alle onderdelen van de app.
+Klik met je rechter muisknop op &egrave;&egrave;n van die balken en klik op "Inspect". Hiermee open je de developers tools van Chrome, waar je kan sleutelen aan alle onderdelen van de app.
 
 Voor de chat app is het fijn om de developers tools rechts van je scherm te zetten met *deze* knop, rechts van je tools. Sleep de rand van de tools dan zo, dat het ongeveer de helft van je scherm in beslag neemt.
 
@@ -99,7 +113,7 @@ Bij elk hoofdstuk hoort een bestand. Voor dit hoofdstuk werken we in de *index.h
 In het begin zul je nog niet alles snappen wat in de bestanden staat. Dat is ok&egrave;! Laten we eerst rond kijken en dan gaan we onze eigen onderdelen toevoegen:
 
 - Open de app en de developers tools (zie [Benodigdheden](#benodigdheden)).
-- Klik op de Inspect Element knop (zie afbeelding), zodat deze blauw wordt.   
+- Klik op de Inspect knop (zie afbeelding), zodat deze blauw wordt.   
 ![Inspect element](images/inspect-element.png)
 - Beweeg de muis over de groene, gele en grijze balken in de app.
 
