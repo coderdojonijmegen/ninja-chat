@@ -68,11 +68,11 @@ caddy file-server --browse --listen :8123
 
 Open vervolgens je browser en ga naar <a href="http://localhost:8123" target="_blank">http://localhost:8123</a>.  
 Als alles goed is gegaan, zie je dit:  
-![Screenshot skeleton app](screenshot-skeleton-app.png)
+![Screenshot skeleton app](images/screenshot-skeleton-app.png)
 
 Als iets fout is gegaan, kun je iets zien zoals dit:
 
-![Screenshot Caddy file index](screenshot-caddy-file-index.png)
+![Screenshot Caddy file index](images/screenshot-caddy-file-index.png)
 
 Vraag dan een mentor even mee te kijken.
 
