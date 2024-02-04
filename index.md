@@ -92,12 +92,15 @@ Zoek `serverIpAddresEnPoort` in je `index.html` bestand om te zien waar de serve
 
 Als het goed is, heb je nu alles om je app te bouwen. Open de link van je webserver in Chrome, als het goed is zie je dan drie gekleurde balken.
 
-Klik met je rechter muisknop op &egrave;&egrave;n van die balken en klik op "Inspect". Hiermee open je de developers tools van Chrome, waar je kan sleutelen aan alle onderdelen van de app.
+Klik met je rechter muisknop op &egrave;&egrave;n van die balken en klik op "Inspect". Hiermee open je de developers tools van Chrome, waar je kan sleutelen aan alle onderdelen van de app. De aanpassingen die je in de developer tools maakt, worden niet opgeslagen en zijn weer weg zodra je de chat app ververst in Chrome. 
 
-Voor de chat app is het fijn om de developers tools rechts van je scherm te zetten met *deze* knop, rechts van je tools. Sleep de rand van de tools dan zo, dat het ongeveer de helft van je scherm in beslag neemt.
+Voor de chat app is het fijn om de developers tools rechts van je scherm te zetten met *deze* knop, rechts van je tools. 
 
-![Developers tools](images/developers-tools.png)
+![Developer tools rechts zetten](images/developer-tools-dock-resize.png)
 
+Sleep de rand van de tools dan zo, dat het ongeveer de helft van je scherm in beslag neemt.
+
+![Breedte developers tools](images/developers-tools.png)
 
 ## Structuur (HTML)
 
