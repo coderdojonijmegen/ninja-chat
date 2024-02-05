@@ -88,7 +88,7 @@ Wij adviseren [Web Server for Chrome](https://chrome.google.com/webstore/detail/
 
 **Let op**: De CORS headers zijn heel belangrijk om de chat werkend te krijgen.
 
-Open vervolgens je browser en ga naar <a href="http://localhost:80" target="_blank">http://localhost:80</a>. 
+Klik vervolgens op de link onder "Web Server URL(s)" of open je browser en ga naar <a href="http://localhost:8887" target="_blank">http://localhost:8887</a>. 
 
 Lukt het niet? Vraag dan een mentor even mee te kijken.
 
