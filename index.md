@@ -37,7 +37,7 @@ Als je ergens een foutje maakt, kun je de bestanden altijd opnieuw uitpakken.
 
 ### Een tekst editor
 
-Als je nog geen tekst editor hebt, adviseren wij [Visual Studio Code](https://code.visualstudio.com/).
+Als je nog geen tekst editor hebt, adviseren wij [Visual Studio Code](https://code.visualstudio.com/). Gebruik je een Chromebook? Dan kun je de [Text](https://chromewebstore.google.com/detail/text/mmfbcljfglbokpmkimbfghdkjmjhdgbg) app gebruiken. Als het goed is, staat die al op je Chromebook.
 
 Download, installeer en open VS Code. In VS Code klik je op "Open Folder", selecteer dan de map waar je de skeleton app hebt uitgepakt.
 
@@ -52,7 +52,8 @@ Controleer ook of je de nieuwste versie hebt van de browser, om zeker te weten d
 
 ### Een webserver
 
-Om je app te zien, moet je een webserver hebben die je browser de app laat openen.  
+Om je app te zien, moet je een webserver hebben die je browser de app laat openen. Als je een Chromebook gebruikt, ga dan naar [Webserver voor Chromebooks](#webserver-voor-chromebooks). 
+
 Een eenvoudig programma om op je eigen computer een webserver te draaien is [Caddy](https://caddyserver.com/).
 Je kunt Caddy downloaden voor
 [Windows](https://github.com/caddyserver/caddy/releases/download/v2.7.6/caddy_2.7.6_windows_amd64.zip), 
@@ -67,6 +68,7 @@ caddy file-server --browse --listen :8123
 {{</highlight>}}
 
 Open vervolgens je browser en ga naar <a href="http://localhost:8123" target="_blank">http://localhost:8123</a>.  
+
 Als alles goed is gegaan, zie je dit:  
 ![Screenshot skeleton app](images/screenshot-skeleton-app.png)
 
@@ -75,6 +77,20 @@ Als iets fout is gegaan, kun je iets zien zoals dit:
 ![Screenshot Caddy file index](images/screenshot-caddy-file-index.png)
 
 Vraag dan een mentor even mee te kijken.
+
+### Webserver voor Chromebooks
+
+Dit stukje sla je over als je geen Chromebook gebruikt en Caddy hebt geïnstalleerd.
+
+Wij adviseren [Web Server for Chrome](https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb). Installeer de web server en open de app. Je ziet dan een instellingen pagina. Selecteer hier de uitgepakte map en stel de server in zoals op deze afbeelding:
+
+![Chrome web server settings](images/settings-webserver-for-chrome.png)
+
+**Let op**: De CORS headers zijn heel belangrijk om de chat werkend te krijgen.
+
+Klik vervolgens op de link onder "Web Server URL(s)" of open je browser en ga naar <a href="http://localhost:8887" target="_blank">http://localhost:8887</a>. 
+
+Lukt het niet? Vraag dan een mentor even mee te kijken.
 
 ### De chat server URL
 
@@ -92,12 +108,15 @@ Zoek `serverIpAddresEnPoort` in je `index.html` bestand om te zien waar de serve
 
 Als het goed is, heb je nu alles om je app te bouwen. Open de link van je webserver in Chrome, als het goed is zie je dan drie gekleurde balken.
 
-Klik met je rechter muisknop op &egrave;&egrave;n van die balken en klik op "Inspect". Hiermee open je de developers tools van Chrome, waar je kan sleutelen aan alle onderdelen van de app.
+Klik met je rechter muisknop op &egrave;&egrave;n van die balken en klik op "Inspect". Hiermee open je de developers tools van Chrome, waar je kan sleutelen aan alle onderdelen van de app. De aanpassingen die je in de developer tools maakt, worden niet opgeslagen en zijn weer weg zodra je de chat app ververst in Chrome. 
 
-Voor de chat app is het fijn om de developers tools rechts van je scherm te zetten met *deze* knop, rechts van je tools. Sleep de rand van de tools dan zo, dat het ongeveer de helft van je scherm in beslag neemt.
+Voor de chat app is het fijn om de developers tools rechts van je scherm te zetten met *deze* knop, rechts van je tools. 
 
-![Developers tools](images/developers-tools.png)
+![Developer tools rechts zetten](images/developer-tools-dock-resize.png)
 
+Sleep de rand van de tools dan zo, dat het ongeveer de helft van je scherm in beslag neemt.
+
+![Breedte developers tools](images/developers-tools.png)
 
 ## Structuur (HTML)
 
