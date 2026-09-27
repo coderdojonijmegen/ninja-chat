@@ -37,11 +37,8 @@ Als je ergens een foutje maakt, kun je de bestanden altijd opnieuw uitpakken.
 
 ### Een tekst editor
 
-Als je nog geen tekst editor hebt, adviseren wij [Visual Studio Code](https://code.visualstudio.com/). Gebruik je een Chromebook? Dan kun je de [Text](https://chromewebstore.google.com/detail/text/mmfbcljfglbokpmkimbfghdkjmjhdgbg) app gebruiken. Als het goed is, staat die al op je Chromebook.
 
-Download, installeer en open VS Code. In VS Code klik je op "Open Folder", selecteer dan de map waar je de skeleton app hebt uitgepakt.
-
-Andere tekst editors zijn ook prima, als je aan iets anders gewend bent. Bijvoorbeeld: Notepad++ of Sublime Text.
+{{< include file="/installatie/visual-studio-code" >}}
 
 
 ### Een webbrowser
