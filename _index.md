@@ -7,476 +7,387 @@ headercolor: "teal-background"
 onderwerp: Javascript
 ---
 
-We gaan een chat programma maken!
+We maken een chat waarmee je berichten kunt sturen naar andere ninja's. Eerst laat je de chat werken. Daarna geef je hem je eigen uiterlijk en gedrag.
 
 <!--more-->
 
 ## Benodigdheden
 
-Voordat we aan de slag kunnen, moeten we eerst een paar dingen regelen. We hebben een checklist gemaakt van alles wat je nodig hebt, daaronder volgt per stap de uitleg.
+Je hebt een webbrowser en Visual Studio Code nodig. Daarmee kun je de chat op je eigen computer bouwen en uitproberen.
 
-
-### Checklist
-
-1. De skeleton app
-2. Een tekst editor
-3. Een web browser
-4. Een web server
-5. De chat server URL
-6. De developers tools
-
-
-### De skeleton app
-
-Klik [hier](client.zip) om de skeleton app te downloaden. Pak dit bestand uit naar een map, bijvoorbeeld op je bureaublad.
-
-Dit zijn de bestanden die je nodig hebt om te beginnen: een html file, een css file en een javascript file. Elk bestand heeft z'n eigen hoofdstuk, waarin je dat bestand gaat bewerken en je eigen dingen toe voegt.
-
-Als je ergens een foutje maakt, kun je de bestanden altijd opnieuw uitpakken.
-
-
-### Een tekst editor
-
+### Visual Studio Code
 
 {{< include file="/installatie/visual-studio-code" >}}
 
+### Bestanden om mee te beginnen
+
+Download [de startbestanden](client.zip) en pak het ZIP-bestand uit in een eigen map, bijvoorbeeld `ninja-chat` op je bureaublad. In die map staan vier bestanden:
+
+- `index.html`: de onderdelen van de chat. Dit bestand verander je in het hoofdstuk HTML.
+- `basic-chat.css`: de kleuren en vormen. Dit bestand verander je in het hoofdstuk CSS.
+- `basic-chat.js`: wat er gebeurt als je typt of op een knop klikt. Dit bestand verander je in het hoofdstuk JavaScript.
+- `coderdojo.png`: een plaatje dat je in de chat kunt gebruiken.
+
+Open Visual Studio Code. Kies **Bestand → Map openen** (of **File → Open Folder**) en selecteer de map waarin je de vier bestanden hebt uitgepakt. Links in VS Code zie je nu de bestanden. Als je ergens een foutje maakt, kun je een bestand opnieuw uit het ZIP-bestand halen. Bewaar eerst een kopie als je je eigen werk wilt houden.
 
 ### Een webbrowser
 
-In alle voorbeelden gebruiken wij [Google Chrome](https://www.google.com/chrome/). Andere browsers, zoals Firefox of Edge, zijn ook prima, mogelijk zien de app en developers tools er dan wel anders uit dan in Chrome.
+Wij gebruiken [Google Chrome](https://www.google.com/chrome/) in de voorbeelden. Firefox of Edge kan ook. Open de uitgepakte map op je computer en dubbelklik op `index.html`. Je ziet nu drie gekleurde balken in je browser.
 
-Controleer ook of je de nieuwste versie hebt van de browser, om zeker te weten dat de app goed werkt.
+![De drie gekleurde balken van de startbestanden](images/screenshot-skeleton-app.png)
 
-### Een webserver
-
-Om je app te zien, moet je een webserver hebben die je browser de app laat openen. Als je een Chromebook gebruikt, ga dan naar [Webserver voor Chromebooks](#webserver-voor-chromebooks). 
-
-Een eenvoudig programma om op je eigen computer een webserver te draaien is [Caddy](https://caddyserver.com/).
-Je kunt Caddy downloaden voor
-[Windows](https://github.com/caddyserver/caddy/releases/download/v2.7.6/caddy_2.7.6_windows_amd64.zip), 
-[MacOS](https://github.com/caddyserver/caddy/releases/download/v2.7.6/caddy_2.7.6_mac_amd64.tar.gz) en
-[Linux](https://github.com/caddyserver/caddy/releases/download/v2.7.6/caddy_2.7.6_linux_amd64.tar.gz).  
-Pak Caddy uit en zet het in de map waar je eerder `client.zip` hebt uitgepakt.
-Nadat je het bestand hebt uitgepakt, heb je slechts één bestand: `caddy` (of `caddy.exe` voor Windows).
-
-Open een command prompt (cmd) of *terminal* en start Caddy met het volgende commando: 
-{{<highlight bash>}}
-caddy file-server --browse --listen :8123
-{{</highlight>}}
-
-Open vervolgens je browser en ga naar <a href="http://localhost:8123" target="_blank">http://localhost:8123</a>.  
-
-Als alles goed is gegaan, zie je dit:  
-![Screenshot skeleton app](images/screenshot-skeleton-app.png)
-
-Als iets fout is gegaan, kun je iets zien zoals dit:
-
-![Screenshot Caddy file index](images/screenshot-caddy-file-index.png)
-
-Vraag dan een mentor even mee te kijken.
-
-### Webserver voor Chromebooks
-
-Dit stukje sla je over als je geen Chromebook gebruikt en Caddy hebt geïnstalleerd.
-
-Wij adviseren [Web Server for Chrome](https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb). Installeer de web server en open de app. Je ziet dan een instellingen pagina. Selecteer hier de uitgepakte map en stel de server in zoals op deze afbeelding:
-
-![Chrome web server settings](images/settings-webserver-for-chrome.png)
-
-**Let op**: De CORS headers zijn heel belangrijk om de chat werkend te krijgen.
-
-Klik vervolgens op de link onder "Web Server URL(s)" of open je browser en ga naar <a href="http://localhost:8887" target="_blank">http://localhost:8887</a>. 
-
-Lukt het niet? Vraag dan een mentor even mee te kijken.
-
-### De chat server URL
-
-Je app moet weten waar de chat server is, zodat je met anderen berichtjes kunt uitwisselen.  
-Zoek `serverIpAddresEnPoort` in je `index.html` bestand om te zien waar de server is:
-
-{{<highlight javascript>}}
-<script>
-    var serverIpAdresEnPoort = "https://chat.coderdojo-nijmegen.nl";
-</script>
-{{</highlight>}}
-
-
-### De developers tools
-
-Als het goed is, heb je nu alles om je app te bouwen. Open de link van je webserver in Chrome, als het goed is zie je dan drie gekleurde balken.
-
-Klik met je rechter muisknop op &egrave;&egrave;n van die balken en klik op "Inspect". Hiermee open je de developers tools van Chrome, waar je kan sleutelen aan alle onderdelen van de app. De aanpassingen die je in de developer tools maakt, worden niet opgeslagen en zijn weer weg zodra je de chat app ververst in Chrome. 
-
-Voor de chat app is het fijn om de developers tools rechts van je scherm te zetten met *deze* knop, rechts van je tools. 
-
-![Developer tools rechts zetten](images/developer-tools-dock-resize.png)
-
-Sleep de rand van de tools dan zo, dat het ongeveer de helft van je scherm in beslag neemt.
-
-![Breedte developers tools](images/developers-tools.png)
+Je werkt steeds op dezelfde manier: verander een bestand in VS Code, sla het op met **Ctrl+S** (op een Mac **Cmd+S**) en ververs de pagina in je browser. Zo zie je jouw verandering. Lukt het openen van `index.html` niet? Vraag een mentor om mee te kijken.
 
 ## Structuur (HTML)
 
-Deze instructies bestaan uit drie hoofdstukken:
+Deze instructie heeft drie hoofdstukken. Daarna kun je extra uitdagingen proberen:
+
 1. Structuur (HTML) - hier gaan we de app onderdelen in elkaar zetten.
 2. Stijl (CSS) - hier gaan we veranderen hoe de onderdelen eruit zien.
-3. Scripts (Javascript) - hier gaan we veranderen hoe de app werkt.
+3. Scripts (JavaScript) - hier gaan we veranderen hoe de app werkt.
 
 Bij elk hoofdstuk hoort een bestand. Voor dit hoofdstuk werken we in de *index.html*.
 
 ### HTML: blokjes en tekst
 
-In het begin zul je nog niet alles snappen wat in de bestanden staat. Dat is ok&egrave;! Laten we eerst rond kijken en dan gaan we onze eigen onderdelen toevoegen:
+Open `index.html` in VS Code. In `<body>` staat een groot blok `container` met daarin drie kleinere blokken: `boven`, `midden` en `onder`. Je ziet ze als de groene, gele en grijze balk in de browser.
 
-- Open de app en de developers tools (zie [Benodigdheden](#benodigdheden)).
-- Klik op de Inspect knop (zie afbeelding), zodat deze blauw wordt.   
-![Inspect element](images/inspect-element.png)
-- Beweeg de muis over de groene, gele en grijze balken in de app.
+#### Stap 1: tekst in het midden
 
-Je ziet de 'div' elementen in de Developers Tools oplichten. Dat zijn de 'blokjes' waarmee je begint. Een paar dingen moet je weten over die blokjes:
+Zoek `<div class="midden">` en zet er tekst tussen de begin- en eindregel:
 
-- Een blok begint met **\<div\>** en eindigt met **\</div\>**.
-- Met **class=""** krijgt het blokje een class naam.
-- De class wordt in de CSS (hoofdstuk 2) gebruikt om te bepalen hoe het eruit ziet.
-- De class wordt ook in de Javascript (hoofdstuk 3) gebruikt om te bepalen hoe het werkt.
-- Blokjes kunnen *in* elkaar en blokjes kunnen *naast* elkaar.
+{{<highlight html>}}
+<div class="midden">
+    Hallo wereld!
+</div>
+{{</highlight>}}
 
-#### HTML tekst
+Sla `index.html` op en ververs de browser. Zie je **Hallo wereld!** in de gele balk?
 
-In de HTML kun je tekst typen. Afhankelijk van waar je die tekst typt, komt het ergens anders op het scherm (of misschien zelfs helemaal niet).
+#### Stap 2: tekst bovenaan
 
-- Zoek de div blokjes op in de index.html, het zijn er vier.
-- De 'container' class zorgt ervoor dat de blokjes die er in zitten onder elkaar komen.
-- In de container zie je drie andere divs. Kun je raden waar die voor zijn?
-- Schrijf wat tekst, bijvoorbeeld "Hallo wereld!", in het blokje met de class 'midden'.
-- Ververs je pagina. Staat je tekst in het middelste blokje? Zo niet, dan is er misschien iets mis gegaan.
-- Probeer ook tekst te typen in de boven en onder blokjes. Verschijnt die tekst ook op de juiste plek in je scherm?
-- Wat gebeurt er als je tekst typt in de container, maar *buiten* de boven/midden/onder blokjes?
-- Wat gebeurt er als je tekst typt *buiten* de container (maar wel in de **\<body\>**)?
+Zoek `<div class="boven">` en voeg daar tekst toe:
 
-![Test teksten](images/test-teksten.png)
+{{<highlight html>}}
+<div class="boven">
+    Mijn ninja-chat
+</div>
+{{</highlight>}}
+
+Sla op en ververs. Staat **Mijn ninja-chat** in de groene balk? De tekst uit stap 1 moet ook nog zichtbaar zijn.
+
+#### Stap 3: tekst onderaan
+
+Zoek `<div class="onder">` en zet daar tekst in:
+
+{{<highlight html>}}
+<div class="onder">
+    Hier komen straks de knoppen.
+</div>
+{{</highlight>}}
+
+Sla op en ververs. Zie je nu tekst in alle drie de balken?
+
+#### Stap 4: een blok in een blok
+
+Vervang het middelste blok door deze versie. Laat `Hallo wereld!` staan en voeg een kleiner blok toe:
+
+{{<highlight html>}}
+<div class="midden">
+    Hallo wereld!
+    <div class="welkom">Welkom bij mijn chat!</div>
+</div>
+{{</highlight>}}
+
+Sla op en ververs. Zie je **Welkom bij mijn chat!** naast **Hallo wereld!** in de gele balk? `<div>` begint een blok en `</div>` sluit het af. Het blok `welkom` staat *in* het blok `midden`. Met `class="welkom"` geef je dit oefenblok een naam. Straks gebruiken we andere classnamen om de chat te laten werken en op te maken.
 
 ### Chat berichten
 
-Nu dat je snapt hoe de HTML blokjes werken, kun je je eigen blokjes toe voegen.  
-Voeg deze code in, in het blokje *"midden"*:
+De tekst uit de eerste vier stappen was om te oefenen. Vervang nu het **hele** blok `midden`, inclusief de oefenteksten, door:
 
 {{<highlight html>}}
-<div class="berichten"></div>
+<div class="midden">
+    <div class="berichten"></div>
+</div>
 {{</highlight>}}
 
-Ververs de pagina. Als het goed is, verschijnen nu de chat berichten op je scherm! Zo makkelijk kan het zijn om onderdelen toe te voegen.
+Sla `index.html` op en ververs de pagina. Zie je een welkomstbericht in de gele balk? Het lege blok `berichten` wordt door `basic-chat.js` gevuld zodra de chat verbinding heeft.
+
+Zie je na een paar seconden geen bericht? Controleer of je internet hebt, of je `index.html` uit de uitgepakte map hebt geopend en of alle vier de bestanden samen in die map staan. Vraag een mentor om mee te kijken als het dan nog niet werkt. Ga pas verder als je het welkomstbericht ziet.
 
 ![Chat bericht](images/chat-bericht.png)
 
 #### Berichten typen
 
 We willen natuurlijk ook berichten kunnen sturen.  
-Voeg deze code in, in het blokje *"onder"*:
+Zet deze regel **in** het blok `onder`, boven de laatste `</div>`:
 
 {{<highlight html>}}
 <div class="berichtInput">Type hier...</div>
 {{</highlight>}}
 
-Als het goed is, zie je *"Type hier..."* op je scherm, maar als je daar klikt, kun je nog niet typen. Dat komt, omdat *div* daar niet voor is gemaakt. Verander het woord *div* in *textarea*, en ineens ziet het er heel anders uit:
+Sla `index.html` op en ververs de pagina. Je ziet *"Type hier..."*, maar als je erop klikt, kun je nog niet typen. Een `div` is geen tekstvak. Verwijder ook de oefentekst `Hier komen straks de knoppen.` uit `onder` en vervang de regel met `berichtInput` door:
 
 {{<highlight html>}}
 <textarea class="berichtInput" placeholder="Type hier..."></textarea>
 {{</highlight>}}
 
-![Textarea](images/textarea.png)
+Sla `index.html` op en ververs de pagina. Je kunt nu tekst typen. Druk op Enter om een bericht te versturen. Zie je jouw tekst in de gele balk?
 
-Je kunt nu tekst typen. Als je op enter drukt, wordt je bericht verstuurd!
+![Tekstvak voor een chatbericht](images/textarea.png)
+
+**Je chat werkt!** Je kunt hier stoppen en later verdergaan. In de volgende stappen geef je de chat meer knoppen en een eigen uiterlijk.
 
 ### Meer onderdelen
 
-Laten we nog wat meer onderdelen toevoegen. Kopieer deze blokjes en plak ze in de boven/midden/onder blokjes. Je mag zelf bepalen waar deze blokjes in je app komen en in welke volgorde. Je kan ook ons voorbeeld onderin deze pagina na maken.
+De chat werkt al. Voeg nu drie onderdelen toe die we verderop gebruiken: een naamveld, een kanaalveld en een verzendknop. Voeg ze **één voor één** toe. Sla na elke stap `index.html` op en ververs de browser.
 
-**Tips:**
-- Probeer niet alles tegelijk te doen. Plak een blokje in de index.html, sla op en ververs de pagina in chrome.
-- Staat een blokje niet op de plek die je had verwacht? Gebruik de Inspect Element knop om te ontdekken wat er mis is gegaan!
-- De boven/midden/onder classes heb elk hun eigen manier van blokjes plaatsen. Hier gaan we in het volgende hoofdstuk verder op in.
-- Verander teksten en de type blokjes, je kan er vanalles van maken. Zolang de 'class' klopt, zou het moeten blijven werken.
+#### Stap 1: je naam
 
-#### De blokjes
-
-{{<highlight html>}}
-<h1>Ninja chat</h1>
-{{</highlight>}}
-
-Met h1 plaats je een titel, de letters zijn dan groter en dikker. Het heeft verder geen speciale effecten, dus h1 is net als een div. Probeer ook h2 en h3 voor verschillende grooottes.
+Zet deze regel **in** `boven`, boven de afsluitende `</div>`:
 
 {{<highlight html>}}
 <div>Naam: <input type="text" class="naamInput"></div>
 {{</highlight>}}
 
-Een input is een speciaal soort blokje, waar je iets kan typen of aanklikken. Een input hoeft niet afgesloten te worden, want er kan nooit html *in* een input staan. Met *type="text"* wordt gezegd dat je tekst kan typen. De class *'naamInput'* is voor het invoeren van je naam. We hebben de input in een div blokje geplaatst, zodat de tekst "Naam" er mooi bij komt te staan. Verander de standaard naam in je eigen naam, omdat bij de berichten terug te zien.
+`input` maakt een invoerveld. Zie je na het verversen een naam in dat veld? Typ je eigen naam en klik daarna ergens buiten het veld. Stuur een bericht: staat jouw naam erbij?
+
+#### Stap 2: een kanaal
+
+Een *kanaal* is een chatruimte met een nummer. Ninja's op hetzelfde kanaal kunnen elkaars berichten lezen.
+
+Zet deze regel **in** `boven`, direct onder het naamveld:
 
 {{<highlight html>}}
 <div>Kanaal: <input type="number" class="kanaalInput"></div>
 {{</highlight>}}
 
-Ook dit is een input, nu met type *'number'*, zodat je alleen een getal kan invullen. Elk bericht hoort bij een kanaal en je kanaal is standaard '1'.
+`type="number"` maakt een invoerveld voor een getal. Zie je kanaal **1**? Typ **2** en klik buiten het veld. Zie je een bericht dat je op kanaal 2 bent? Ga daarna terug naar kanaal 1 om weer met de anderen te chatten.
+
+#### Stap 3: een verzendknop
+
+Zet deze regel **in** `onder`, direct onder je `textarea`:
 
 {{<highlight html>}}
 <button class="stuurBericht">Stuur bericht</button>
 {{</highlight>}}
 
-Button is Engels voor het woord 'knop'. Tot nu toe stuurde je berichten door op 'enter' te drukken, nu kan het ook door op deze knop te klikken.
+Sla op en ververs. Typ een bericht en klik op **Stuur bericht**. Verschijnt het bericht in de gele balk? Je kunt ook nog steeds op Enter drukken.
+
+**Tweede mijlpaal:** je kunt berichten sturen met je eigen naam, een kanaal kiezen en de verzendknop gebruiken. In het volgende hoofdstuk geef je de chat jouw kleuren en vormen.
+
+Wil je ook een titel en een deelnemerslijst? Die staan bij de [extra uitdagingen](#extra-uitdagingen) aan het einde.
+
+## Stijl (CSS)
+
+Met CSS verander je hoe de blokken eruitzien. Open `basic-chat.css` in VS Code. We veranderen steeds één regel. Sla het bestand op, ververs de browser en stuur een nieuw testbericht als je een chatbericht wilt bekijken.
+
+### Stap 1: kleur van de middelste balk
+
+Zoek `.midden {`. Verander daar `background-color: lightyellow;` in:
+
+{{<highlight css>}}
+background-color: cadetblue;
+{{</highlight>}}
+
+Sla op en ververs. Is de middelste balk nu blauwgroen? Het berichtenvak werkt nog steeds.
+
+### Stap 2: tekstkleur van berichten
+
+Zoek `.bericht {`. Voeg **binnen de accolades** deze regel toe:
+
+{{<highlight css>}}
+color: darkblue;
+{{</highlight>}}
+
+Sla op, ververs en stuur een bericht. Is de tekst in het witte berichtenvak donkerblauw? Een donkere kleur blijft goed leesbaar op de witte achtergrond.
+
+### Stap 3: ruimte in en om berichten
+
+Zoek in dezelfde `.bericht`-regels `padding: 5px;`. Verander `5px` in `20px`. Sla op, ververs en stuur een bericht. Is er meer ruimte **in** het bericht, tussen de tekst en de rand?
+
+Verander daarna `margin: 5px;` in `margin: 15px;`. Sla weer op, ververs en stuur twee berichten. Is er nu meer ruimte **tussen** de berichten? `px` betekent pixels: kleine punten op je scherm.
+
+### Stap 4: een andere rand
+
+Zoek in `.bericht` de regel `border: 1px solid black;`. Vervang die door:
+
+{{<highlight css>}}
+border: 2px dotted darkblue;
+{{</highlight>}}
+
+Sla op, ververs en stuur een bericht. Heeft het bericht nu een donkerblauwe stippelrand?
+
+**Je hebt de chat vormgegeven.** Wil je meer kleuren proberen? Geef `.boven` en `.onder` een andere `background-color`. Kijk op [csscolornames.com](https://csscolornames.com/) als je een kleurnaam zoekt.
+
+
+## Scripts (JavaScript)
+
+Je chat kan inmiddels berichten versturen. In `basic-chat.js` staat *wat er gebeurt* als je op een knop klikt of een bericht ontvangt. Open dat bestand in VS Code. Je hoeft nog niet alle regels te begrijpen: we veranderen steeds een klein stukje en proberen het daarna uit.
+
+### Een bericht aanpassen
+
+Zoek de functie `stuurBericht()`. Een *functie* is een groep opdrachten met een naam. In deze functie staat:
+
+{{<highlight javascript>}}
+var bericht = berichtInput.val()
+{{</highlight>}}
+
+De variabele `bericht` bewaart de tekst die je hebt getypt. Voeg **direct onder die regel** dit toe:
+
+{{<highlight javascript>}}
+bericht = bericht + " 🥷"
+{{</highlight>}}
+
+Sla `basic-chat.js` op en ververs de pagina. Typ een bericht en verstuur het. Staat er nu een ninja achter jouw tekst? De wijziging zit in je bestand en werkt dus ook na een volgende keer verversen. Je kunt de emoji vervangen door een ander woord of symbool.
+
+### Je eigen chatbot
+
+Een functie kan ook reageren op een binnenkomend bericht. We testen eerst of de chat `hoi` herkent. Voeg deze functie **boven** `function begin()` toe:
+
+{{<highlight javascript>}}
+function hoiDoei(bericht) {
+    if (bericht.tekst.startsWith("hoi")) {
+        alert("De bot zag hoi!")
+    }
+}
+{{</highlight>}}
+
+`if` betekent *als*. De functie herkent een bericht dat met `hoi` begint. Dat werkt ook als je in de vorige stap een ninja achter je bericht hebt gezet.
+
+Zoek nu in `begin()` de regel `socket.on('krijgBericht', toonBericht)`. Zet **daaronder**:
+
+{{<highlight javascript>}}
+socket.on('krijgBericht', hoiDoei)
+{{</highlight>}}
+
+Sla `basic-chat.js` op en ververs de pagina. Typ `hoi` in de chat. Verschijnt er een venstertje met **De bot zag hoi!**? Sluit het venstertje en probeer `Hoi` met een hoofdletter. Dan verschijnt het niet: JavaScript ziet `hoi` en `Hoi` als verschillende woorden.
+
+#### Laat de bot antwoorden
+
+Vervang nu **alleen** de regel met `alert(...)` in `hoiDoei` door:
+
+{{<highlight javascript>}}
+socket.emit("maakBericht", "doei")
+{{</highlight>}}
+
+Sla op en ververs. Typ opnieuw `hoi`. Zie je een antwoord met `doei` in de chat? Verander daarna `hoi` en `doei` in woorden die je zelf kiest. Als meerdere ninja's op hetzelfde kanaal een bot hebben, kun je meerdere antwoorden krijgen.
+
+**Je chat heeft nu ook eigen gedrag.** Alles wat je in `basic-chat.js` opslaat, werkt opnieuw na een volgende keer verversen.
+
+## Extra uitdagingen
+
+De chat is af. Kies hieronder wat je leuk vindt; je hoeft ze niet allemaal te doen.
+
+### Een titel en deelnemerslijst
+
+Wil je de bovenste balk een titel geven? Vervang dan de oefentekst `Mijn ninja-chat` **in** `boven` door:
+
+{{<highlight html>}}
+<h1>Ninja chat</h1>
+{{</highlight>}}
+
+Sla `index.html` op en ververs. Zie je de titel? Met `h1` maak je een grote kop.
+
+Om te zien wie er in jouw kanaal zit, zet je ook deze twee regels **in** `boven`:
 
 {{<highlight html>}}
 <div class="deelnemers"></div>
-{{</highlight>}}
-
-Deze div is nog leeg, het doet niets totdat er op de deelnemers knop wordt gedrukt. Maar die knop heb je nog niet, dus die volgt nu:
-
-{{<highlight html>}}
 <button class="bekijkDeelnemers">Bekijk deelnemers</button>
 {{</highlight>}}
 
-Je krijgt dus een knop waarmee je deelnemers kan bekijken, zodra daar op wordt geklikt wordt de 'deelnemers' div gevuld met de namen van de andere ninja's en mentoren. Deze knop mag ook *in* de 'deelnemers' div staan, zodat de namen en de knop mooi bij elkaar staan.
+Sla op en ververs. Klik op **Bekijk deelnemers**. Verschijnen er namen? Klik nog eens om de lijst te verbergen. De knop en het lege blok horen bij elkaar.
 
-![Voorbeeld app](images/voorbeeld-app.png)
+![Een mogelijke indeling van de chat](images/voorbeeld-app.png)
 
 ### HTML in berichten
 
-Wat de ninja-chat zo bijzonder maakt, is dat je HTML in je berichten kan gebruiken. Type maar eens als bericht in de chat:
+Je kunt ook HTML in een chatbericht typen. Probeer:
 
 {{<highlight html>}}
-<h1>Hallo wereld!<h1>
+<strong>Hallo ninja's!</strong>
 {{</highlight>}}
 
-Zoals eerder gezegd, is h1 een blokje zoals de div. Maar niet elke HTML code is een eigen blokje. Je kan ook HTML gebruiken om een woord of meerdere woorden op te maken. Type dit als bericht in de chat:
-
-Hier is woord \<strong\>dikgedrukt\</strong\> en twee woorden \<em\>schuin gedrukt\</em\>!
-
-Probeer ook andere HTML code die je hebt geleerd in je berichten. Alles mag!
-
-### Afbeeldingen
-
-Het mooiste HTML blokje hebben we bewaard voor het laatst: je kan plaatjes zien in je app!
+Verstuur het bericht. Is de tekst dikgedrukt? Probeer daarna:
 
 {{<highlight html>}}
-<img src="coderdojo.png">
+<em>Dit is schuin.</em>
 {{</highlight>}}
 
-Het plaatje is erg groot, eigenlijk te groot om mooi in de app te passen. Dit is makkelijk op te lossen door een width (= breedte) en een height (= hoogte) bij te voegen:
+Ook een titel werkt in een bericht, bijvoorbeeld `<h1>Hallo!</h1>`. Grote of vreemde HTML kan de chat minder goed leesbaar maken. Gebruik daarom korte opmaak en vraag een mentor om hulp als de pagina er ineens vreemd uitziet.
+
+### Een afbeelding
+
+In de startbestanden zit `coderdojo.png`. Zet deze regel bijvoorbeeld **in** `boven`:
 
 {{<highlight html>}}
 <img src="coderdojo.png" width="32" height="32">
 {{</highlight>}}
 
-Net als een input blokje, hoeft de img niet afgesloten te worden. De link voor het plaatje schrijf je in *src=""*. We gebruiken nu de bijgesloten coderdojo.png als voorbeeld, maar het kan elk plaatje zijn wat je maar wilt.
+Sla `index.html` op en ververs. Zie je het kleine plaatje? `src` vertelt welk bestand de browser moet openen; `width` en `height` geven de grootte aan. Je kunt de afbeelding ook als bericht typen als je hem in de chat wilt laten zien.
 
-Zo kies je je eigen plaatjes:
+### Meer met CSS
 
-- Zoek op internet een plaatje dat je in de app wilt hebben.
-- Klik met rechtermuisknop op het plaatje en selecteer *"afbeeldingsadres kopi&euml;ren"*.
-- Type een nieuw *img* blok in je index.html en ze je cursor in de aanhalingstekens van de *src*.
-- Gebruik rechtermuisknop en klik op plakken, of type CTRL-V om te plakken.
-- Sla op en bekijk je plaatje in de app.
+Kijk in `basic-chat.css` bij `.bericht`. Verander `border-radius` eens in `20px`, sla op, ververs en stuur een bericht. Zijn de hoeken ronder?
 
-*Tip:* Op deze manier kun je ook plaatjes in je chat berichten plaatsen.
-
-## Stijl (CSS)
-
-Je weet nu hoe je HTML blokjes kan plaatsen en je weet hoe je die een class naam kan geven. Die class namen gaan we nu gebruiken om ze te *stylen*: je kan helemaal veranderen hoe ze eruit zien!
-
-Voor dit hoofdstuk werk je voornamelijk in het bestand *basic-chat.css*.
-
-### Kleuren en lettertypes
-
-Laten we eerst kleuren aanpassen:
-
-- Zoek het div blokje 'midden' in de Developers Tools, gebruik eventueel Inspect Element op de gele achtergrond.
-- Rechts zie je een tabblad *"Styles"*, hier staan alle CSS regels voor dit blokje. Schrik niet, het zijn er veel!
-- Zoek de regel *background-color: lightyellow* (TODO: screenshot met een pijl ofzo).
-- Klik op het woord *lightyellow* en druk op backspace.
-- De browser toont al een lijst van kleuren, klik of type *cadetblue*.
-- Zie hoe de kleur van het midden blok is veranderd!
-- Verander van andere blokjes ook de background-color. Probeer verschillende kleuren uit.
-
-De kleuren die je nu in stelt worden nog niet opgeslagen. De volgende keer dat je refresht is alles weer terug naar hoe het was.
-
-#### Styling opslaan
-
-Dit is hoe je je kleuren kan opslaan:
-
-- Noteer of kopieer de naam van de kleur die je wilt opslaan.
-- Je kunt ook een kleur kiezen op deze website: [csscolornames.com](http://csscolornames.com/)
-- Open de *basic-chat.css*.
-- Zoek de regel *.midden {*, hier staan de stijl regels voor het midden blok.
-- Verander de background-color in een kleur naar keuze en sla het bestand op.
-- Refresh je browser en zie de kleur die je hebt gekozen in het midden blok.
-
-Op deze manier kun je alle achtergrond kleuren instellen die je wilt. Zoek de andere onderdelen van je app op in het CSS bestand en geef ze een kleur die je leuk vindt.
-
-#### Tekst
-
-Je kunt ook teksten er anders uit laten zien. Voeg deze regels eens toe, bijvoorbeeld bij .bericht:
+Je kunt ook een ander lettertype uitproberen. Voeg **in** `.bericht` deze regel toe:
 
 {{<highlight css>}}
-    color: yellow;  
-    font-family: 'Indie Flower', cursive;
+font-family: 'Indie Flower', cursive;
 {{</highlight>}}
 
-*color* verandert de kleur van de tekst. Je kunt dezelfde kleuren gebruiken als voor *background-color*.  
-*font-family* verandert het lettertype. Kun je ontdekken welk lettertype nog meer wordt gebruikt in de app?
+Sla op, ververs en stuur een bericht. Ziet de tekst er anders uit? In `index.html` staat al een link naar dit lettertype.
 
-Probeer deze kleuren eens na te maken. *Tip:* Geef de titel een nieuwe class naam en gebruik die class naam om in de CSS het lettertype in te stellen.
-
-![Kleuren](images/kleuren.png)
-
-### Vormen en randen
-
-Alles op het scherm kunnen we groter of kleiner maken. Probeer dit eens uit:
-
- - Klik op één van de berichten, met Inspect Element.
- - Bij de styles zie je onder andere padding, border en margin.
- - Verander de getallen één voor één en kijk wat er gebeurt: maak ze 40px, of 1px, of 0.
- - Je ziet ook border-radius, verander daarvan ook het getal.
- - Verander de kleur van 'border' (border is Engels voor 'rand').
- - Verander bij de border het woord 'solid' in 'dotted' en kijk wat er gebeurt.
-
-![Border](images/border.png)
-
-Het is makkelijker om te zien wat het doet, dan om het uit te leggen. In het kort:
-
- - *10px* betekent 10 pixels. Een pixels is een punt op je scherm.
- - *border* is de rand van een blokje. Het is een lijn of stippels, heeft een kleur en een dikte.
- - *padding* is hoeveel ruimte er IN het blokje is, voordat de tekst begint.
- - *margin* is hoeveel ruimte er OM het blokje heen is.
- - *border-radius* is om te rand rond te maken.
-
-*Tip:* Probeer eens een blokje helemaal rond te maken met border-radius.
-
-### Meer CSS
-
-Met CSS kun je van elk blokje zeggen hoe het eruit moet zien. Als je het leuk vindt, kun je in de basic-chat.css nog andere blokjes aanpassen met de border en padding enzo. Je kunt ook kijken welke CSS opdrachten er nog meer in staan. We hebben zoveel mogelijk in het bestand beschreven wat we doen, als je twijfelt kun je altijd nog op internet zoeken. Succes!
-
-### Styling in berichten
-
-Je kunt ook CSS in je berichten gebruiken! Schrijf bijvoorbeeld eens:
+Je kunt zelfs CSS in één chatbericht gebruiken:
 
 {{<highlight html>}}
-Hier is een stukje tekst <span style="color:blue;">blauw</span>
+<span style="color:blue;">Dit is blauw.</span>
 {{</highlight>}}
 
-Met *style=""* kun je CSS in een HTML blokje stoppen. Dat werkt dan alleen voor dat ene blokje, maar dat is perfect voor in berichten. Probeer ook eens de andere CSS commando's die je hebt geleerd, zoals border en font-family.
+Verstuur het bericht. Is alleen deze tekst blauw?
 
-*Tip:* als je meerdere CSS commando's in één blokje wilt, zet je er een ; tussen. Bijvoorbeeld:
+### Twee kanalen verder
+
+Wil je met één knop twee kanalen verder gaan? Voeg dan in `index.html` binnen het blokje `boven` een knop toe:
 
 {{<highlight html>}}
-<span style="color:white;background-color:black">Dit bericht is zwart/wit.</span>
+<button class="volgendKanaal">Twee kanalen verder</button>
 {{</highlight>}}
 
-
-## Scripts (JavaScript)
-
-Nu dat je een complete app hebt en zelf heb bepaald hoe het eruit ziet, gaan we een kijkje onder de motorkap nemen: hoe worden de berichten verstuurd en ontvangen?  
-Voor dit hoofdstuk werk je in het bestand *basic-chat.js*.
-
-### Javascript: de basis
-
-Javascript is de programmeertaal van het web. Alle HTML blokjes die je nu in je app hebt, kun je met Javascript aan sturen. Je kunt ook berichten sturen naar de server en ontvangen van de server. Daar gaan we mee aan de slag.
-
- - Klik bovenin de Developers Tools op het tabblad "Console".
- - Je ziet een groot vlak en misschien een paar berichten. Onder de berichten, zie je een blauwe *>*, klik daar naast zodat je kan typen.
- - Type de onderstaande berichten. Druk na elk bericht op enter en zie wat er gebeurt:
+Voeg in `basic-chat.js`, **boven** `function begin()`, deze functie toe:
 
 {{<highlight javascript>}}
-console.log("Hallo console!")
-socket.emit("maakBericht", "Hallo websocket!")
-{{</highlight>}}
-
-Je hebt nu een berichtje in de console én je hebt een berichtje via de chat verstuurd! Allebei kunnen ze heel handig zijn! Laten we zien wat we nog meer kunnen met Javascript.  
-Als je iets wilt weten van je app, kun je een commando geven dat iets terug geeft om te onthouden. Type eens:
-
-{{<highlight javascript>}}
-$(".naamInput").val()
-{{</highlight>}}
-
-Je ziet je naam nu terug in de console! Deze commando ziet er misschien gek uit, dit is wat er gebeurt:
-
- - *$(".naamInput")* zoekt de blokjes op met de class 'naamInput'.
- - *.val()* vraagt om de tekst die staat ingevuld bij het eerst gevonden blokje.
-
-Kun je op die manier ook het kanaal op vragen? Of een bericht in de chat?
-
-### Variabelen
-
-Met variabelen (var) kan de browser dingen onthouden:
-
-{{<highlight javascript>}}
-var naam = $(".naamInput").val()
-socket.emit("maakBericht", "Hallo, mijn naam is " + naam)
-{{</highlight>}}
-
-Je hebt nu een bericht verstuurd met je naam er in! Kun je hetzelfde doen met je kanaal?
-
-#### Berekeningen
-
-Computers zijn ook heel goed in rekenen. Het woord computer is zelfs Engels voor "berekenaar"! Type het volgende maar eens om uit te proberen:
-
-{{<highlight javascript>}}
-var kanaal = $(".kanaalInput").val()
-kanaal + 2
-{{</highlight>}}
-
-Dit gaat nog niet goed: het getal 2 is achter het kanaal nummer geplaatst. Dat komt omdat javascript niet gelijk snapt dat het een getal is:
-
-{{<highlight javascript>}}
-parseInt(kanaal) + 2
-{{</highlight>}}
-
-Nu zie je je kanaal, met twee erbij opgeteld. Om de oefening af te maken, laten we de server vertellen dat we een nieuw kanaal willen:
-
-{{<highlight javascript>}}
-socket.emit("zetKanaal", parseInt(kanaal) + 2)
-{{</highlight>}}
-
-### Functies en parameters
-
-Je hebt al verschillende commando's aangeroepen, zoals socket.emit en parseInt, maar je kan ook je eigen commando's maken. Dat noemen we *functions*. Type dit eens in je console:
-
-{{<highlight javascript>}}
-function hallo(naam) {
-    socket.emit("maakBericht", "Hallo " + naam + "!")
+function gaTweeKanalenVerder() {
+    var kanaal = $(".kanaalInput").val()
+    var volgendKanaal = Number(kanaal) + 2
+    socket.emit("zetKanaal", volgendKanaal)
 }
 {{</highlight>}}
 
-Er gebeurt nog niets. Dat komt omdat je de function eerst moet aanroepen, voordat er iets gebeurt:
+`$(".kanaalInput").val()` leest het nummer uit het invoerveld. `Number(kanaal)` maakt er een getal van, zodat `+ 2` echt optelt. Zet nu **in** `begin()`, onder de andere regels met `.on('click', ...)`, deze regel:
 
 {{<highlight javascript>}}
-hallo("ninjas")
-hallo("ikzelf")
-hallo("javascript")
+$(".volgendKanaal").on('click', gaTweeKanalenVerder)
 {{</highlight>}}
 
-Je kan de functie zo vaak aanroepen als je maar wilt.
+Sla beide bestanden op en ververs de pagina. Staat je kanaal op 1? Klik op de nieuwe knop. Je zou op kanaal 3 moeten komen. Klik nog eens om op kanaal 5 te komen.
 
-### Je eigen bot
+### Extra hulpmiddel: de browserconsole
 
-Je weet nu al veel over hoe je commando's geeft en maakt in Javascript. Met functions kun je ook reageren op dingen die gebeuren. Zo kun je een function schrijven die reageert op berichten in de chat:
+Als iets niet werkt, kun je aan het einde van je project de *developer tools* gebruiken om te kijken wat JavaScript doet. Dit is een hulpmiddel om te onderzoeken; je blijft je code in de bestanden in VS Code schrijven.
+
+Zoek in `basic-chat.js` `function begin()` en zet direct na de openingsaccolade deze regel:
 
 {{<highlight javascript>}}
-function hoiDoei(bericht) {
-    if (bericht.tekst == "hoi") {
-        socket.emit("maakBericht", "doei")
-    }
-}
+console.log("De chat is geladen")
 {{</highlight>}}
 
-Het woord *if* is Engels voor 'als'. Er staat dus: *als* het bericht "hoi" is, zeg dan "doei". Maar hoe ontvangen we berichten?
+Sla op en ververs de pagina. Klik in Chrome met de rechtermuisknop op de pagina en kies **Inspecteren**. Open het tabblad **Console**. Zie je de tekst `De chat is geladen`? Zo kun je ook bij andere functies een `console.log(...)` zetten om te zien of ze worden uitgevoerd.
 
-{{<highlight javascript>}}
-socket.on("krijgBericht", hoiDoei)
-{{</highlight>}}
-
-Elke keer als er een bericht binnen komt, wordt de commando hoiDoei aangeroepen. Type maar eens het woord "hoi" in de chat!
+Je kunt in de Console ook tijdelijk iets uitproberen, bijvoorbeeld `2 + 2` typen en op Enter drukken. Een opdracht in de Console wordt niet in je bestanden opgeslagen; na het verversen moet je die opnieuw uitvoeren. Wat je **in `basic-chat.js` opslaat**, blijft bewaard.
 
 ### Nog veel meer
 
-Met HTML, CSS en Javascript kun je hele programma's bouwen, zoals je ziet. Er valt nog ontzettend veel te leren! De eerst volgende stap is om de *basic-chat.js* te lezen en je kan dat bestand ook aanpassen, om andere dingen te doen: automatisch van kanaal wisselen bij een bericht, je naam veranderen via een bericht, enzovoorts. Je kunt ook altijd op internet zoeken naar wat je nog meer kan met HTML, CSS en Javascript, de website https://www.w3schools.com/ is een leuke plek om te beginnen. Heel veel plezier en heel veel succes!
+Je hebt onderdelen toegevoegd met HTML, kleuren en vormen veranderd met CSS en gedrag gemaakt met JavaScript. Lees de andere functies in `basic-chat.js` eens. Kun je jouw bot op een tweede woord laten reageren? Vraag een mentor om mee te denken als je verder wilt experimenteren.
 
 {{< licentie rel="http://creativecommons.org/licenses/by-nc-sa/4.0/">}}
