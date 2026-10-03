@@ -150,7 +150,7 @@ Zet deze regel **in** `boven`, boven de afsluitende `</div>`:
 <div>Naam: <input type="text" class="naamInput"></div>
 {{</highlight>}}
 
-`input` maakt een invoerveld. Zie je na het verversen een naam in dat veld? Typ je eigen naam en klik daarna ergens buiten het veld. Stuur een bericht: staat jouw naam erbij?
+`input` maakt een invoerveld. Zie je na het verversen een naam in dat veld? Typ je eigen naam en klik daarna ergens buiten het veld. Stuur een bericht: staat jouw naam erbij? Ververs de pagina nog eens: je naam blijft staan. Bij een volgende dojo, dagen later, krijg je weer een nieuwe naam die je kunt veranderen.
 
 #### Stap 2: een kanaal
 
